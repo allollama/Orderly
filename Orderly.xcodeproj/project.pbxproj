@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9363686E1A7B3FFE00CD9042 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363686D1A7B3FFE00CD9042 /* Order.m */; };
+		936368761A7B4AED00CD9042 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368751A7B4AED00CD9042 /* MenuItem.m */; };
+		9363687C1A7B53E500CD9042 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363687B1A7B53E500CD9042 /* User.m */; };
+		9363687F1A7B543800CD9042 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363687E1A7B543800CD9042 /* Group.m */; };
+		936368821A7EFF5900CD9042 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368811A7EFF5900CD9042 /* Menu.m */; };
+		936368851A7F0DB800CD9042 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368841A7F0DB800CD9042 /* XMLDictionary.m */; };
 		937033AB1A338DDF00BE3D60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AA1A338DDF00BE3D60 /* main.m */; };
 		937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AD1A338DDF00BE3D60 /* AppDelegate.m */; };
 		937033B11A338DDF00BE3D60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033B01A338DDF00BE3D60 /* ViewController.m */; };
@@ -27,6 +33,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9363686C1A7B3FFE00CD9042 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		9363686D1A7B3FFE00CD9042 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		936368741A7B4AED00CD9042 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		936368751A7B4AED00CD9042 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		9363687A1A7B53E500CD9042 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9363687B1A7B53E500CD9042 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9363687D1A7B543800CD9042 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		9363687E1A7B543800CD9042 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		936368801A7EFF5900CD9042 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		936368811A7EFF5900CD9042 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		936368831A7F0DB800CD9042 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDictionary.h; path = ../../../Downloads/XMLDictionary.h; sourceTree = "<group>"; };
+		936368841A7F0DB800CD9042 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDictionary.m; path = ../../../Downloads/XMLDictionary.m; sourceTree = "<group>"; };
 		937033A51A338DDF00BE3D60 /* Orderly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orderly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937033A91A338DDF00BE3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937033AA1A338DDF00BE3D60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,6 +99,18 @@
 		937033A71A338DDF00BE3D60 /* Orderly */ = {
 			isa = PBXGroup;
 			children = (
+				9363687D1A7B543800CD9042 /* Group.h */,
+				9363687E1A7B543800CD9042 /* Group.m */,
+				9363687A1A7B53E500CD9042 /* User.h */,
+				9363687B1A7B53E500CD9042 /* User.m */,
+				9363686C1A7B3FFE00CD9042 /* Order.h */,
+				9363686D1A7B3FFE00CD9042 /* Order.m */,
+				936368741A7B4AED00CD9042 /* MenuItem.h */,
+				936368751A7B4AED00CD9042 /* MenuItem.m */,
+				936368801A7EFF5900CD9042 /* Menu.h */,
+				936368811A7EFF5900CD9042 /* Menu.m */,
+				936368831A7F0DB800CD9042 /* XMLDictionary.h */,
+				936368841A7F0DB800CD9042 /* XMLDictionary.m */,
 				937033AC1A338DDF00BE3D60 /* AppDelegate.h */,
 				937033AD1A338DDF00BE3D60 /* AppDelegate.m */,
 				937033AF1A338DDF00BE3D60 /* ViewController.h */,
@@ -220,8 +250,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				937033B11A338DDF00BE3D60 /* ViewController.m in Sources */,
+				9363687C1A7B53E500CD9042 /* User.m in Sources */,
+				9363686E1A7B3FFE00CD9042 /* Order.m in Sources */,
 				937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */,
 				937033AB1A338DDF00BE3D60 /* main.m in Sources */,
+				936368761A7B4AED00CD9042 /* MenuItem.m in Sources */,
+				936368821A7EFF5900CD9042 /* Menu.m in Sources */,
+				9363687F1A7B543800CD9042 /* Group.m in Sources */,
+				936368851A7F0DB800CD9042 /* XMLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +448,7 @@
 				937033CA1A338DDF00BE3D60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		937033CB1A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "OrderlyTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +457,7 @@
 				937033CD1A338DDF00BE3D60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
