@@ -12,4 +12,23 @@
 
 @synthesize price, name, descrp;
 
+- (instancetype) init
+{
+    if (self = [super init]) {
+    }
+    return self;
+}
+
+
+- (instancetype) initWithPrice:(float)_price andName:(NSString*)_name andDescription:(NSString*)_descrp
+{
+    if (self = [super init]) {
+        price = _price;
+        name = _name;
+        descrp = _descrp;
+    }
+    return self;
+}
+
+
 @end

@@ -20,6 +20,7 @@
 		937033B91A338DDF00BE3D60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937033B71A338DDF00BE3D60 /* LaunchScreen.xib */; };
 		937033C51A338DDF00BE3D60 /* OrderlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033C41A338DDF00BE3D60 /* OrderlyTests.m */; };
 		93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */; };
+		93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50BA1A94541F00703156 /* MenuTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		937033C41A338DDF00BE3D60 /* OrderlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderlyTests.m; sourceTree = "<group>"; };
 		93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchRestaurantsViewController.h; sourceTree = "<group>"; };
 		93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRestaurantsViewController.m; sourceTree = "<group>"; };
+		93BC50B91A94541F00703156 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		93BC50BA1A94541F00703156 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 			children = (
 				93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */,
 				93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */,
+				93BC50B91A94541F00703156 /* MenuTableViewController.h */,
+				93BC50BA1A94541F00703156 /* MenuTableViewController.m */,
 				9363687D1A7B543800CD9042 /* Group.h */,
 				9363687E1A7B543800CD9042 /* Group.m */,
 				9363687A1A7B53E500CD9042 /* User.h */,
@@ -253,6 +258,7 @@
 				9363686E1A7B3FFE00CD9042 /* Order.m in Sources */,
 				937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */,
 				937033AB1A338DDF00BE3D60 /* main.m in Sources */,
+				93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */,
 				936368761A7B4AED00CD9042 /* MenuItem.m in Sources */,
 				936368821A7EFF5900CD9042 /* Menu.m in Sources */,
 				93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */,

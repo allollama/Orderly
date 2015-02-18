@@ -1,0 +1,16 @@
+//
+//  MenuTableViewController.h
+//  Orderly
+//
+//  Created by Ashley Sehatti on 2/17/15.
+//  Copyright (c) 2015 Santa Clara University. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "Menu.h"
+
+@interface MenuTableViewController : UITableViewController
+
+@property Menu* menu;
+
+@end

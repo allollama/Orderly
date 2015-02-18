@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MenuItem.h"
 
 @interface Menu : NSObject
 
-@property NSDictionary* dictionary;
+@property NSMutableDictionary* menu;
+@property NSUInteger numOfSections;
+@property NSMutableArray* categories;
 
 @end

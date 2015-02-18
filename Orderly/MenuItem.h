@@ -14,4 +14,6 @@
 @property NSString* name;
 @property NSString* descrp;
 
+- (instancetype) initWithPrice:(float)_price andName:(NSString*)_name andDescription:(NSString*)_descrp;
+
 @end
