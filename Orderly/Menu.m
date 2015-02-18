@@ -28,7 +28,6 @@
                 for (int j = 0; j < foodKeys.count; j++) {
                     NSDictionary* foodItem = [category objectForKey:foodKeys[j]];
                     MenuItem* menuItem = [[MenuItem alloc]initWithPrice:[[foodItem objectForKey:@"price"] floatValue] andName:[foodItem objectForKey:@"name"] andDescription:[foodItem objectForKey:@"description"]];
-                    NSLog(@"%@ %@", menuItem.descrp, [foodItem objectForKey:@"description"]);
                     [categoryDictionary setObject:menuItem forKey:foodKeys[j]];
                 }
                 [menu setObject:categoryDictionary forKey:keys[i]];
@@ -36,7 +35,6 @@
             }
         }
     }
-    NSLog(@"%@", menu);
     return self;
 }
 

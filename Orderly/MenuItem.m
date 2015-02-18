@@ -30,5 +30,9 @@
     return self;
 }
 
+-(NSString*)description {
+    return [NSString stringWithFormat:@"name: %@ description: %@ price: %.02f", name, descrp, price];
+}
+
 
 @end

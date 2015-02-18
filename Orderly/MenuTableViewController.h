@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Menu.h"
+#import "Order.h"
 
 @interface MenuTableViewController : UITableViewController
 
 @property Menu* menu;
+@property Order* order;
 
 @end

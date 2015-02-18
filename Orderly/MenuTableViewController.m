@@ -14,11 +14,13 @@
 
 @implementation MenuTableViewController
 
-@synthesize menu;
+@synthesize menu, order;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     menu = [[Menu alloc]init];
+    order = [[Order alloc]init];
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -49,6 +51,11 @@
     return [[[menu.menu objectForKey:[menu.categories objectAtIndex:section]] allKeys] count];
 }
 
+- (MenuItem*)menuItemForIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary* dictionary = [menu.menu objectForKey:[menu.categories objectAtIndex:indexPath.section]];
+    return [dictionary objectForKey:[[dictionary allKeys]objectAtIndex:indexPath.row]];
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* cellID = @"menuItem";
@@ -56,16 +63,20 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
 
-    NSDictionary* dictionary = [menu.menu objectForKey:[menu.categories objectAtIndex:indexPath.section]];
-    MenuItem* foodItem = [dictionary objectForKey:[[dictionary allKeys]objectAtIndex:indexPath.row]];
-    NSLog(@"%@", foodItem);
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %f", foodItem.name, foodItem.descrp,foodItem.price];
-
+    MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"$%.02f %@", foodItem.price, foodItem.name];
+    cell.detailTextLabel.text = foodItem.descrp;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
+    [order.menuItems addObject:foodItem];
+    NSLog(@"%@ %.02f", order.menuItems, order.totalPrice);
 }
 
 
