@@ -15,11 +15,11 @@
 		936368851A7F0DB800CD9042 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368841A7F0DB800CD9042 /* XMLDictionary.m */; };
 		937033AB1A338DDF00BE3D60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AA1A338DDF00BE3D60 /* main.m */; };
 		937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AD1A338DDF00BE3D60 /* AppDelegate.m */; };
-		937033B11A338DDF00BE3D60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033B01A338DDF00BE3D60 /* ViewController.m */; };
 		937033B41A338DDF00BE3D60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937033B21A338DDF00BE3D60 /* Main.storyboard */; };
 		937033B61A338DDF00BE3D60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937033B51A338DDF00BE3D60 /* Images.xcassets */; };
 		937033B91A338DDF00BE3D60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937033B71A338DDF00BE3D60 /* LaunchScreen.xib */; };
 		937033C51A338DDF00BE3D60 /* OrderlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033C41A338DDF00BE3D60 /* OrderlyTests.m */; };
+		93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +50,14 @@
 		937033AA1A338DDF00BE3D60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		937033AC1A338DDF00BE3D60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		937033AD1A338DDF00BE3D60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		937033AF1A338DDF00BE3D60 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		937033B01A338DDF00BE3D60 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		937033B31A338DDF00BE3D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		937033B51A338DDF00BE3D60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		937033B81A338DDF00BE3D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		937033BE1A338DDF00BE3D60 /* OrderlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		937033C31A338DDF00BE3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937033C41A338DDF00BE3D60 /* OrderlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderlyTests.m; sourceTree = "<group>"; };
+		93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchRestaurantsViewController.h; sourceTree = "<group>"; };
+		93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRestaurantsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +99,8 @@
 		937033A71A338DDF00BE3D60 /* Orderly */ = {
 			isa = PBXGroup;
 			children = (
+				93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */,
+				93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */,
 				9363687D1A7B543800CD9042 /* Group.h */,
 				9363687E1A7B543800CD9042 /* Group.m */,
 				9363687A1A7B53E500CD9042 /* User.h */,
@@ -113,8 +115,6 @@
 				936368841A7F0DB800CD9042 /* XMLDictionary.m */,
 				937033AC1A338DDF00BE3D60 /* AppDelegate.h */,
 				937033AD1A338DDF00BE3D60 /* AppDelegate.m */,
-				937033AF1A338DDF00BE3D60 /* ViewController.h */,
-				937033B01A338DDF00BE3D60 /* ViewController.m */,
 				937033B21A338DDF00BE3D60 /* Main.storyboard */,
 				937033B51A338DDF00BE3D60 /* Images.xcassets */,
 				937033B71A338DDF00BE3D60 /* LaunchScreen.xib */,
@@ -249,13 +249,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937033B11A338DDF00BE3D60 /* ViewController.m in Sources */,
 				9363687C1A7B53E500CD9042 /* User.m in Sources */,
 				9363686E1A7B3FFE00CD9042 /* Order.m in Sources */,
 				937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */,
 				937033AB1A338DDF00BE3D60 /* main.m in Sources */,
 				936368761A7B4AED00CD9042 /* MenuItem.m in Sources */,
 				936368821A7EFF5900CD9042 /* Menu.m in Sources */,
+				93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */,
 				9363687F1A7B543800CD9042 /* Group.m in Sources */,
 				936368851A7F0DB800CD9042 /* XMLDictionary.m in Sources */,
 			);

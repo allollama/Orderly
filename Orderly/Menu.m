@@ -15,16 +15,18 @@
 
 - (instancetype) init {
     if (self = [super init]) {
+        NSLog(@"initializing menu");
         dictionary = [NSDictionary dictionaryWithXMLFile:@"/Users/ashsehatti/Desktop/testMenu.xml"];
-        id y = [dictionary valueForKey:@"appetizers"];
-        NSEnumerator *enumerator = [y objectEnumerator];
-        id value;
-        
-        while ((value = [enumerator nextObject])) {
-            /* code that acts on the dictionary’s values */
-            NSLog(@"%@", [value objectForKey:@"name"]);
+        NSArray* keys = [dictionary allKeys];
+        for (int i = 0; i < keys.count; i++) {
+            if (![keys[i] isEqualToString:@"__name"]) {
+                NSLog(@"%@", keys[i]);
+                NSEnumerator* foodEnum = [[dictionary objectForKey:keys[i]] objectEnumerator];
+                for (id foodItem in foodEnum) {
+                    NSLog(@"%@", foodItem);
+                }
+            }
         }
-        //NSLog([y objectForKey:@"name"]);
     }
     return self;
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E8D11A77-9F9F-413D-B485-BEE8A8879779</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Orderly</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AA282145B1921F7FDBD5E1B9E4577B166B422BBF</key>
+		<string>https://github.com/allollama/Orderly.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Orderly.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AA282145B1921F7FDBD5E1B9E4577B166B422BBF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/allollama/Orderly.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AA282145B1921F7FDBD5E1B9E4577B166B422BBF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AA282145B1921F7FDBD5E1B9E4577B166B422BBF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Orderly</string>
+		</dict>
+	</array>
+</dict>
+</plist>
