@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		935030001A9C499D0032A622 /* RestaurantLandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93502FFF1A9C499D0032A622 /* RestaurantLandingPageViewController.m */; };
 		9363686E1A7B3FFE00CD9042 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363686D1A7B3FFE00CD9042 /* Order.m */; };
 		936368761A7B4AED00CD9042 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368751A7B4AED00CD9042 /* MenuItem.m */; };
 		9363687C1A7B53E500CD9042 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363687B1A7B53E500CD9042 /* User.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93502FFE1A9C499D0032A622 /* RestaurantLandingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantLandingPageViewController.h; sourceTree = "<group>"; };
+		93502FFF1A9C499D0032A622 /* RestaurantLandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantLandingPageViewController.m; sourceTree = "<group>"; };
 		9363686C1A7B3FFE00CD9042 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		9363686D1A7B3FFE00CD9042 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		936368741A7B4AED00CD9042 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 		937033A71A338DDF00BE3D60 /* Orderly */ = {
 			isa = PBXGroup;
 			children = (
+				93502FFE1A9C499D0032A622 /* RestaurantLandingPageViewController.h */,
+				93502FFF1A9C499D0032A622 /* RestaurantLandingPageViewController.m */,
 				93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */,
 				93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */,
 				93BC50B91A94541F00703156 /* MenuTableViewController.h */,
@@ -261,6 +266,7 @@
 				93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */,
 				936368761A7B4AED00CD9042 /* MenuItem.m in Sources */,
 				936368821A7EFF5900CD9042 /* Menu.m in Sources */,
+				935030001A9C499D0032A622 /* RestaurantLandingPageViewController.m in Sources */,
 				93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */,
 				9363687F1A7B543800CD9042 /* Group.m in Sources */,
 				936368851A7F0DB800CD9042 /* XMLDictionary.m in Sources */,

@@ -19,7 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     menu = [[Menu alloc]init];
-    order = [[Order alloc]init];
+    if (order == nil) {
+        order = [[Order alloc]init];
+    }
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     
     // Uncomment the following line to preserve selection between presentations.

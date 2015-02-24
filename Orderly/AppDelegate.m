@@ -14,9 +14,11 @@
 
 @implementation AppDelegate
 
+@synthesize thisUser;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    thisUser = [[User alloc]initWithID:@"1234"];
     return YES;
 }
 
