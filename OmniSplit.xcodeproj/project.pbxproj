@@ -49,7 +49,7 @@
 		936368811A7EFF5900CD9042 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		936368831A7F0DB800CD9042 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDictionary.h; path = ../../../Downloads/XMLDictionary.h; sourceTree = "<group>"; };
 		936368841A7F0DB800CD9042 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDictionary.m; path = ../../../Downloads/XMLDictionary.m; sourceTree = "<group>"; };
-		937033A51A338DDF00BE3D60 /* Orderly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orderly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		937033A51A338DDF00BE3D60 /* OmniSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937033A91A338DDF00BE3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937033AA1A338DDF00BE3D60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		937033AC1A338DDF00BE3D60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		937033B31A338DDF00BE3D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		937033B51A338DDF00BE3D60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		937033B81A338DDF00BE3D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		937033BE1A338DDF00BE3D60 /* OrderlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrderlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		937033BE1A338DDF00BE3D60 /* OmniSplitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniSplitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		937033C31A338DDF00BE3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937033C41A338DDF00BE3D60 /* OrderlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderlyTests.m; sourceTree = "<group>"; };
 		93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchRestaurantsViewController.h; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 		937033A61A338DDF00BE3D60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				937033A51A338DDF00BE3D60 /* Orderly.app */,
-				937033BE1A338DDF00BE3D60 /* OrderlyTests.xctest */,
+				937033A51A338DDF00BE3D60 /* OmniSplit.app */,
+				937033BE1A338DDF00BE3D60 /* OmniSplitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,9 +162,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		937033A41A338DDE00BE3D60 /* Orderly */ = {
+		937033A41A338DDE00BE3D60 /* OmniSplit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 937033C81A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "Orderly" */;
+			buildConfigurationList = 937033C81A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "OmniSplit" */;
 			buildPhases = (
 				937033A11A338DDE00BE3D60 /* Sources */,
 				937033A21A338DDE00BE3D60 /* Frameworks */,
@@ -174,14 +174,14 @@
 			);
 			dependencies = (
 			);
-			name = Orderly;
+			name = OmniSplit;
 			productName = Orderly;
-			productReference = 937033A51A338DDF00BE3D60 /* Orderly.app */;
+			productReference = 937033A51A338DDF00BE3D60 /* OmniSplit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		937033BD1A338DDF00BE3D60 /* OrderlyTests */ = {
+		937033BD1A338DDF00BE3D60 /* OmniSplitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 937033CB1A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "OrderlyTests" */;
+			buildConfigurationList = 937033CB1A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "OmniSplitTests" */;
 			buildPhases = (
 				937033BA1A338DDF00BE3D60 /* Sources */,
 				937033BB1A338DDF00BE3D60 /* Frameworks */,
@@ -192,9 +192,9 @@
 			dependencies = (
 				937033C01A338DDF00BE3D60 /* PBXTargetDependency */,
 			);
-			name = OrderlyTests;
+			name = OmniSplitTests;
 			productName = OrderlyTests;
-			productReference = 937033BE1A338DDF00BE3D60 /* OrderlyTests.xctest */;
+			productReference = 937033BE1A338DDF00BE3D60 /* OmniSplitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 937033A01A338DDE00BE3D60 /* Build configuration list for PBXProject "Orderly" */;
+			buildConfigurationList = 937033A01A338DDE00BE3D60 /* Build configuration list for PBXProject "OmniSplit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -228,8 +228,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				937033A41A338DDE00BE3D60 /* Orderly */,
-				937033BD1A338DDF00BE3D60 /* OrderlyTests */,
+				937033A41A338DDE00BE3D60 /* OmniSplit */,
+				937033BD1A338DDF00BE3D60 /* OmniSplitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,7 +286,7 @@
 /* Begin PBXTargetDependency section */
 		937033C01A338DDF00BE3D60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 937033A41A338DDE00BE3D60 /* Orderly */;
+			target = 937033A41A338DDE00BE3D60 /* OmniSplit */;
 			targetProxy = 937033BF1A338DDF00BE3D60 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -393,7 +393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Orderly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OmniSplit;
 			};
 			name = Debug;
 		};
@@ -403,7 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Orderly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OmniSplit;
 			};
 			name = Release;
 		};
@@ -421,8 +421,7 @@
 				);
 				INFOPLIST_FILE = OrderlyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Orderly.app/Orderly";
+				PRODUCT_NAME = OmniSplitTests;
 			};
 			name = Debug;
 		};
@@ -436,15 +435,14 @@
 				);
 				INFOPLIST_FILE = OrderlyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Orderly.app/Orderly";
+				PRODUCT_NAME = OmniSplitTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		937033A01A338DDE00BE3D60 /* Build configuration list for PBXProject "Orderly" */ = {
+		937033A01A338DDE00BE3D60 /* Build configuration list for PBXProject "OmniSplit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				937033C61A338DDF00BE3D60 /* Debug */,
@@ -453,7 +451,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		937033C81A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "Orderly" */ = {
+		937033C81A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "OmniSplit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				937033C91A338DDF00BE3D60 /* Debug */,
@@ -462,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		937033CB1A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "OrderlyTests" */ = {
+		937033CB1A338DDF00BE3D60 /* Build configuration list for PBXNativeTarget "OmniSplitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				937033CC1A338DDF00BE3D60 /* Debug */,

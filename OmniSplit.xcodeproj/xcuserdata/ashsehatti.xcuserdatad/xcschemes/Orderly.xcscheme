@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "937033A41A338DDE00BE3D60"
-               BuildableName = "Orderly.app"
-               BlueprintName = "Orderly"
-               ReferencedContainer = "container:Orderly.xcodeproj">
+               BuildableName = "OmniSplit.app"
+               BlueprintName = "OmniSplit"
+               ReferencedContainer = "container:OmniSplit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "937033BD1A338DDF00BE3D60"
-               BuildableName = "OrderlyTests.xctest"
-               BlueprintName = "OrderlyTests"
-               ReferencedContainer = "container:Orderly.xcodeproj">
+               BuildableName = "OmniSplitTests.xctest"
+               BlueprintName = "OmniSplitTests"
+               ReferencedContainer = "container:OmniSplit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "937033BD1A338DDF00BE3D60"
-               BuildableName = "OrderlyTests.xctest"
-               BlueprintName = "OrderlyTests"
-               ReferencedContainer = "container:Orderly.xcodeproj">
+               BuildableName = "OmniSplitTests.xctest"
+               BlueprintName = "OmniSplitTests"
+               ReferencedContainer = "container:OmniSplit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937033A41A338DDE00BE3D60"
-            BuildableName = "Orderly.app"
-            BlueprintName = "Orderly"
-            ReferencedContainer = "container:Orderly.xcodeproj">
+            BuildableName = "OmniSplit.app"
+            BlueprintName = "OmniSplit"
+            ReferencedContainer = "container:OmniSplit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937033A41A338DDE00BE3D60"
-            BuildableName = "Orderly.app"
-            BlueprintName = "Orderly"
-            ReferencedContainer = "container:Orderly.xcodeproj">
+            BuildableName = "OmniSplit.app"
+            BlueprintName = "OmniSplit"
+            ReferencedContainer = "container:OmniSplit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "937033A41A338DDE00BE3D60"
-            BuildableName = "Orderly.app"
-            BlueprintName = "Orderly"
-            ReferencedContainer = "container:Orderly.xcodeproj">
+            BuildableName = "OmniSplit.app"
+            BlueprintName = "OmniSplit"
+            ReferencedContainer = "container:OmniSplit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
