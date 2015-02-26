@@ -19,8 +19,8 @@
 @property Order* order;
 @property NSMutableArray* members;
 
-//- (void) addGroupMember: (User *) user;
 - (void) addGroupMember: (User*) user;
+- (void) removeGroupMember: (NSString*) iD;
 - (void) updateOrder;
 - (void) orderCompleted;
 

@@ -19,5 +19,6 @@
 
 - (instancetype) initWithID: (NSString*) _id;
 - (void) joinGroup: (Group*) theGroup;
+- (void) leaveGroup;
 
 @end

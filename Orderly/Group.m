@@ -26,6 +26,16 @@
     [members addObject:user];
 }
 
+- (void) removeGroupMember: (NSString*) iD {
+    for (int i = 0; i < members.count; i++) {
+        if (((User*)members[i]).iD == iD) {
+            [members removeObjectAtIndex:i];
+            break;
+        }
+    }
+    [self updateOrder];
+}
+
 - (void) updateOrder {
     [order.menuItems removeAllObjects];
     for (User* user in members) {

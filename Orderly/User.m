@@ -27,4 +27,9 @@
     //launch menu
 }
 
+- (void) leaveGroup {
+    NSLog(@"This method is a stub");
+    //ping group to remove this user
+}
+
 @end

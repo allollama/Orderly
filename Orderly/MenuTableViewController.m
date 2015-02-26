@@ -16,13 +16,36 @@
 
 @synthesize menu, order;
 
+- (void)reviewOrder {
+    NSLog(@"This is a stub");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     menu = [[Menu alloc]init];
-    if (order == nil) {
-        order = [[Order alloc]init];
-    }
-    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    order = [[Order alloc]init];
+    
+    // position(change according to your position) of the bottom view
+    //and set the size of the button
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    UIView* bottomView = [[UIView alloc] initWithFrame:
+        CGRectMake(0,mainScreen.bounds.size.height - 10,mainScreen.bounds.size.width,mainScreen.bounds.size.height)];
+    //bottomView.backgroundColor = [UIColor blueColor];
+    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    // position(change according to your position) of the button inside bottomView
+    //and set the size of the button
+    myButton.frame = CGRectMake(mainScreen.bounds.size.width/3, 0, mainScreen.bounds.size.width/3, 50);
+    //myButton.backgroundColor = [UIColor redColor];
+    
+    [myButton setTitle:@"Review Order" forState:UIControlStateNormal];
+    // add targets and actions
+    [myButton addTarget:self action:@selector(reviewOrder) forControlEvents:UIControlEventTouchUpInside];
+    // add to a view
+    [bottomView addSubview:myButton]; // add the button to bottom view
+    self.tableView.tableFooterView = bottomView;
+    //[self.view addSubview:bottomView];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,7 +63,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [NSString stringWithFormat:@"%@: %@",[menu.categories objectAtIndex:section], [menu.categoriesDescription objectAtIndex:section]];
+    return [NSString stringWithFormat:@"%@  %@",[menu.categories objectAtIndex:section], [menu.categoriesDescription objectAtIndex:section]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -80,7 +103,6 @@
     [order.menuItems addObject:foodItem];
     NSLog(@"%@ %.02f", order.menuItems, order.totalPrice);
 }
-
 
 /*
 // Override to support conditional editing of the table view.
