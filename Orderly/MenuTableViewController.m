@@ -40,7 +40,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [menu.categories objectAtIndex:section];
+    return [NSString stringWithFormat:@"%@: %@",[menu.categories objectAtIndex:section], [menu.categoriesDescription objectAtIndex:section]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

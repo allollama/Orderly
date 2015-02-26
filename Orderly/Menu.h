@@ -14,5 +14,6 @@
 @property NSMutableDictionary* menu;
 @property NSUInteger numOfSections;
 @property NSMutableArray* categories;
+@property NSMutableArray* categoriesDescription;
 
 @end
