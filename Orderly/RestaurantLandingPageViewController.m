@@ -17,15 +17,13 @@
 
 @implementation RestaurantLandingPageViewController
 
-@synthesize groupTextField, thisUser;
+@synthesize groupTextField, thisUser, theMenu;
 
 -(IBAction)joinGroup {
     NSLog(@"%@", groupTextField.text);
-    User* user1 = [[User alloc]initWithID:@"2345"];
-    User* user2 = [[User alloc]initWithID:@"3456"];
-    Group* group = [[Group alloc]init];
-    [group addGroupMember:user1];
-    [group addGroupMember:user2];
+    Group* group = [[Group alloc]initWithID:groupTextField.text];
+    [group addGroupMemberWithID:@"2345"];
+    [group addGroupMemberWithID:@"3456"];
     [thisUser joinGroup:group];
     [self showMenu];
 }
@@ -37,6 +35,7 @@
     if (thisUser.group && [presentVC isKindOfClass:[MenuTableViewController class]]) {
         MenuTableViewController *menuVC = (MenuTableViewController *) presentVC;
         menuVC.order = thisUser.order;
+        menuVC.menu = theMenu;
     }
 }
 
@@ -44,6 +43,11 @@
     [super viewDidLoad];
     AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     thisUser = delegate.thisUser;
+    
+    //JORDAN: once the following method works, this will replace the line underneath it
+    //menu = [[Menu alloc]initWithPath:@"https://omnisplit.com/api/menu/54e6794d62fdbd0612cbd5a1"];
+    theMenu = [[Menu alloc]init];
+    delegate.theMenu = theMenu;
     // Do any additional setup after loading the view.
 }
 

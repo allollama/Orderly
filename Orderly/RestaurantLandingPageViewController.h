@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Menu.h"
 
 @interface RestaurantLandingPageViewController : UIViewController
 
@@ -16,5 +17,6 @@
 
 @property (nonatomic, weak) IBOutlet UITextField* groupTextField;
 @property User* thisUser;
+@property Menu* theMenu;
 
 @end

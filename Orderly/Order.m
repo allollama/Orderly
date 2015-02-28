@@ -32,4 +32,9 @@
     return price;
 }
 
+-(NSString*)description {
+    return [NSString stringWithFormat:@"%@ price: %.02f", menuItems, [self totalPrice]];
+}
+
+
 @end

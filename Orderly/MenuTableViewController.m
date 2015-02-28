@@ -7,6 +7,8 @@
 //
 
 #import "MenuTableViewController.h"
+#import "AppDelegate.h"
+#import "Group.h"
 
 @interface MenuTableViewController ()
 
@@ -18,34 +20,22 @@
 
 - (void)reviewOrder {
     NSLog(@"This is a stub");
+    //segue to order review page
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    menu = [[Menu alloc]init];
-    order = [[Order alloc]init];
     
-    // position(change according to your position) of the bottom view
-    //and set the size of the button
+    //add continue button to bottom of table view
     UIScreen *mainScreen = [UIScreen mainScreen];
     UIView* bottomView = [[UIView alloc] initWithFrame:
         CGRectMake(0,mainScreen.bounds.size.height - 10,mainScreen.bounds.size.width,mainScreen.bounds.size.height)];
-    //bottomView.backgroundColor = [UIColor blueColor];
     UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    
-    // position(change according to your position) of the button inside bottomView
-    //and set the size of the button
     myButton.frame = CGRectMake(mainScreen.bounds.size.width/3, 0, mainScreen.bounds.size.width/3, 50);
-    //myButton.backgroundColor = [UIColor redColor];
-    
-    [myButton setTitle:@"Review Order" forState:UIControlStateNormal];
-    // add targets and actions
+    [myButton setTitle:@"Continue" forState:UIControlStateNormal];
     [myButton addTarget:self action:@selector(reviewOrder) forControlEvents:UIControlEventTouchUpInside];
-    // add to a view
-    [bottomView addSubview:myButton]; // add the button to bottom view
+    [bottomView addSubview:myButton];
     self.tableView.tableFooterView = bottomView;
-    //[self.view addSubview:bottomView];
-
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -67,12 +57,10 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return menu.numOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return [[[menu.menu objectForKey:[menu.categories objectAtIndex:section]] allKeys] count];
 }
 
@@ -84,24 +72,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* cellID = @"menuItem";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
-
     MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"$%.02f %@", foodItem.price, foodItem.name];
     cell.detailTextLabel.text = foodItem.descrp;
-    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
+    
+
     [order.menuItems addObject:foodItem];
-    NSLog(@"%@ %.02f", order.menuItems, order.totalPrice);
+    AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [delegate.thisUser.group updateOrder];
+    NSLog(@"%@", delegate.thisUser.group.order);
 }
 
 /*

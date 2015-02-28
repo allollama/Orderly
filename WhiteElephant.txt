@@ -1,0 +1,24 @@
+{"_id":"54e6794d62fdbd0612cbd5a1",
+"group":[
+{
+"name":"Curries",
+"description":"Served with your choice of protein.",
+	"item":[{
+		"name":"Yellow Curry",
+		"description":"Yellow curry paste with coconut milk, potatoes, carrot, and yellow onion.",
+		"price":8.95,
+		"step":[{"text":"Spicy","required":true,"maxOptions":1,"option":[{"text":"Not spicy","priceModifier":0},{"text":"Mild","priceModifier":0},{"text":"Medium","priceModifier":0},{"text":"Spicy","priceModifier":0},{"text":"Very spicy","priceModifier":0}]},{"text":"Make it with","required":true,"maxOptions":1,"option":[{"text":"Chicken","priceModifier":0},{"text":"Vegetable","priceModifier":0},{"text":"Beef","priceModifier":1}]}]},
+		{
+		"name":"Panang Curry",
+		"description":"Panang curry paste with coconut milk, zucchini, bell pepper, kaffir.",
+		"price":8.95,
+		"step":[{"text":"Spicy","required":true,"maxOptions":1,"option":[{"text":"Not spicy","priceModifier":0},{"text":"Mild","priceModifier":0},{"text":"Medium","priceModifier":0},{"text":"Spicy","priceModifier":0},{"text":"Very spicy","priceModifier":0}]},{"text":"Make it with","required":true,"maxOptions":1,"option":[{"text":"Chicken","priceModifier":0},{"text":"Vegetable","priceModifier":0},{"text":"Beef","priceModifier":1}]}]}]},
+{
+"name":"Rice dishes",
+"description":" ",
+	"item":[{
+		"name":"Jasmine Rice",
+		"description":"A bowl of white jasmine rice. Serves two.",
+		"price":2.00}]
+}],
+"__v":0}

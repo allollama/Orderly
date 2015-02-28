@@ -16,4 +16,9 @@
 @property NSMutableArray* categories;
 @property NSMutableArray* categoriesDescription;
 
+-(instancetype) init; //temporary method - delete once below works
+-(instancetype) initWithPath:(NSString*) filePath; //doesn't work yet
+
+-(MenuItem *) menuItemForName: (NSString*) itemName;
+
 @end

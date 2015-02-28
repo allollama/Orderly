@@ -14,7 +14,7 @@
 
 @implementation AppDelegate
 
-@synthesize thisUser;
+@synthesize thisUser, theMenu;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

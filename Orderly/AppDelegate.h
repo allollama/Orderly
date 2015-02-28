@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Menu.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property User* thisUser;
+@property Menu* theMenu;
 
 @end

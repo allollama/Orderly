@@ -16,11 +16,16 @@
 
 @interface Group : NSObject
 
+@property NSString* iD;
 @property Order* order;
 @property NSMutableArray* members;
 
-- (void) addGroupMember: (User*) user;
-- (void) removeGroupMember: (NSString*) iD;
+- (instancetype) initWithID: (NSString*) _iD;
+
+- (void) updateGroupFromServer;
+- (void) addGroupMemberWithID: (NSString*) _iD;
+- (void) addGroupMember: (User *) user;
+- (void) removeGroupMemberWithID: (NSString*) _iD;
 - (void) updateOrder;
 - (void) orderCompleted;
 
