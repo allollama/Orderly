@@ -23,13 +23,13 @@
         order = [[Order alloc] init];
         AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         if (delegate.thisUser && self != delegate.thisUser) {
-            //JORDAN pull order information from server instead of line below
-            NSArray* menuItems = [[NSArray alloc]initWithObjects:@"Jasmine Rice", nil];//ASH do this!
+            //JORDAN pull order information from server instead of initializing all with rice in line below
+            NSArray* menuItems = [[NSArray alloc]initWithObjects:@"Jasmine Rice", nil];
             AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             Menu* menu = delegate.theMenu;
             for (int i = 0; i < menuItems.count; i++) {
                 MenuItem* item = [menu menuItemForName:menuItems[i]];
-                [order.menuItems addObject:item];
+                [self addItemToOrder:item];
             }
         }
     }
@@ -47,16 +47,12 @@
 }
 
 - (void) addItemToOrder:(MenuItem *) foodItem {
-    int i = [order containsItem:foodItem];
-    if(i >= 0)
-        [((MenuItem*) order.menuItems[i]) addAnother];
-    else
-        [order.menuItems addObject:foodItem];
+    [order.menuItems addObject:foodItem];
     [group updateOrder];
 }
 
 - (void) submitOrder {
-    order.status = SUBMITTED;
+    order.status = SUBMITTED; //JORDAN: send a message to server
     [group submitOrder];
 }
 

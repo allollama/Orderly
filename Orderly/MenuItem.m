@@ -10,7 +10,7 @@
 
 @implementation MenuItem
 
-@synthesize price, name, descrp, number;
+@synthesize price, name, descrp;
 
 - (instancetype) init
 {
@@ -26,18 +26,12 @@
         price = _price;
         name = _name;
         descrp = _descrp;
-        number = 0;
     }
     return self;
 }
 
 -(NSString*)description {
     return [NSString stringWithFormat:@"name: %@ description: %@ price: %.02f", name, descrp, price];
-}
-
-- (int) addAnother {
-    number++;
-    return number;
 }
 
 @end

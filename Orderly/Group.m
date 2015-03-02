@@ -76,12 +76,6 @@
     }
 }
 
-- (void) orderCompleted {
-    //JORDAN: server will call this method
-    order.status = COMPLETE;
-    //do other stuff
-}
-
 - (BOOL) submitOrder {
     for (User* user in members) {
         if (user.order.status != SUBMITTED) {
@@ -89,9 +83,15 @@
         }
     }
     //everyone has submitted their order
-    //send order to restaurant
+    //JORDAN: send order to restaurant
     order.status = SUBMITTED;
     return true;
+}
+
+- (void) orderCompleted {
+    //JORDAN: server will call this method
+    order.status = COMPLETE;
+    //do other stuff
 }
 
 @end

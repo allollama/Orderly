@@ -23,35 +23,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSMutableArray* arrayOfItems = [[NSMutableArray alloc] init];
+    NSMutableArray* arrayOfAmounts = [[NSMutableArray alloc] init];
+    NSMutableArray* arrayOfStrings = [[NSMutableArray alloc] init];
     for (int i = 0; i<user.order.menuItems.count; i++) {
         MenuItem* foodItem = user.order.menuItems[i];
         if ([arrayOfItems containsObject:foodItem]) {
-            int num = [foodItem addAnother];
-            arrayOfItems[[arrayOfItems indexOfObject:foodItem]] = [NSString stringWithFormat:@"%@ x %d\t$%.02f", foodItem.name, num, foodItem.price*num];
+            NSUInteger index = [arrayOfItems indexOfObject:foodItem];
+            arrayOfAmounts[index] = [NSNumber numberWithInt:([(NSNumber*)arrayOfAmounts[index] intValue] + 1)];
+            arrayOfStrings[index] = [NSString stringWithFormat:@"%@ x %d\t$%.02f", foodItem.name, [(NSNumber*)arrayOfAmounts[index] intValue], foodItem.price*[(NSNumber*)arrayOfAmounts[index] intValue]];
         }
-        else
-            [arrayOfItems addObject:[NSString stringWithFormat:@"%@ \t\t$%.02f", foodItem.name, foodItem.price]];
+        else {
+            [arrayOfItems addObject:foodItem];
+            [arrayOfAmounts addObject:[NSNumber numberWithInt:1]];
+            [arrayOfStrings addObject:[NSString stringWithFormat:@"%@ \t\t$%.02f", foodItem.name, foodItem.price]];
+        }
     }
-    [arrayOfItems addObject:[NSString stringWithFormat:@"\nTotal price: \t\t$%.02f", user.order.totalPrice]];
-    userOrder.text = [arrayOfItems componentsJoinedByString:@"\n"];
+    [arrayOfStrings addObject:[NSString stringWithFormat:@"\nTotal price: \t\t$%.02f", user.order.totalPrice]];
+    userOrder.text = [arrayOfStrings componentsJoinedByString:@"\n"];
     
     [arrayOfItems removeAllObjects];
+    [arrayOfAmounts removeAllObjects];
+    [arrayOfStrings removeAllObjects];
     for (int i = 0; i<user.group.order.menuItems.count; i++) {
         MenuItem* foodItem = user.group.order.menuItems[i];
         if ([arrayOfItems containsObject:foodItem]) {
-            int num = [foodItem addAnother];
-            arrayOfItems[[arrayOfItems indexOfObject:foodItem]] = [NSString stringWithFormat:@"%@ x %d\t$%.02f", foodItem.name, num, foodItem.price*num];
+            NSUInteger index = [arrayOfItems indexOfObject:foodItem];
+            arrayOfAmounts[index] = [NSNumber numberWithInt:([(NSNumber*)arrayOfAmounts[index] intValue] + 1)];
+            arrayOfStrings[index] = [NSString stringWithFormat:@"%@ x %d\t$%.02f", foodItem.name, [(NSNumber*)arrayOfAmounts[index] intValue], foodItem.price*[(NSNumber*)arrayOfAmounts[index] intValue]];
         }
-        else
-            [arrayOfItems addObject:[NSString stringWithFormat:@"%@ \t\t$%.02f", foodItem.name, foodItem.price]];
+        else {
+            [arrayOfItems addObject:foodItem];
+            [arrayOfAmounts addObject:[NSNumber numberWithInt:1]];
+            [arrayOfStrings addObject:[NSString stringWithFormat:@"%@ \t\t$%.02f", foodItem.name, foodItem.price]];
+        }
     }
-    [arrayOfItems addObject:[NSString stringWithFormat:@"\nTotal price: \t\t$%.02f", user.group.order.totalPrice]];
-    groupOrder.text = [arrayOfItems componentsJoinedByString:@"\n"];
+    [arrayOfStrings addObject:[NSString stringWithFormat:@"\nTotal price: \t\t$%.02f", user.group.order.totalPrice]];
+    groupOrder.text = [arrayOfStrings componentsJoinedByString:@"\n"];
 }
 
 - (IBAction)submitOrder {
     [user submitOrder];
-    //segue
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"OrderStatus"];
+    [self.navigationController pushViewController:presentVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

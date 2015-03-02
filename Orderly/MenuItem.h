@@ -13,9 +13,7 @@
 @property float price;
 @property NSString* name;
 @property NSString* descrp;
-@property int number;
 
 - (instancetype) initWithPrice:(float)_price andName:(NSString*)_name andDescription:(NSString*)_descrp;
-- (int) addAnother; //Use at your own risk - this only works in certain places
 
 @end

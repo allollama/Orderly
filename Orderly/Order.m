@@ -31,8 +31,7 @@
     return -1;
 }
 
-- (float) totalPrice
-{
+- (float) totalPrice {
     
     float price = 0;
     for (MenuItem *item in menuItems) {
