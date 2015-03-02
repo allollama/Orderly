@@ -28,5 +28,6 @@
 - (void) removeGroupMemberWithID: (NSString*) _iD;
 - (void) updateOrder;
 - (void) orderCompleted;
+- (BOOL) submitOrder;
 
 @end

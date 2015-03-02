@@ -22,9 +22,9 @@
         iD = _id;
         order = [[Order alloc] init];
         AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        //JORDAN pull order information from server instead of line below
         if (delegate.thisUser && self != delegate.thisUser) {
-            NSArray* menuItems = [[NSArray alloc]initWithObjects:@"Panang Curry", @"Jasmine Rice", nil];
+            //JORDAN pull order information from server instead of line below
+            NSArray* menuItems = [[NSArray alloc]initWithObjects:@"Jasmine Rice", nil];//ASH do this!
             AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             Menu* menu = delegate.theMenu;
             for (int i = 0; i < menuItems.count; i++) {
@@ -44,6 +44,20 @@
 - (void) leaveGroup {
     NSLog(@"This method is a stub");
     //ping group to remove this user
+}
+
+- (void) addItemToOrder:(MenuItem *) foodItem {
+    int i = [order containsItem:foodItem];
+    if(i >= 0)
+        [((MenuItem*) order.menuItems[i]) addAnother];
+    else
+        [order.menuItems addObject:foodItem];
+    [group updateOrder];
+}
+
+- (void) submitOrder {
+    order.status = SUBMITTED;
+    [group submitOrder];
 }
 
 @end

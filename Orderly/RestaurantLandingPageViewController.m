@@ -20,9 +20,8 @@
 @synthesize groupTextField, thisUser, theMenu;
 
 -(IBAction)joinGroup {
-    NSLog(@"%@", groupTextField.text);
     Group* group = [[Group alloc]initWithID:groupTextField.text];
-    [group addGroupMemberWithID:@"2345"];
+    [group addGroupMemberWithID:@"2345"];//ASH this is temp
     [group addGroupMemberWithID:@"3456"];
     [thisUser joinGroup:group];
     [self showMenu];
@@ -32,9 +31,9 @@
     UIStoryboard *storyboard = self.storyboard;
     UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     [self.navigationController pushViewController:presentVC animated:YES];
-    if (thisUser.group && [presentVC isKindOfClass:[MenuTableViewController class]]) {
+    if ([presentVC isKindOfClass:[MenuTableViewController class]]) {
         MenuTableViewController *menuVC = (MenuTableViewController *) presentVC;
-        menuVC.order = thisUser.order;
+        menuVC.user = thisUser;
         menuVC.menu = theMenu;
     }
 }

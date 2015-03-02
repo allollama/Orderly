@@ -9,6 +9,8 @@
 #import "MenuTableViewController.h"
 #import "AppDelegate.h"
 #import "Group.h"
+#import "User.h"
+#import "ReviewOrderViewController.h"
 
 @interface MenuTableViewController ()
 
@@ -16,27 +18,31 @@
 
 @implementation MenuTableViewController
 
-@synthesize menu, order;
+@synthesize menu, user;
 
 - (void)reviewOrder {
-    NSLog(@"This is a stub");
-    //segue to order review page
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"ReviewOrder"];
+    [self.navigationController pushViewController:presentVC animated:YES];
+    if ([presentVC isKindOfClass:[ReviewOrderViewController class]]) {
+        ReviewOrderViewController *reviewOrderVC = (ReviewOrderViewController *) presentVC;
+        reviewOrderVC.user = user;
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //add continue button to bottom of table view
-    UIScreen *mainScreen = [UIScreen mainScreen];
-    UIView* bottomView = [[UIView alloc] initWithFrame:
-        CGRectMake(0,mainScreen.bounds.size.height - 10,mainScreen.bounds.size.width,mainScreen.bounds.size.height)];
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    myButton.frame = CGRectMake(mainScreen.bounds.size.width/3, 0, mainScreen.bounds.size.width/3, 50);
-    [myButton setTitle:@"Continue" forState:UIControlStateNormal];
-    [myButton addTarget:self action:@selector(reviewOrder) forControlEvents:UIControlEventTouchUpInside];
-    [bottomView addSubview:myButton];
-    self.tableView.tableFooterView = bottomView;
-    
+    if (user.group != nil) {
+        //add continue button to bottom of table view
+        UIScreen *mainScreen = [UIScreen mainScreen];
+        UIView* bottomView = [[UIView alloc] initWithFrame:CGRectMake(0,mainScreen.bounds.size.height - 10,mainScreen.bounds.size.width,mainScreen.bounds.size.height)];
+        UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        myButton.frame = CGRectMake(mainScreen.bounds.size.width/3, 0, mainScreen.bounds.size.width/3, 50);
+        [myButton setTitle:@"CONTINUE" forState:UIControlStateNormal];
+        [myButton addTarget:self action:@selector(reviewOrder) forControlEvents:UIControlEventTouchUpInside];
+        [bottomView addSubview:myButton];
+        self.tableView.tableFooterView = bottomView;
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -84,12 +90,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
-    
-
-    [order.menuItems addObject:foodItem];
-    AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.thisUser.group updateOrder];
-    NSLog(@"%@", delegate.thisUser.group.order);
+    if (user.group != nil) {
+        [user addItemToOrder:foodItem];
+        NSLog(@"%@", user.group.order);
+    }
 }
 
 /*

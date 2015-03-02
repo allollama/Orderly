@@ -38,23 +38,33 @@
     
 }
 
+- (int) hasGroupMemberWithID: (NSString*) _iD {
+    for (int i = 0; i < members.count; i++) {
+        if (((User*)members[i]).iD == _iD)
+            return i;
+    }
+    return -1; //group doesn't already have member with that id
+}
+
 - (void) addGroupMemberWithID: (NSString*) _iD {
-    User* user = [[User alloc] initWithID:_iD];
-    [self addGroupMember:user];
+    if ([self hasGroupMemberWithID:_iD] == -1) {
+        User* user = [[User alloc] initWithID:_iD];
+        [self addGroupMember:user];
+    }
 }
 
 - (void) addGroupMember:(User *)user {
-    [members addObject:user];
-    [self updateOrder];
+    if ([self hasGroupMemberWithID:user.iD] == -1) {
+        [members addObject:user];
+        [self updateOrder];
+    }
 }
 
 - (void) removeGroupMemberWithID: (NSString*) _iD {
     //JORDAN: server will call this method
-    for (int i = 0; i < members.count; i++) {
-        if (((User*)members[i]).iD == _iD) {
-            [members removeObjectAtIndex:i];
-            break;
-        }
+    int i = [self hasGroupMemberWithID:_iD];
+    if (i >=0 ) {
+        [members removeObjectAtIndex:i];
     }
     [self updateOrder];
 }
@@ -67,7 +77,9 @@
 }
 
 - (void) orderCompleted {
+    //JORDAN: server will call this method
     order.status = COMPLETE;
+    //do other stuff
 }
 
 - (BOOL) submitOrder {

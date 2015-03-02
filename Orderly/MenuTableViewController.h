@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Menu.h"
-#import "Order.h"
+#import "User.h"
 
 @interface MenuTableViewController : UITableViewController
 
 @property Menu* menu;
-@property Order* order;
+@property User* user;
 
 -(void)reviewOrder;
 

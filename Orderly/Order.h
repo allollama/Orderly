@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MenuItem.h"
 
 @interface Order : NSObject
 
@@ -22,6 +23,7 @@ typedef NS_ENUM(NSUInteger, statusCodes)
 @property NSMutableArray* menuItems;
 @property NSUInteger status;
 
+- (int) containsItem: (MenuItem*) foodItem;
 - (float) totalPrice;
 
 @end

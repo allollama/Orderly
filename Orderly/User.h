@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MenuItem.h"
 
 @class Order;
 @class Group;
@@ -20,5 +21,7 @@
 - (instancetype) initWithID: (NSString*) _id;
 - (void) joinGroup: (Group*) theGroup;
 - (void) leaveGroup;
+- (void) addItemToOrder: (MenuItem*) foodItem;
+- (void) submitOrder;
 
 @end

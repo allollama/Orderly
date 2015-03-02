@@ -22,6 +22,15 @@
     return self;
 }
 
+- (int) containsItem:(MenuItem *)foodItem {
+    for (int i = 0; i < menuItems.count; i++) {
+        if (((MenuItem*)menuItems[i]).name == foodItem.name) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 - (float) totalPrice
 {
     
