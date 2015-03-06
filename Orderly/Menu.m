@@ -7,19 +7,17 @@
 //
 
 #import "Menu.h"
-#import "XMLDictionary.h"
 
 @implementation Menu
 
 @synthesize menu, numOfSections, categories, categoriesDescription;
 
-- (instancetype) init {
+- (instancetype) initWithString: (NSString *) jsonString {
     if (self = [super init]) {
         menu = [[NSMutableDictionary alloc]init];
         categories = [[NSMutableArray alloc]init];
         categoriesDescription = [[NSMutableArray alloc]init];
         NSError *jsonError;
-        NSString *jsonString = [[NSString alloc] initWithContentsOfFile:@"/Users/ashsehatti/Desktop/WhiteElephant.txt" encoding:NSUTF8StringEncoding error:NULL];
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&jsonError];
         NSArray* cats = [dictionary objectForKey:@"group"];
         numOfSections = cats.count;

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17213A2C1AA92032000EDF66 /* RestaurantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17213A2B1AA92032000EDF66 /* RestaurantTableViewCell.m */; };
+		17213A301AA923EA000EDF66 /* RestaurantsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */; };
+		17213A331AA9251B000EDF66 /* Restaurants.m in Sources */ = {isa = PBXBuildFile; fileRef = 17213A321AA9251B000EDF66 /* Restaurants.m */; };
 		932367D81AA3E2AD00D4322A /* ReviewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932367D71AA3E2AD00D4322A /* ReviewOrderViewController.m */; };
 		935030001A9C499D0032A622 /* RestaurantLandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93502FFF1A9C499D0032A622 /* RestaurantLandingPageViewController.m */; };
 		9363686E1A7B3FFE00CD9042 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363686D1A7B3FFE00CD9042 /* Order.m */; };
@@ -14,7 +17,6 @@
 		9363687C1A7B53E500CD9042 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363687B1A7B53E500CD9042 /* User.m */; };
 		9363687F1A7B543800CD9042 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 9363687E1A7B543800CD9042 /* Group.m */; };
 		936368821A7EFF5900CD9042 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368811A7EFF5900CD9042 /* Menu.m */; };
-		936368851A7F0DB800CD9042 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368841A7F0DB800CD9042 /* XMLDictionary.m */; };
 		937033AB1A338DDF00BE3D60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AA1A338DDF00BE3D60 /* main.m */; };
 		937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AD1A338DDF00BE3D60 /* AppDelegate.m */; };
 		937033B41A338DDF00BE3D60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937033B21A338DDF00BE3D60 /* Main.storyboard */; };
@@ -36,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17213A2A1AA91F6D000EDF66 /* RestaurantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTableViewCell.h; sourceTree = "<group>"; };
+		17213A2B1AA92032000EDF66 /* RestaurantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTableViewCell.m; sourceTree = "<group>"; };
+		17213A2E1AA923DA000EDF66 /* RestaurantsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantsTableViewController.h; sourceTree = "<group>"; };
+		17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTableViewController.m; sourceTree = "<group>"; };
+		17213A311AA924C1000EDF66 /* Restaurants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurants.h; sourceTree = "<group>"; };
+		17213A321AA9251B000EDF66 /* Restaurants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurants.m; sourceTree = "<group>"; };
 		932367D61AA3E2AD00D4322A /* ReviewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewOrderViewController.h; sourceTree = "<group>"; };
 		932367D71AA3E2AD00D4322A /* ReviewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewOrderViewController.m; sourceTree = "<group>"; };
 		93502FFE1A9C499D0032A622 /* RestaurantLandingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantLandingPageViewController.h; sourceTree = "<group>"; };
@@ -50,8 +58,6 @@
 		9363687E1A7B543800CD9042 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		936368801A7EFF5900CD9042 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		936368811A7EFF5900CD9042 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
-		936368831A7F0DB800CD9042 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDictionary.h; path = ../../../Downloads/XMLDictionary.h; sourceTree = "<group>"; };
-		936368841A7F0DB800CD9042 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDictionary.m; path = ../../../Downloads/XMLDictionary.m; sourceTree = "<group>"; };
 		937033A51A338DDF00BE3D60 /* OmniSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937033A91A338DDF00BE3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937033AA1A338DDF00BE3D60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,16 +130,20 @@
 				9363686D1A7B3FFE00CD9042 /* Order.m */,
 				936368741A7B4AED00CD9042 /* MenuItem.h */,
 				936368751A7B4AED00CD9042 /* MenuItem.m */,
+				17213A2E1AA923DA000EDF66 /* RestaurantsTableViewController.h */,
+				17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */,
+				17213A311AA924C1000EDF66 /* Restaurants.h */,
+				17213A321AA9251B000EDF66 /* Restaurants.m */,
 				936368801A7EFF5900CD9042 /* Menu.h */,
 				936368811A7EFF5900CD9042 /* Menu.m */,
-				936368831A7F0DB800CD9042 /* XMLDictionary.h */,
-				936368841A7F0DB800CD9042 /* XMLDictionary.m */,
 				937033AC1A338DDF00BE3D60 /* AppDelegate.h */,
 				937033AD1A338DDF00BE3D60 /* AppDelegate.m */,
 				937033B21A338DDF00BE3D60 /* Main.storyboard */,
 				937033B51A338DDF00BE3D60 /* Images.xcassets */,
 				937033B71A338DDF00BE3D60 /* LaunchScreen.xib */,
 				937033A81A338DDF00BE3D60 /* Supporting Files */,
+				17213A2A1AA91F6D000EDF66 /* RestaurantTableViewCell.h */,
+				17213A2B1AA92032000EDF66 /* RestaurantTableViewCell.m */,
 			);
 			path = Orderly;
 			sourceTree = "<group>";
@@ -264,6 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17213A331AA9251B000EDF66 /* Restaurants.m in Sources */,
+				17213A301AA923EA000EDF66 /* RestaurantsTableViewController.m in Sources */,
 				9363687C1A7B53E500CD9042 /* User.m in Sources */,
 				9363686E1A7B3FFE00CD9042 /* Order.m in Sources */,
 				937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */,
@@ -272,10 +284,10 @@
 				936368761A7B4AED00CD9042 /* MenuItem.m in Sources */,
 				936368821A7EFF5900CD9042 /* Menu.m in Sources */,
 				932367D81AA3E2AD00D4322A /* ReviewOrderViewController.m in Sources */,
+				17213A2C1AA92032000EDF66 /* RestaurantTableViewCell.m in Sources */,
 				935030001A9C499D0032A622 /* RestaurantLandingPageViewController.m in Sources */,
 				93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */,
 				9363687F1A7B543800CD9042 /* Group.m in Sources */,
-				936368851A7F0DB800CD9042 /* XMLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Orderly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = OmniSplit;
 			};
@@ -408,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Orderly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = OmniSplit;
 			};
@@ -426,6 +440,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = OrderlyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = OmniSplitTests;
 			};
@@ -440,6 +455,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = OrderlyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = OmniSplitTests;
 			};

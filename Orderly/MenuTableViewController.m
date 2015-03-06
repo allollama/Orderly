@@ -12,10 +12,6 @@
 #import "User.h"
 #import "ReviewOrderViewController.h"
 
-@interface MenuTableViewController ()
-
-@end
-
 @implementation MenuTableViewController
 
 @synthesize menu, user;
