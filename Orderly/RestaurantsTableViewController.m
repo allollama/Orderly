@@ -10,6 +10,7 @@
 #import "RestaurantsTableViewController.h"
 #import "Restaurants.h"
 #import "RestaurantTableViewCell.h"
+#import "RestaurantLandingPageViewController.h"
 
 @implementation RestaurantsTableViewController
 
@@ -77,6 +78,21 @@
     cell.addressLine2Label.text = [NSString stringWithFormat:@"%@, %@ %@", [address valueForKey:@"city"], [address valueForKey:@"state"], [address valueForKey:@"zip"]];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    RestaurantTableViewCell *cell = (RestaurantTableViewCell*) [tableView cellForRowAtIndexPath:indexPath];
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"LandingPage"];
+    [self.navigationController pushViewController:presentVC animated:YES];
+    if ([presentVC isKindOfClass:[RestaurantLandingPageViewController class]]) {
+        RestaurantLandingPageViewController *pageVC = (RestaurantLandingPageViewController *) presentVC;
+        pageVC.restaurantId = cell.menuId;
+        pageVC._restaurantName = cell.restaurantNameLabel.text;
+        pageVC._restaurantInfo = cell.descriptionLabel.text;
+    }
+    
 }
 
 - (void) dispatchRestaurantsThread {

@@ -12,12 +12,13 @@
 
 @synthesize menu, numOfSections, categories, categoriesDescription;
 
-- (instancetype) initWithString: (NSString *) jsonString {
+- (instancetype) init {
     if (self = [super init]) {
         menu = [[NSMutableDictionary alloc]init];
         categories = [[NSMutableArray alloc]init];
         categoriesDescription = [[NSMutableArray alloc]init];
         NSError *jsonError;
+        NSString *jsonString = [[NSString alloc] initWithContentsOfFile:@"/Users/ashsehatti/Desktop/secondMenu.txt" encoding:NSUTF8StringEncoding error:NULL];
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&jsonError];
         NSArray* cats = [dictionary objectForKey:@"group"];
         numOfSections = cats.count;
@@ -33,8 +34,6 @@
             [categories addObject:[cats[i] objectForKey:@"name"]];
             [categoriesDescription addObject:[cats[i] objectForKey:@"description"]];
         }
-        //JORDAN: if you want to see what the menu dictionary looks like:
-        //NSLog(@"%@", menu);
     }
     return self;
 }
@@ -45,12 +44,9 @@
         categories = [[NSMutableArray alloc]init];
         categoriesDescription = [[NSMutableArray alloc]init];
         NSError *jsonError;
-        
-        //JORDAN: this does not work. Do we have ssl?
         NSURL* url = [NSURL URLWithString:filePath];
         NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&jsonError];
         NSLog(@"%@", jsonError);
-        
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&jsonError];
         NSArray* cats = [dictionary objectForKey:@"group"];
         numOfSections = cats.count;

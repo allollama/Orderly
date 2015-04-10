@@ -24,7 +24,8 @@
         AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         if (delegate.thisUser && self != delegate.thisUser) {
             //JORDAN pull order information from server instead of initializing all with rice in line below
-            NSArray* menuItems = [[NSArray alloc]initWithObjects:@"Jasmine Rice", nil];
+            NSArray* menuItems = [[NSArray alloc] init];
+                                  //initWithObjects:@"Jasmine Rice", nil];
             AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             Menu* menu = delegate.theMenu;
             for (int i = 0; i < menuItems.count; i++) {

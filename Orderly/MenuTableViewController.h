@@ -10,7 +10,7 @@
 #import "Menu.h"
 #import "User.h"
 
-@interface MenuTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface MenuTableViewController : UITableViewController //<UITableViewDelegate, UITableViewDataSource>
 
 @property Menu* menu;
 @property User* user;

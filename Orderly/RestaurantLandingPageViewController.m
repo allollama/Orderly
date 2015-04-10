@@ -17,7 +17,7 @@
 
 @implementation RestaurantLandingPageViewController
 
-@synthesize groupTextField, thisUser, theMenu;
+@synthesize groupTextField, thisUser, theMenu, restaurantId, restaurantName, restaurantInfo, _restaurantInfo, _restaurantName;
 
 -(IBAction)joinGroup {
     Group* group = [[Group alloc]initWithID:groupTextField.text];
@@ -43,10 +43,12 @@
     AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     thisUser = delegate.thisUser;
     
-    //JORDAN: once the following method works, this will replace the line underneath it
-    //menu = [[Menu alloc]initWithPath:@"https://omnisplit.com/api/menu/54e6794d62fdbd0612cbd5a1"];
-    theMenu = [[Menu alloc]init];
+    theMenu = [[Menu alloc]initWithPath:[@"https://omnisplit.com/api/menu/" stringByAppendingString: restaurantId]];
+               //54e6794d62fdbd0612cbd5a1"];
+    //theMenu = [[Menu alloc]init];
     delegate.theMenu = theMenu;
+    restaurantName.text = _restaurantName;
+    restaurantInfo.text = _restaurantInfo;
     // Do any additional setup after loading the view.
 }
 

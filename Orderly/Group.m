@@ -33,8 +33,8 @@
 - (void) updateGroupFromServer {
     [members removeAllObjects];
     //get a list of group members from server (an array with just their ids)
-    //get list of users for group
-    //use first addGroupMember method that takes an iD for each user
+    //use addGroupMember method that takes an iD for each user - but don't send this user
+    [self updateOrder];
     
 }
 
