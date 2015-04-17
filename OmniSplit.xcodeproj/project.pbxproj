@@ -91,6 +91,8 @@
 		93BC50BA1A94541F00703156 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		93CAAC071AE08D2600094F3C /* SocketIOConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOConnection.h; path = ../SocketIOConnection.h; sourceTree = "<group>"; };
 		93CAAC081AE08D2600094F3C /* SocketIOConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOConnection.m; path = ../SocketIOConnection.m; sourceTree = "<group>"; };
+		93CAAC071AE08D2600094F3C /* SocketIOConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOConnection.h; sourceTree = "<group>"; };
+		93CAAC081AE08D2600094F3C /* SocketIOConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOConnection.m; sourceTree = "<group>"; };
 		93CAAC091AE08D2600094F3C /* SIOSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIOSocket.h; sourceTree = "<group>"; };
 		93CAAC0A1AE08D2600094F3C /* SIOSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIOSocket.m; sourceTree = "<group>"; };
 		93CAAC0B1AE08D2600094F3C /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 				17C99A621AE0A323005B84C5 /* CFNetwork.framework */,
 				17C99A601AE0A312005B84C5 /* libicucore.dylib */,
 				17C99A5F1AE0A0AB005B84C5 /* socket.io.js.h */,
+				93CAAC071AE08D2600094F3C /* SocketIOConnection.h */,
+				93CAAC081AE08D2600094F3C /* SocketIOConnection.m */,
 				93CAAC091AE08D2600094F3C /* SIOSocket.h */,
 				93CAAC0A1AE08D2600094F3C /* SIOSocket.m */,
 				93CAAC0B1AE08D2600094F3C /* SRWebSocket.h */,
