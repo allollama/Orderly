@@ -26,6 +26,9 @@
 		937033C51A338DDF00BE3D60 /* OrderlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033C41A338DDF00BE3D60 /* OrderlyTests.m */; };
 		93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */; };
 		93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50BA1A94541F00703156 /* MenuTableViewController.m */; };
+		93CAAC0D1AE08D2600094F3C /* SocketIOConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAAC081AE08D2600094F3C /* SocketIOConnection.m */; };
+		93CAAC0E1AE08D2600094F3C /* SIOSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAAC0A1AE08D2600094F3C /* SIOSocket.m */; };
+		93CAAC0F1AE08D2600094F3C /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAAC0C1AE08D2600094F3C /* SRWebSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,12 @@
 		93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRestaurantsViewController.m; sourceTree = "<group>"; };
 		93BC50B91A94541F00703156 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		93BC50BA1A94541F00703156 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		93CAAC071AE08D2600094F3C /* SocketIOConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOConnection.h; sourceTree = "<group>"; };
+		93CAAC081AE08D2600094F3C /* SocketIOConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOConnection.m; sourceTree = "<group>"; };
+		93CAAC091AE08D2600094F3C /* SIOSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIOSocket.h; sourceTree = "<group>"; };
+		93CAAC0A1AE08D2600094F3C /* SIOSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIOSocket.m; sourceTree = "<group>"; };
+		93CAAC0B1AE08D2600094F3C /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		93CAAC0C1AE08D2600094F3C /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +108,12 @@
 		9370339C1A338DDE00BE3D60 = {
 			isa = PBXGroup;
 			children = (
+				93CAAC071AE08D2600094F3C /* SocketIOConnection.h */,
+				93CAAC081AE08D2600094F3C /* SocketIOConnection.m */,
+				93CAAC091AE08D2600094F3C /* SIOSocket.h */,
+				93CAAC0A1AE08D2600094F3C /* SIOSocket.m */,
+				93CAAC0B1AE08D2600094F3C /* SRWebSocket.h */,
+				93CAAC0C1AE08D2600094F3C /* SRWebSocket.m */,
 				937033A71A338DDF00BE3D60 /* Orderly */,
 				937033C11A338DDF00BE3D60 /* OrderlyTests */,
 				937033A61A338DDF00BE3D60 /* Products */,
@@ -279,11 +294,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CAAC0D1AE08D2600094F3C /* SocketIOConnection.m in Sources */,
 				17213A331AA9251B000EDF66 /* Restaurants.m in Sources */,
 				17213A301AA923EA000EDF66 /* RestaurantsTableViewController.m in Sources */,
 				9363687C1A7B53E500CD9042 /* User.m in Sources */,
 				9363686E1A7B3FFE00CD9042 /* Order.m in Sources */,
 				937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */,
+				93CAAC0F1AE08D2600094F3C /* SRWebSocket.m in Sources */,
+				93CAAC0E1AE08D2600094F3C /* SIOSocket.m in Sources */,
 				932367DB1AA5971B00D4322A /* OrderStatusViewController.m in Sources */,
 				937033AB1A338DDF00BE3D60 /* main.m in Sources */,
 				93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */,
