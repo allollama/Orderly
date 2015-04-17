@@ -19,6 +19,7 @@
 @property NSString* iD;
 @property Order* order;
 @property NSMutableArray* members;
+@property NSDictionary* peopleDictionary;
 
 - (instancetype) initWithID: (NSString*) _iD;
 

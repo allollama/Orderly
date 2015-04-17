@@ -10,6 +10,11 @@
 		17213A2C1AA92032000EDF66 /* RestaurantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17213A2B1AA92032000EDF66 /* RestaurantTableViewCell.m */; };
 		17213A301AA923EA000EDF66 /* RestaurantsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */; };
 		17213A331AA9251B000EDF66 /* Restaurants.m in Sources */ = {isa = PBXBuildFile; fileRef = 17213A321AA9251B000EDF66 /* Restaurants.m */; };
+		17C99A611AE0A312005B84C5 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C99A601AE0A312005B84C5 /* libicucore.dylib */; };
+		17C99A631AE0A323005B84C5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C99A621AE0A323005B84C5 /* CFNetwork.framework */; };
+		17C99A651AE0A32C005B84C5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C99A641AE0A32C005B84C5 /* Security.framework */; };
+		17C99A671AE0A334005B84C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C99A661AE0A334005B84C5 /* Foundation.framework */; };
+		17C99A6A1AE0A442005B84C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C99A681AE0A442005B84C5 /* Main.storyboard */; };
 		932367D81AA3E2AD00D4322A /* ReviewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932367D71AA3E2AD00D4322A /* ReviewOrderViewController.m */; };
 		932367DB1AA5971B00D4322A /* OrderStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932367DA1AA5971B00D4322A /* OrderStatusViewController.m */; };
 		935030001A9C499D0032A622 /* RestaurantLandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93502FFF1A9C499D0032A622 /* RestaurantLandingPageViewController.m */; };
@@ -20,12 +25,14 @@
 		936368821A7EFF5900CD9042 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 936368811A7EFF5900CD9042 /* Menu.m */; };
 		937033AB1A338DDF00BE3D60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AA1A338DDF00BE3D60 /* main.m */; };
 		937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033AD1A338DDF00BE3D60 /* AppDelegate.m */; };
-		937033B41A338DDF00BE3D60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937033B21A338DDF00BE3D60 /* Main.storyboard */; };
 		937033B61A338DDF00BE3D60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937033B51A338DDF00BE3D60 /* Images.xcassets */; };
 		937033B91A338DDF00BE3D60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937033B71A338DDF00BE3D60 /* LaunchScreen.xib */; };
 		937033C51A338DDF00BE3D60 /* OrderlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033C41A338DDF00BE3D60 /* OrderlyTests.m */; };
 		93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */; };
 		93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50BA1A94541F00703156 /* MenuTableViewController.m */; };
+		93CAAC0D1AE08D2600094F3C /* SocketIOConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAAC081AE08D2600094F3C /* SocketIOConnection.m */; };
+		93CAAC0E1AE08D2600094F3C /* SIOSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAAC0A1AE08D2600094F3C /* SIOSocket.m */; };
+		93CAAC0F1AE08D2600094F3C /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAAC0C1AE08D2600094F3C /* SRWebSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,12 @@
 		17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantsTableViewController.m; sourceTree = "<group>"; };
 		17213A311AA924C1000EDF66 /* Restaurants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurants.h; sourceTree = "<group>"; };
 		17213A321AA9251B000EDF66 /* Restaurants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurants.m; sourceTree = "<group>"; };
+		17C99A5F1AE0A0AB005B84C5 /* socket.io.js.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.io.js.h; sourceTree = "<group>"; };
+		17C99A601AE0A312005B84C5 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		17C99A621AE0A323005B84C5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		17C99A641AE0A32C005B84C5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		17C99A661AE0A334005B84C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		17C99A691AE0A442005B84C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Orderly/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		932367D61AA3E2AD00D4322A /* ReviewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewOrderViewController.h; sourceTree = "<group>"; };
 		932367D71AA3E2AD00D4322A /* ReviewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewOrderViewController.m; sourceTree = "<group>"; };
 		932367D91AA5971B00D4322A /* OrderStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderStatusViewController.h; sourceTree = "<group>"; };
@@ -66,8 +79,8 @@
 		937033AA1A338DDF00BE3D60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		937033AC1A338DDF00BE3D60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		937033AD1A338DDF00BE3D60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		937033B31A338DDF00BE3D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		937033B51A338DDF00BE3D60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		937033B31A338DDF00BE3D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		937033B51A338DDF00BE3D60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
 		937033B81A338DDF00BE3D60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		937033BE1A338DDF00BE3D60 /* OmniSplitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniSplitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		937033C31A338DDF00BE3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +89,12 @@
 		93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRestaurantsViewController.m; sourceTree = "<group>"; };
 		93BC50B91A94541F00703156 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		93BC50BA1A94541F00703156 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		93CAAC071AE08D2600094F3C /* SocketIOConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOConnection.h; path = ../SocketIOConnection.h; sourceTree = "<group>"; };
+		93CAAC081AE08D2600094F3C /* SocketIOConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOConnection.m; path = ../SocketIOConnection.m; sourceTree = "<group>"; };
+		93CAAC091AE08D2600094F3C /* SIOSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIOSocket.h; sourceTree = "<group>"; };
+		93CAAC0A1AE08D2600094F3C /* SIOSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIOSocket.m; sourceTree = "<group>"; };
+		93CAAC0B1AE08D2600094F3C /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		93CAAC0C1AE08D2600094F3C /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +102,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C99A671AE0A334005B84C5 /* Foundation.framework in Frameworks */,
+				17C99A651AE0A32C005B84C5 /* Security.framework in Frameworks */,
+				17C99A631AE0A323005B84C5 /* CFNetwork.framework in Frameworks */,
+				17C99A611AE0A312005B84C5 /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +122,16 @@
 		9370339C1A338DDE00BE3D60 = {
 			isa = PBXGroup;
 			children = (
+				17C99A681AE0A442005B84C5 /* Main.storyboard */,
+				17C99A661AE0A334005B84C5 /* Foundation.framework */,
+				17C99A641AE0A32C005B84C5 /* Security.framework */,
+				17C99A621AE0A323005B84C5 /* CFNetwork.framework */,
+				17C99A601AE0A312005B84C5 /* libicucore.dylib */,
+				17C99A5F1AE0A0AB005B84C5 /* socket.io.js.h */,
+				93CAAC091AE08D2600094F3C /* SIOSocket.h */,
+				93CAAC0A1AE08D2600094F3C /* SIOSocket.m */,
+				93CAAC0B1AE08D2600094F3C /* SRWebSocket.h */,
+				93CAAC0C1AE08D2600094F3C /* SRWebSocket.m */,
 				937033A71A338DDF00BE3D60 /* Orderly */,
 				937033C11A338DDF00BE3D60 /* OrderlyTests */,
 				937033A61A338DDF00BE3D60 /* Products */,
@@ -117,6 +150,8 @@
 		937033A71A338DDF00BE3D60 /* Orderly */ = {
 			isa = PBXGroup;
 			children = (
+				93CAAC071AE08D2600094F3C /* SocketIOConnection.h */,
+				93CAAC081AE08D2600094F3C /* SocketIOConnection.m */,
 				93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */,
 				93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */,
 				93502FFE1A9C499D0032A622 /* RestaurantLandingPageViewController.h */,
@@ -259,7 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937033B41A338DDF00BE3D60 /* Main.storyboard in Resources */,
+				17C99A6A1AE0A442005B84C5 /* Main.storyboard in Resources */,
 				937033B91A338DDF00BE3D60 /* LaunchScreen.xib in Resources */,
 				937033B61A338DDF00BE3D60 /* Images.xcassets in Resources */,
 			);
@@ -279,11 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CAAC0D1AE08D2600094F3C /* SocketIOConnection.m in Sources */,
 				17213A331AA9251B000EDF66 /* Restaurants.m in Sources */,
 				17213A301AA923EA000EDF66 /* RestaurantsTableViewController.m in Sources */,
 				9363687C1A7B53E500CD9042 /* User.m in Sources */,
 				9363686E1A7B3FFE00CD9042 /* Order.m in Sources */,
 				937033AE1A338DDF00BE3D60 /* AppDelegate.m in Sources */,
+				93CAAC0F1AE08D2600094F3C /* SRWebSocket.m in Sources */,
+				93CAAC0E1AE08D2600094F3C /* SIOSocket.m in Sources */,
 				932367DB1AA5971B00D4322A /* OrderStatusViewController.m in Sources */,
 				937033AB1A338DDF00BE3D60 /* main.m in Sources */,
 				93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */,
@@ -316,6 +354,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		17C99A681AE0A442005B84C5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17C99A691AE0A442005B84C5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		937033B21A338DDF00BE3D60 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
