@@ -19,6 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     thisUser = [[User alloc]initWithID:@"1234"];
+    [Parse enableLocalDatastore];
+    //Initialize parse
+    [Parse setApplicationId:@"MVCMs63fngTKmMzuscAPyFPFN8faHDJyQAij7lXa"
+                  clientKey:@"TrJEacJTH5XrXABEUjc6yOtYrnLdzSuhqJP79Rmz"];
+    
     return YES;
 }
 

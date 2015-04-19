@@ -40,6 +40,10 @@ SocketIOConnection * socketIOConnection;
                 [weakSelf.socket emit: @"create_or_join" args: @[iD]];
             };
             
+            self.socket.onError = ^(NSDictionary* error) {
+                NSLog(@"%@", error);
+            };
+            
             [self.socket on: @"update_people" callback: ^(SIOParameterArray *args) {
                 NSLog(@"Updating list of people.");
                 AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
