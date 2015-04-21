@@ -9,7 +9,6 @@
 #import "Group.h"
 #import "User.h"
 #import "Order.h"
-#import "SocketIOConnection.h"
 
 @implementation Group
 
@@ -20,9 +19,7 @@
         iD = _iD;
         members = [[NSMutableArray alloc] init];
         order = [[Order alloc] init];
-        SocketIOConnection * globalconnection = [SocketIOConnection globalSocketIOConnection];
-        //check if group has already been created with that iD
-        [globalconnection connectToServerWithId: _iD];
+        //JORDAN: Connect to server
         if (false /*group already made*/) {
             [self updateGroupFromServer];
         }
