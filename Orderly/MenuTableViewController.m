@@ -92,6 +92,11 @@
     }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [user.group leaveChannel];
+    [super viewWillDisappear:animated];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -33,6 +33,13 @@
     NSLog(@"Joined channel %@%@%@", @"a", restaurantId, orderingGroup);
 }
 
+- (void) leaveChannel {
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    currentInstallation.channels = @[ @"Global" ];
+    [currentInstallation saveEventually];
+    NSLog(@"Left channel");
+}
+
 
 - (void) updateGroupFromServer {
     [members removeAllObjects];
