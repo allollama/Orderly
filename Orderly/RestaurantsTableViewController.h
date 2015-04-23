@@ -10,6 +10,6 @@
 
 @interface RestaurantsTableViewController: UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
--(void) dispatchRestaurantsThread;
+- (void) dispatchRestaurantsThread;
 
 @end

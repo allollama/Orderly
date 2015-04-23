@@ -16,6 +16,28 @@
 
 @synthesize thisUser, theMenu;
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+{
+    //Silent push handler
+    if([userInfo[@"aps"][@"content-available"] intValue]== 1) //it's the silent notification
+    {
+        //bla bla bla put your code here
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Title"
+                                                           message:@"This is the message."
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+        [theAlert show];
+        handler(UIBackgroundFetchResultNewData);
+        return;
+    }
+    else
+    {
+        handler(UIBackgroundFetchResultNoData);
+        return;
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     thisUser = [[User alloc]initWithID:@"1234"];
@@ -25,7 +47,28 @@
     [Parse setApplicationId:@"MVCMs63fngTKmMzuscAPyFPFN8faHDJyQAij7lXa"
                   clientKey:@"TrJEacJTH5XrXABEUjc6yOtYrnLdzSuhqJP79Rmz"];
     
+    
+    UIUserNotificationSettings *settings =
+        [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert |
+         UIUserNotificationTypeBadge |
+         UIUserNotificationTypeSound
+                                          categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    currentInstallation.channels = @[ @"global" ];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

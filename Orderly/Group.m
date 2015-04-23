@@ -9,6 +9,7 @@
 #import "Group.h"
 #import "User.h"
 #import "Order.h"
+#import <Parse/Parse.h>
 
 @implementation Group
 
@@ -19,16 +20,19 @@
         iD = _iD;
         members = [[NSMutableArray alloc] init];
         order = [[Order alloc] init];
-        //JORDAN: Connect to server
-        if (false /*group already made*/) {
-            [self updateGroupFromServer];
-        }
-        else {
-            //send message to server to create group
-        }
     }
     return self;
 }
+
+- (void) joinChannelWithRestaurauntId: (NSString *) restaurantId
+                     andOrderingGroup: orderingGroup {
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObject:[NSString stringWithFormat:@"%@%@%@", @"a", restaurantId, orderingGroup]
+                              forKey:@"channels"];
+    [currentInstallation saveInBackground];
+    NSLog(@"Joined channel %@%@%@", @"a", restaurantId, orderingGroup);
+}
+
 
 - (void) updateGroupFromServer {
     [members removeAllObjects];

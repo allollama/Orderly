@@ -24,6 +24,8 @@
     [group addGroupMemberWithID:@"2345"];//ASH this is temp
     [group addGroupMemberWithID:@"3456"];
     [thisUser joinGroup:group];
+    //Subscribe to push notifications channel
+    [group joinChannelWithRestaurauntId:restaurantId andOrderingGroup:groupTextField.text];
     [self showMenu];
 }
 

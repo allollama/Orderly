@@ -519,8 +519,8 @@
 			baseConfigurationReference = 25DF033D5C039E7177EA3CD6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jordan Buschman (3BYE9ALE9Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jordan Buschman (3BYE9ALE9Y)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Orderly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -578,8 +578,8 @@
 			baseConfigurationReference = F1CE429A8A27DFAD020A23EA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jordan Buschman (3BYE9ALE9Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jordan Buschman (3BYE9ALE9Y)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Orderly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

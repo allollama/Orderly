@@ -23,6 +23,9 @@
 
 - (instancetype) initWithID: (NSString*) _iD;
 
+- (void) joinChannelWithRestaurauntId: (NSString *) restaurantId
+                     andOrderingGroup: orderingGroup;
+
 - (void) updateGroupFromServer;
 - (void) addGroupMemberWithID: (NSString*) _iD;
 - (void) addGroupMember: (User *) user;

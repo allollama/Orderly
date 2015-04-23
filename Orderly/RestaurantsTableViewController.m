@@ -92,7 +92,6 @@
         pageVC._restaurantName = cell.restaurantNameLabel.text;
         pageVC._restaurantInfo = cell.descriptionLabel.text;
     }
-    
 }
 
 - (void) dispatchRestaurantsThread {
@@ -106,5 +105,6 @@
         });
     });
 }
+
 
 @end
