@@ -528,9 +528,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-l\"Pods-AFNetworking\"",
 					"-l\"Pods-Bolts\"",
-					"-l\"Pods-Facebook-iOS-SDK\"",
 					"-framework",
 					"\"AudioToolbox\"",
 					"-framework",
@@ -589,9 +587,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-l\"Pods-AFNetworking\"",
 					"-l\"Pods-Bolts\"",
-					"-l\"Pods-Facebook-iOS-SDK\"",
 					"-framework",
 					"\"AudioToolbox\"",
 					"-framework",
