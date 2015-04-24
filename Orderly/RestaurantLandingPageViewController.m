@@ -11,22 +11,26 @@
 #import "Group.h"
 #import "MenuTableViewController.h"
 
-@interface RestaurantLandingPageViewController ()
-
-@end
-
 @implementation RestaurantLandingPageViewController
 
 @synthesize groupTextField, thisUser, theMenu, restaurantId, restaurantName, restaurantInfo, _restaurantInfo, _restaurantName;
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder]; //Hide text field
+    if (![groupTextField.text isEqualToString:@""])
+        [self showMenu];
+    return true;
+}
+
 -(IBAction)joinGroup {
-    Group* group = [[Group alloc]initWithID:groupTextField.text];
-    [group addGroupMemberWithID:@"2345"];//ASH this is temp
-    [group addGroupMemberWithID:@"3456"];
-    [thisUser joinGroup:group];
-    //Subscribe to push notifications channel
-    [group joinChannelWithRestaurauntId:restaurantId andOrderingGroup:groupTextField.text];
-    [self showMenu];
+    if (![groupTextField.text isEqualToString:@""]) {
+        [groupTextField resignFirstResponder];
+        Group* group = [[Group alloc]initWithID:groupTextField.text];
+        [thisUser joinGroup:group];
+        //Subscribe to push notifications channel
+        [group joinChannelWithRestaurauntId:restaurantId andOrderingGroup:groupTextField.text];
+        [self showMenu];
+    }
 }
 
 -(IBAction)showMenu {
@@ -42,6 +46,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.groupTextField.delegate = self;
+    
     AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     thisUser = delegate.thisUser;
     

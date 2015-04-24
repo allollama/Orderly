@@ -21,13 +21,7 @@
     //Silent push handler
     if([userInfo[@"aps"][@"content-available"] intValue]== 1) //it's the silent notification
     {
-        //bla bla bla put your code here
-        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                                           message:@"This is the message."
-                                                          delegate:self
-                                                 cancelButtonTitle:@"OK"
-                                                 otherButtonTitles:nil];
-        [theAlert show];
+        NSLog(@"ALERT");
         handler(UIBackgroundFetchResultNewData);
         return;
     }
@@ -47,11 +41,10 @@
     [Parse setApplicationId:@"MVCMs63fngTKmMzuscAPyFPFN8faHDJyQAij7lXa"
                   clientKey:@"TrJEacJTH5XrXABEUjc6yOtYrnLdzSuhqJP79Rmz"];
     
-    
     UIUserNotificationSettings *settings =
         [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert |
-         UIUserNotificationTypeBadge |
-         UIUserNotificationTypeSound
+                                                     UIUserNotificationTypeBadge |
+                                                     UIUserNotificationTypeSound
                                           categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];

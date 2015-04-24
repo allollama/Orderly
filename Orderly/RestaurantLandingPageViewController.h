@@ -10,7 +10,7 @@
 #import "User.h"
 #import "Menu.h"
 
-@interface RestaurantLandingPageViewController : UIViewController
+@interface RestaurantLandingPageViewController : UIViewController <UITextFieldDelegate>
 
 -(IBAction)joinGroup;
 -(IBAction)showMenu;
