@@ -22,6 +22,7 @@
 - (void) joinGroup: (Group*) theGroup;
 - (void) leaveGroup;
 - (void) addItemToOrder: (MenuItem*) foodItem;
+- (void) removeItemFromOrder: (MenuItem*) foodItem;
 - (void) submitOrder;
 
 @end
