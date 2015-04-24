@@ -16,15 +16,13 @@
 @synthesize groupTextField, thisUser, theMenu, restaurantId, restaurantName, restaurantInfo, _restaurantInfo, _restaurantName;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder]; //Hide text field
-    if (![groupTextField.text isEqualToString:@""])
-        [self showMenu];
+    [self joinGroup];
     return true;
 }
 
 -(IBAction)joinGroup {
+    [groupTextField resignFirstResponder];
     if (![groupTextField.text isEqualToString:@""]) {
-        [groupTextField resignFirstResponder];
         Group* group = [[Group alloc]initWithID:groupTextField.text];
         [thisUser joinGroup:group];
         //Subscribe to push notifications channel
