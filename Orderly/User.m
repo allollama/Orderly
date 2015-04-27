@@ -12,6 +12,7 @@
 #import "Menu.h"
 #import "MenuItem.h"
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation User
 
@@ -36,6 +37,9 @@
     }
     return self;
 }
+- (void) computeNewId {
+    self.iD = [NSString stringWithFormat:@"%@%u", @"b", arc4random_uniform(UINT32_MAX)];
+}
 
 - (void) joinGroup: (Group*) theGroup {
     group = theGroup;
@@ -43,8 +47,8 @@
 }
 
 - (void) leaveGroup {
-    NSLog(@"This method is a stub");
-    //ping group to remove this user
+    [group leaveChannelImmidiately];
+    NSLog(@"Done.");
 }
 
 - (void) addItemToOrder:(MenuItem *) foodItem {

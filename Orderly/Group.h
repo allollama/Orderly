@@ -20,13 +20,13 @@
 @property Order* order;
 @property NSMutableArray* members;
 @property NSDictionary* peopleDictionary;
-@property NSString* uniqueIdentifier; //Unique phone identifier
 
 - (instancetype) initWithID: (NSString*) _iD;
 
 - (void) joinChannelWithRestaurauntId: (NSString *) restaurantId
                      andOrderingGroup: orderingGroup;
 - (void) leaveChannel;
+- (void) leaveChannelImmidiately;
 
 - (void) updateGroupFromServer;
 - (void) addGroupMemberWithID: (NSString*) _iD;
@@ -35,7 +35,5 @@
 - (void) updateOrder;
 - (void) orderCompleted;
 - (BOOL) submitOrder;
-
-- (void) computeNewUniqueIdentifier;
 
 @end

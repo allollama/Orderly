@@ -9,12 +9,13 @@
 #import "Group.h"
 #import "User.h"
 #import "Order.h"
+#import "AppDelegate.h"
 #import <stdlib.h>
 #import <Parse/Parse.h>
 
 @implementation Group
 
-@synthesize iD, order, members, uniqueIdentifier; //JORDAN take a look at this whole file
+@synthesize iD, order, members; //JORDAN take a look at this whole file
 
 - (instancetype) initWithID:(NSString *)_iD {
     if (self = [super init]) {
@@ -27,8 +28,8 @@
 
 - (void) joinChannelWithRestaurauntId: (NSString *) restaurantId
                      andOrderingGroup: orderingGroup {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString * channel = [NSString stringWithFormat:@"%@%@%@", @"a", restaurantId, orderingGroup];
-    [self computeNewUniqueIdentifier];
 
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setObject:@[@"Global", channel]
@@ -39,13 +40,14 @@
     //Add user to channel on Parse
     PFObject * newObject = [PFObject objectWithClassName:@"CurrentOrder"];
     newObject[@"channel"] = channel;
-    newObject[@"userId"] = [self uniqueIdentifier];
+    newObject[@"userId"] = [appDelegate.thisUser iD];
     newObject[@"currentOrder"] = @"{}";
     
     [newObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (!succeeded) {
             if ([error.description isEqualToString:@"duplicate"]) {
                 NSLog(@"Duplicate userId. Attemting with new identifier...");
+                [appDelegate.thisUser computeNewId];
                 [self joinChannelWithRestaurauntId:restaurantId
                                   andOrderingGroup:orderingGroup];
             }
@@ -54,14 +56,11 @@
         }
         else {
             NSLog(@"Added user to group order.");
+            self.iD = channel;
             //Send push notification to all group members to update their orders
             [self sendSilentPushToGroup: channel];
         }
     }];
-}
-
-- (void) computeNewUniqueIdentifier {
-    [self setUniqueIdentifier: [NSString stringWithFormat:@"%@%u", @"b", arc4random_uniform(UINT32_MAX)]];
 }
 
 - (void) sendSilentPushToGroup: (NSString *) groupId {
@@ -83,8 +82,9 @@
     currentInstallation.channels = @[ @"Global" ];
     [currentInstallation saveEventually];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
-    [query whereKey:@"userId" equalTo:[self uniqueIdentifier]];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -98,6 +98,19 @@
             NSLog(@"Error leaving channel.");
         }
     }];
+}
+
+- (void) leaveChannelImmidiately {
+    //Remove from ordering channel
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    currentInstallation.channels = @[ @"Global" ];
+    [currentInstallation saveEventually];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
+    PFObject * object = [query getFirstObject];
+    [object delete];
 }
 
 - (void) updateGroupFromServer {

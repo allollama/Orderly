@@ -34,7 +34,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    thisUser = [[User alloc]initWithID:@"1234"];
+    thisUser = [[User alloc]initWithID:[NSString stringWithFormat:@"%@%u", @"b", arc4random_uniform(UINT32_MAX)]];
     
     [Parse enableLocalDatastore];
     //Initialize parse
@@ -84,6 +84,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    NSLog(@"Saving group order...");
+    [thisUser leaveGroup];
 }
 
 @end

@@ -25,4 +25,6 @@
 - (void) removeItemFromOrder: (MenuItem*) foodItem;
 - (void) submitOrder;
 
+- (void) computeNewId;
+
 @end
