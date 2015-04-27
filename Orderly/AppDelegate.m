@@ -21,7 +21,7 @@
     //Silent push handler
     if([userInfo[@"aps"][@"content-available"] intValue]== 1) //it's the silent notification
     {
-        NSLog(@"ALERT");
+        NSLog(@"Updating group info...");
         handler(UIBackgroundFetchResultNewData);
         return;
     }

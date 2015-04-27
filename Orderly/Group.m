@@ -9,11 +9,12 @@
 #import "Group.h"
 #import "User.h"
 #import "Order.h"
+#import <stdlib.h>
 #import <Parse/Parse.h>
 
 @implementation Group
 
-@synthesize iD, order, members; //JORDAN take a look at this whole file
+@synthesize iD, order, members, uniqueIdentifier; //JORDAN take a look at this whole file
 
 - (instancetype) initWithID:(NSString *)_iD {
     if (self = [super init]) {
@@ -26,20 +27,78 @@
 
 - (void) joinChannelWithRestaurauntId: (NSString *) restaurantId
                      andOrderingGroup: orderingGroup {
+    NSString * channel = [NSString stringWithFormat:@"%@%@%@", @"a", restaurantId, orderingGroup];
+    [self computeNewUniqueIdentifier];
+
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation addUniqueObject:[NSString stringWithFormat:@"%@%@%@", @"a", restaurantId, orderingGroup]
-                              forKey:@"channels"];
+    [currentInstallation setObject:@[@"Global", channel]
+                            forKey:@"channels"];
     [currentInstallation saveInBackground];
-    NSLog(@"Joined channel %@%@%@", @"a", restaurantId, orderingGroup);
+    NSLog(@"Joined channel %@", channel);
+    
+    //Add user to channel on Parse
+    PFObject * newObject = [PFObject objectWithClassName:@"CurrentOrder"];
+    newObject[@"channel"] = channel;
+    newObject[@"userId"] = [self uniqueIdentifier];
+    newObject[@"currentOrder"] = @"{}";
+    
+    [newObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (!succeeded) {
+            if ([error.description isEqualToString:@"duplicate"]) {
+                NSLog(@"Duplicate userId. Attemting with new identifier...");
+                [self joinChannelWithRestaurauntId:restaurantId
+                                  andOrderingGroup:orderingGroup];
+            }
+            else
+                NSLog(error.description);
+        }
+        else {
+            NSLog(@"Added user to group order.");
+            //Send push notification to all group members to update their orders
+            [self sendSilentPushToGroup: channel];
+        }
+    }];
+}
+
+- (void) computeNewUniqueIdentifier {
+    [self setUniqueIdentifier: [NSString stringWithFormat:@"%@%u", @"b", arc4random_uniform(UINT32_MAX)]];
+}
+
+- (void) sendSilentPushToGroup: (NSString *) groupId {
+    NSDictionary *data = @{
+                           @"content-available": @1,
+                           @"sound": @""
+                           };
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannels:@[ groupId ]];
+    [push setData:data];
+    [push sendPushInBackground];
+
 }
 
 - (void) leaveChannel {
+    //Remove from ordering channel
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     currentInstallation.channels = @[ @"Global" ];
     [currentInstallation saveEventually];
-    NSLog(@"Left channel");
+    
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"userId" equalTo:[self uniqueIdentifier]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSString * channel = [object objectForKey:@"channel"];
+                [object deleteInBackground];
+                [self sendSilentPushToGroup: channel];
+            }
+            NSLog(@"Left channel.");
+        }
+        else {
+            NSLog(@"Error leaving channel.");
+        }
+    }];
 }
-
 
 - (void) updateGroupFromServer {
     [members removeAllObjects];

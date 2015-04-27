@@ -20,6 +20,7 @@
 @property Order* order;
 @property NSMutableArray* members;
 @property NSDictionary* peopleDictionary;
+@property NSString* uniqueIdentifier; //Unique phone identifier
 
 - (instancetype) initWithID: (NSString*) _iD;
 
@@ -34,5 +35,7 @@
 - (void) updateOrder;
 - (void) orderCompleted;
 - (BOOL) submitOrder;
+
+- (void) computeNewUniqueIdentifier;
 
 @end
