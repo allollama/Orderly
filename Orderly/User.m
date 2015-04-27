@@ -52,6 +52,16 @@
     [group updateOrder];
 }
 
+- (void) removeItemFromOrder: (MenuItem*) foodItem {
+    for (int i = 0; i < order.menuItems.count; i++) {
+        if (order.menuItems[i] == foodItem) {
+            [order.menuItems removeObjectAtIndex:i];
+            break;
+        }
+    }
+    [group updateOrder];
+}
+
 - (void) submitOrder {
     order.status = SUBMITTED; //JORDAN: send a message to server
     [group submitOrder];
