@@ -91,10 +91,11 @@
         NSLog(@"%@", user.group.order);
     }
 }
-
 - (void)viewWillDisappear:(BOOL)animated {
-    [user.group leaveChannel];
     [super viewWillDisappear:animated];
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if ([viewControllers indexOfObject:self] == NSNotFound) //View is being popped off the stack
+        [user.group leaveChannel];
 }
 
 /*
