@@ -26,9 +26,11 @@
 - (void) joinChannelWithRestaurauntId: (NSString *) restaurantId
                      andOrderingGroup: orderingGroup;
 - (void) leaveChannel;
+- (void) leaveChannelImmidiately;
 
 - (void) updateGroupFromServer;
-- (void) addGroupMemberWithID: (NSString*) _iD;
+- (void) addGroupMemberWithID: (NSString*) _iD
+                    withOrder: (NSString*) jsonOrder;
 - (void) addGroupMember: (User *) user;
 - (void) removeGroupMemberWithID: (NSString*) _iD;
 - (void) updateOrder;

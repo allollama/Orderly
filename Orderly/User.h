@@ -22,6 +22,10 @@
 - (void) joinGroup: (Group*) theGroup;
 - (void) leaveGroup;
 - (void) addItemToOrder: (MenuItem*) foodItem;
+- (void) parseOrder: (NSString*) jsonOrder;
+- (void) removeItemFromOrder: (MenuItem*) foodItem;
 - (void) submitOrder;
+
+- (void) computeNewId;
 
 @end

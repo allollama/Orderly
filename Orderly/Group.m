@@ -9,6 +9,8 @@
 #import "Group.h"
 #import "User.h"
 #import "Order.h"
+#import "AppDelegate.h"
+#import <stdlib.h>
 #import <Parse/Parse.h>
 
 @implementation Group
@@ -26,25 +28,110 @@
 
 - (void) joinChannelWithRestaurauntId: (NSString *) restaurantId
                      andOrderingGroup: orderingGroup {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString * channel = [NSString stringWithFormat:@"%@%@%@", @"a", restaurantId, orderingGroup];
+
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation addUniqueObject:[NSString stringWithFormat:@"%@%@%@", @"a", restaurantId, orderingGroup]
-                              forKey:@"channels"];
+    [currentInstallation setObject:@[@"Global", channel]
+                            forKey:@"channels"];
     [currentInstallation saveInBackground];
-    NSLog(@"Joined channel %@%@%@", @"a", restaurantId, orderingGroup);
+    NSLog(@"Joined channel %@", channel);
+    
+    //Add user to channel on Parse
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"channel" equalTo:channel];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (object != nil) { //Order exists, reset it
+            [object setValue:@"{}" forKey:@"currentOrder"];
+            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                self.iD = channel;
+                [self sendSilentPushToGroup: channel];
+            }];
+        }
+        else { //User does not exist, create new order for them
+            PFObject * newObject = [PFObject objectWithClassName:@"CurrentOrder"];
+            [newObject setObject:channel forKey:@"channel"];
+            [newObject setObject:[appDelegate.thisUser iD] forKey:@"userId"];
+            [newObject setObject:@"{}" forKey:@"currentOrder"];
+            [newObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                self.iD = channel;
+                [self sendSilentPushToGroup: channel];
+            }];
+        }
+    }];
+}
+
+- (void) sendSilentPushToGroup: (NSString *) groupId {
+    NSDictionary *data = @{
+                           @"content-available": @1,
+                           @"sound": @""
+                           };
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannels:@[ groupId ]];
+    [push setData:data];
+    [push sendPushInBackground];
 }
 
 - (void) leaveChannel {
+    //Remove from ordering channel
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     currentInstallation.channels = @[ @"Global" ];
     [currentInstallation saveEventually];
-    NSLog(@"Left channel");
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSString * channel = [object objectForKey:@"channel"];
+                [object deleteInBackground];
+                [self sendSilentPushToGroup: channel];
+            }
+            NSLog(@"Left channel.");
+        }
+        else {
+            NSLog(@"Error leaving channel.");
+        }
+    }];
 }
 
+- (void) leaveChannelImmidiately {
+    //Remove from ordering channel
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    currentInstallation.channels = @[ @"Global" ];
+    [currentInstallation saveEventually];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
+    PFObject * object = [query getFirstObject];
+    [object delete];
+}
 
 - (void) updateGroupFromServer {
     [members removeAllObjects];
     //get a list of group members from server (an array with just their ids)
     //use addGroupMember method that takes an iD for each user - but don't send this user
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"channel" equalTo:[appDelegate.thisUser.group iD]];
+    [query selectKeys:@[@"userId", @"currentOrder"]];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (int i = 0; i < [objects count]; i++)
+                [self addGroupMemberWithID:[objects[i] objectForKey:@"userId"]
+                                 withOrder:[objects[i] objectForKey:@"currentOrder"]];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
     [self updateOrder];
     
 }
@@ -57,9 +144,11 @@
     return -1; //group doesn't already have member with that id
 }
 
-- (void) addGroupMemberWithID: (NSString*) _iD {
+- (void) addGroupMemberWithID: (NSString*) _iD
+                    withOrder: (NSString*) jsonOrder {
     if ([self hasGroupMemberWithID:_iD] == -1) {
         User* user = [[User alloc] initWithID:_iD];
+        [user parseOrder:jsonOrder];
         [self addGroupMember:user];
     }
 }
