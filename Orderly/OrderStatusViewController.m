@@ -21,9 +21,6 @@
 
 - (IBAction)tempFunction {
     [self orderCompleted];
-    UIStoryboard *storyboard = self.storyboard;
-    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"SplitPayment"];
-    [self.navigationController pushViewController:presentVC animated:YES];
 }
 
 - (void)orderCompleted {

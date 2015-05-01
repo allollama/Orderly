@@ -17,7 +17,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self joinGroup];
-    return NO;
+    return true;
 }
 
 -(IBAction)joinGroup {

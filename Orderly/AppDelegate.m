@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "Group.h"
+
+@interface AppDelegate ()
+
+@end
 
 @implementation AppDelegate
 
@@ -18,9 +21,7 @@
     //Silent push handler
     if([userInfo[@"aps"][@"content-available"] intValue]== 1) //it's the silent notification
     {
-        NSLog(@"Updating group info...");
-        [thisUser.group updateGroupFromServer];
-        
+        NSLog(@"ALERT");
         handler(UIBackgroundFetchResultNewData);
         return;
     }
@@ -32,14 +33,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString *lastUserId = (NSString *)[[NSUserDefaults standardUserDefaults] stringForKey:@"userId"];
-    if (lastUserId == nil)     // App first run: set up user defaults.
-    {
-        lastUserId = [NSString stringWithFormat:@"%@%u", @"b", arc4random_uniform(UINT32_MAX)];
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:lastUserId forKey:@"userId"];
-    
-    thisUser = [[User alloc]initWithID:lastUserId];
+    // Override point for customization after application launch.
+    thisUser = [[User alloc]initWithID:@"1234"];
     
     [Parse enableLocalDatastore];
     //Initialize parse
@@ -89,9 +84,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    
-    NSLog(@"Saving group order...");
-    [thisUser leaveGroup];
 }
 
 @end
