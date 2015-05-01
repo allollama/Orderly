@@ -56,6 +56,10 @@
     [group updateOrder];
 }
 
+- (void) parseOrder: (NSString*) jsonOrder {
+    NSLog(@"ORDER: %@", jsonOrder);
+}
+
 - (void) removeItemFromOrder: (MenuItem*) foodItem {
     for (int i = 0; i < order.menuItems.count; i++) {
         if (order.menuItems[i] == foodItem) {
