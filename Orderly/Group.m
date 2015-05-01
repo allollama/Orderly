@@ -47,12 +47,15 @@
         if (!succeeded) {
             if ([error.description isEqualToString:@"duplicate"]) {
                 NSLog(@"Duplicate userId. Attemting with new identifier...");
-                [appDelegate.thisUser computeNewId];
-                [self joinChannelWithRestaurauntId:restaurantId
-                                  andOrderingGroup:orderingGroup];
+                PFObject * objectToDelete = [PFObject objectWithClassName:@"CurrentOrder"];
+                objectToDelete[@"userId"] = [appDelegate.thisUser iD];
+                [objectToDelete deleteInBackgroundWithBlock: ^(BOOL succeeded, NSError *error) {
+                    [self joinChannelWithRestaurauntId:restaurantId //Try again
+                                      andOrderingGroup:orderingGroup];
+                }];
             }
             else
-                NSLog(error.description);
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
         else {
             NSLog(@"Added user to group order.");
@@ -117,6 +120,21 @@
     [members removeAllObjects];
     //get a list of group members from server (an array with just their ids)
     //use addGroupMember method that takes an iD for each user - but don't send this user
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"channel" equalTo:[appDelegate.thisUser iD]];
+    [query selectKeys:@[@"userId", @"currentOrder"]];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (int i = 0; i < [objects count]; i++)
+                NSLog(@"%@", objects[i]);
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
     [self updateOrder];
     
 }
