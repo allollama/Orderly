@@ -60,6 +60,16 @@
     NSLog(@"ORDER: %@", jsonOrder);
 }
 
+- (int) numberOfItemInOrder: (MenuItem*) foodItem {
+    int num = 0;
+    for (int i = 0; i < order.menuItems.count; i++) {
+        if (order.menuItems[i] == foodItem) {
+            num++;
+        }
+    }
+    return num;
+}
+
 - (void) removeItemFromOrder: (MenuItem*) foodItem {
     for (int i = 0; i < order.menuItems.count; i++) {
         if (order.menuItems[i] == foodItem) {

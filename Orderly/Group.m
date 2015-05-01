@@ -113,7 +113,7 @@
 }
 
 - (void) updateGroupFromServer {
-    [members removeAllObjects];
+    /*[members removeAllObjects];
     //get a list of group members from server (an array with just their ids)
     //use addGroupMember method that takes an iD for each user - but don't send this user
     
@@ -132,7 +132,7 @@
         }
     }];
 
-    [self updateOrder];
+    [self updateOrder];*/
     
 }
 

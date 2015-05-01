@@ -11,6 +11,7 @@
 #import "Group.h"
 #import "User.h"
 #import "ReviewOrderViewController.h"
+#import "myButton.h"
 
 @implementation MenuTableViewController
 
@@ -71,7 +72,6 @@
     return [dictionary objectForKey:[[dictionary allKeys]objectAtIndex:indexPath.row]];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* cellID = @"menuItem";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -81,7 +81,24 @@
     MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"$%.02f %@", foodItem.price, foodItem.name];
     cell.detailTextLabel.text = foodItem.descrp;
+    cell.detailTextLabel.numberOfLines = 2;
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (void)removeItem:(id)sender {
+    myButton* button = (myButton*) sender;
+    [user removeItemFromOrder:[self menuItemForIndexPath:button.indexPath]];
+    int num = [user numberOfItemInOrder:[self menuItemForIndexPath:button.indexPath]];
+    if (num > 0) {
+        button.label.text = [NSString stringWithFormat:@"%d", num];
+    }
+    else {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:button.indexPath];
+        cell.accessoryView = nil;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,8 +106,27 @@
     if (user.group != nil) {
         [user addItemToOrder:foodItem];
         NSLog(@"%@", user.group.order);
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        myButton* numberMinusButton = [myButton buttonWithType:UIButtonTypeRoundedRect];
+        UIImage* image = [UIImage imageNamed:@"200px-Ambox_emblem_minus.svg.png"];
+        [numberMinusButton setBackgroundImage:image forState:UIControlStateNormal];
+        [numberMinusButton addTarget:self action:@selector(removeItem:) forControlEvents:UIControlEventTouchUpInside];
+        numberMinusButton.indexPath = indexPath;
+        numberMinusButton.frame = CGRectMake(0, 0, 40, cell.frame.size.height);
+
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 40, cell.frame.size.height)];
+        label.text = [NSString stringWithFormat:@"%d", [user numberOfItemInOrder:foodItem]];
+        UIView* subview = [[UIView alloc]initWithFrame:CGRectMake(cell.frame.size.width * 0.80, 0, cell.frame.size.width * 0.2, cell.frame.size.height)];
+        label.layer.borderColor = [UIColor blackColor].CGColor;
+        label.layer.borderWidth = 2.0;
+        label.textAlignment = NSTextAlignmentCenter;
+        [subview addSubview:label];
+        [subview addSubview:numberMinusButton];
+        numberMinusButton.label = label;
+        cell.accessoryView = subview;
     }
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     NSArray *viewControllers = self.navigationController.viewControllers;

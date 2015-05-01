@@ -23,6 +23,7 @@
 - (void) leaveGroup;
 - (void) addItemToOrder: (MenuItem*) foodItem;
 - (void) parseOrder: (NSString*) jsonOrder;
+- (int) numberOfItemInOrder: (MenuItem*) foodItem;
 - (void) removeItemFromOrder: (MenuItem*) foodItem;
 - (void) submitOrder;
 
