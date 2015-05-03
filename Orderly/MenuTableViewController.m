@@ -91,6 +91,7 @@
 - (void)removeItem:(id)sender {
     myButton* button = (myButton*) sender;
     [user removeItemFromOrder:[self menuItemForIndexPath:button.indexPath]];
+    [user.group removeItemFromOrder:[[self menuItemForIndexPath:button.indexPath] name]]; //Update the server and send push notification
     int num = [user numberOfItemInOrder:[self menuItemForIndexPath:button.indexPath]];
     if (num > 0) {
         button.label.text = [NSString stringWithFormat:@"%d", num];

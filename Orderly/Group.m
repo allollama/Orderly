@@ -167,7 +167,6 @@
     [query selectKeys:@[@"currentOrder"]];
     [query getFirstObjectInBackgroundWithBlock: ^(PFObject *jsonObject, NSError *error) {
         if (!error) {
-            //NSMutableArray * newOrder = [[NSMutableArray alloc] initWithObjects:jsonObject[@"currentOrder"], nil];
             BOOL itemFound = NO;
             for (int i = 0; i < [jsonObject[@"currentOrder"] count]; i++) {
                 if ([jsonObject[@"currentOrder"][i][@"name"] isEqualToString:foodName]) { //Found food name, increment counter
@@ -178,7 +177,7 @@
             }
             if (!itemFound) { //Food name not found, add new item to order
                 [jsonObject[@"currentOrder"] addObject:[[NSMutableDictionary alloc] initWithObjects:@[foodName, @1]
-                                                                         forKeys:@[@"name", @"count"]]]; //ERROR IS HERE
+                                                                         forKeys:@[@"name", @"count"]]];
             }
             [jsonObject saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
                 if (!error) {
@@ -188,6 +187,41 @@
                     }
                 }
             }];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+- (void) removeItemFromOrder: (NSString *) foodName {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"channel" equalTo:iD];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
+    [query selectKeys:@[@"currentOrder"]];
+    [query getFirstObjectInBackgroundWithBlock: ^(PFObject *jsonObject, NSError *error) {
+        if (!error) {
+            BOOL itemFound = NO;
+            for (int i = 0; i < [jsonObject[@"currentOrder"] count]; i++) {
+                if ([jsonObject[@"currentOrder"][i][@"name"] isEqualToString:foodName]) { //Found food name, decrement counter or remove item
+                    if ([jsonObject[@"currentOrder"][i][@"count"] intValue] == 1) //Only object, remove completely
+                        [jsonObject[@"currentOrder"] removeObjectAtIndex:i];
+                    else //Decrement counter
+                        [jsonObject[@"currentOrder"][i] setObject: [NSString stringWithFormat:@"%d", [jsonObject[@"currentOrder"][i][@"count"] intValue] - 1]
+                                                           forKey: @"count"];
+                    itemFound = YES;
+                }
+            }
+            if (itemFound) {
+                [jsonObject saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
+                    if (!error) {
+                        if (success) { //Item successfully added to order
+                            NSLog(@"Item successfully removed from order. Sending push notification...");
+                            [self sendSilentPushToGroup:iD];
+                        }
+                    }
+                }];
+            }
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
