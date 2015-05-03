@@ -32,6 +32,7 @@
 - (void) addGroupMemberWithID: (NSString*) _iD
                     withOrder: (NSString*) jsonOrder;
 - (void) addGroupMember: (User *) user;
+- (void) addItemToOrder: (NSString *) foodName;
 - (void) removeGroupMemberWithID: (NSString*) _iD;
 - (void) updateOrder;
 - (void) orderCompleted;

@@ -105,6 +105,7 @@
     MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
     if (user.group != nil) {
         [user addItemToOrder:foodItem];
+        [user.group addItemToOrder:[foodItem name]]; //Update the server and send push notification
         NSLog(@"%@", user.group.order);
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         myButton* numberMinusButton = [myButton buttonWithType:UIButtonTypeRoundedRect];

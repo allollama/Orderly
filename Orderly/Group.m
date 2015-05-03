@@ -39,12 +39,12 @@
     
     //Add user to channel on Parse
     PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
-    [query whereKey:@"channel" equalTo:channel];
     [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (object != nil) { //Order exists, reset it
-            [object setValue:@"{}" forKey:@"currentOrder"];
+            [object setValue:@[] forKey:@"currentOrder"];
+            [object setValue:channel forKey:@"channel"];
             [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 self.iD = channel;
                 [self sendSilentPushToGroup: channel];
@@ -54,7 +54,7 @@
             PFObject * newObject = [PFObject objectWithClassName:@"CurrentOrder"];
             [newObject setObject:channel forKey:@"channel"];
             [newObject setObject:[appDelegate.thisUser iD] forKey:@"userId"];
-            [newObject setObject:@"{}" forKey:@"currentOrder"];
+            [newObject setObject:@[] forKey:@"currentOrder"];
             [newObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
                 self.iD = channel;
                 [self sendSilentPushToGroup: channel];
@@ -133,7 +133,6 @@
     }];
 
     [self updateOrder];*/
-    
 }
 
 - (int) hasGroupMemberWithID: (NSString*) _iD {
@@ -158,6 +157,42 @@
         [members addObject:user];
         [self updateOrder];
     }
+}
+
+- (void) addItemToOrder: (NSString *) foodName {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"channel" equalTo:iD];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
+    [query selectKeys:@[@"currentOrder"]];
+    [query getFirstObjectInBackgroundWithBlock: ^(PFObject *jsonObject, NSError *error) {
+        if (!error) {
+            //NSMutableArray * newOrder = [[NSMutableArray alloc] initWithObjects:jsonObject[@"currentOrder"], nil];
+            BOOL itemFound = NO;
+            for (int i = 0; i < [jsonObject[@"currentOrder"] count]; i++) {
+                if ([jsonObject[@"currentOrder"][i][@"name"] isEqualToString:foodName]) { //Found food name, increment counter
+                    [jsonObject[@"currentOrder"][i] setObject: [NSString stringWithFormat:@"%d", [jsonObject[@"currentOrder"][i][@"count"] intValue] + 1]
+                                                       forKey: @"count"];
+                    itemFound = YES;
+                }
+            }
+            if (!itemFound) { //Food name not found, add new item to order
+                [jsonObject[@"currentOrder"] addObject:[[NSMutableDictionary alloc] initWithObjects:@[foodName, @1]
+                                                                         forKeys:@[@"name", @"count"]]]; //ERROR IS HERE
+            }
+            [jsonObject saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
+                if (!error) {
+                    if (success) { //Item successfully added to order
+                        NSLog(@"Item successfully added to order. Sending push notification...");
+                        [self sendSilentPushToGroup:iD];
+                    }
+                }
+            }];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (void) removeGroupMemberWithID: (NSString*) _iD {
