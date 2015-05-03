@@ -13,9 +13,6 @@
 
 @property User* user;
 
-@property (weak, nonatomic) IBOutlet UILabel* userOrder;
-@property (weak, nonatomic) IBOutlet UILabel* groupOrder;
-
--(IBAction)submitOrder;
+-(void)submitOrder;
 
 @end

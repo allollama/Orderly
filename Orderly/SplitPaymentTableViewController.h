@@ -12,9 +12,11 @@
 @interface SplitPaymentTableViewController : UITableViewController
 
 @property User* user;
-@property NSMutableArray* amounts;
+@property NSMutableArray* divideByAmounts;
 
 -(void)pay;
 - (void)split:(id)sender;
+- (void)split:(int)index byAmount:(float)theAmount;
+- (void)addPartial:(MenuItem*)foodItem byAmount:(float)theAmount;
 
 @end
