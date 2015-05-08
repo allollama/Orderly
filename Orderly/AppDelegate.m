@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Group.h"
+#import "SplitPaymentTableViewController.h"
 
 @implementation AppDelegate
 
@@ -27,11 +28,15 @@
                  [userInfo[@"group_members"] containsObject:[thisUser iD]] &&
                  ![userInfo[@"group_members"][0] isEqualToString:[thisUser iD]]) {
             //If you get a SPLIT_PAYMENT alert, you are in the list to split with, and you didn't send the SPLIT_PAYMENT alert
+            
             NSArray * usersToSplit = userInfo[@"group_members"];
-            NSLog(@"Splitting payment with %@...", usersToSplit);
+            NSString * foodName = userInfo[@"item_name"];
+            SplitPaymentTableViewController * vc = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
+            
+            [vc addPartial:[theMenu menuItemForName:foodName] byAmount:[usersToSplit count]];
         }
         else {
-            NSLog(@"Recieved silent push notification. No action necessary.");
+            NSLog(@"Recieved silent push notification with no specified action (could be a push notification you just sent).");
         }
         
         handler(UIBackgroundFetchResultNewData);

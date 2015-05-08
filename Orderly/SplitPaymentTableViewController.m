@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Santa Clara University. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "SplitPaymentTableViewController.h"
 #import "AppDelegate.h"
 #import "Order.h"
@@ -121,9 +122,30 @@ UILabel *myLabel;
 }
 
 - (void)split:(int)index byAmount:(float)theAmount {
+    AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    MenuItem * theMenuItem = user.order.menuItems[index];
+    NSString * menuItemName = [theMenuItem name];
+    NSMutableArray * allUsers = [[NSMutableArray alloc] initWithArray:usersToSplitWith];
+    [allUsers insertObject: [delegate.thisUser iD] atIndex:0];
     divideByAmounts[index] = [NSNumber numberWithFloat:theAmount];
     [(UITableView*) self.view reloadData];
     myLabel.text = [NSString stringWithFormat:@"Total price: $%.02f", [self totalPrice]];
+    
+    NSDictionary *data = @{
+                           @"aps": @{
+                                   @"content-available": @1,
+                                   @"sound": @"",
+                                   @"category": @"SPLIT_PAYMENT",
+                                   },
+                           @"item_name": menuItemName,
+                           @"group_members": allUsers
+                           };
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannels:@[ [delegate.thisUser.group iD] ]];
+    [push setData:data];
+    
+    [push sendPushInBackground]; //Inform others of group change
 }
 
 - (void)addPartial:(MenuItem*)foodItem byAmount:(float)theAmount {
