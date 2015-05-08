@@ -136,7 +136,7 @@
         }
     }];
 
-    [self updateOrder];
+    [self updateOrder]; //Add your food items to order
 }
 
 - (int) hasGroupMemberWithID: (NSString*) _iD {
