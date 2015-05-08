@@ -127,6 +127,7 @@ UILabel *myLabel;
 }
 
 - (void)addPartial:(MenuItem*)foodItem byAmount:(float)theAmount {
+    //JORDAN
     [user addItemToOrder:foodItem];
     divideByAmounts[user.order.menuItems.count - 1] = [NSNumber numberWithFloat:(theAmount)];
     [(UITableView*) self.view reloadData];

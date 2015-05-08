@@ -115,7 +115,7 @@
 - (void) updateGroupFromServer {
     /*[members removeAllObjects];
     //get a list of group members from server (an array with just their ids)
-    //use addGroupMember method that takes an iD for each user - but don't send this user
+    //use addGroupMember method that takes an iD for each user
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
