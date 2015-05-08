@@ -50,15 +50,16 @@
             [arrayOfStringsRight addObject:[NSString stringWithFormat:@"$%.02f", foodItem.price]];
         }
     }
-    UILabel* userOrderLeft = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.15, 75, self.view.frame.size.width * 0.50, 25 * arrayOfStringsRight.count)];
+    UILabel* userOrderLeft = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, 75, self.view.frame.size.width * 0.60, 25 * arrayOfStringsRight.count)];
     userOrderLeft.numberOfLines = arrayOfStringsRight.count;
     userOrderLeft.adjustsFontSizeToFitWidth = YES;
-    UILabel* userOrderRight = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.7, 75, self.view.frame.size.width * 0.15, 25 * arrayOfStringsRight.count)];
+    UILabel* userOrderRight = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.7, 75, self.view.frame.size.width * 0.20, 25 * arrayOfStringsRight.count)];
     userOrderRight.numberOfLines = arrayOfStringsRight.count;
     userOrderRight.lineBreakMode = NSLineBreakByWordWrapping;
     int n = 25 * arrayOfStringsRight.count + 75;
     userOrderLeft.text = [arrayOfStringsLeft componentsJoinedByString:@"\n"];
     userOrderRight.text = [arrayOfStringsRight componentsJoinedByString:@"\n"];
+    userOrderRight.font = userOrderLeft.font;
     UILabel* userOrderTotal = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.2, n, self.view.frame.size.width * 0.6, 25)];
     userOrderTotal.text = [NSString stringWithFormat:@"Total price: \t$%.02f", user.order.totalPrice];
     userOrderTotal.textAlignment = NSTextAlignmentCenter;
@@ -98,15 +99,16 @@
             [arrayOfStringsRight addObject:[NSString stringWithFormat:@"$%.02f", foodItem.price]];
         }
     }
-    UILabel* groupOrderLeft = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.15, n + 75, self.view.frame.size.width * 0.50, 25 * arrayOfStringsRight.count)];
+    UILabel* groupOrderLeft = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, n + 75, self.view.frame.size.width * 0.6, 25 * arrayOfStringsRight.count)];
     groupOrderLeft.numberOfLines = arrayOfStringsRight.count;
     groupOrderLeft.adjustsFontSizeToFitWidth = YES;
-    UILabel* groupOrderRight = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.7, n + 75, self.view.frame.size.width * 0.15, 25 * arrayOfStringsRight.count)];
+    UILabel* groupOrderRight = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.7, n + 75, self.view.frame.size.width * 0.2, 25 * arrayOfStringsRight.count)];
     groupOrderRight.numberOfLines = arrayOfStringsRight.count;
     groupOrderRight.lineBreakMode = NSLineBreakByWordWrapping;
     n += 75 + 25 * arrayOfStringsRight.count;
     groupOrderLeft.text = [arrayOfStringsLeft componentsJoinedByString:@"\n"];
     groupOrderRight.text = [arrayOfStringsRight componentsJoinedByString:@"\n"];
+    groupOrderRight.font = groupOrderLeft.font;
     UILabel* groupOrderTotal = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.2, n, self.view.frame.size.width * 0.6, 25)];
     n += 50;
     groupOrderTotal.text = [NSString stringWithFormat:@"Total price: \t$%.02f", user.group.order.totalPrice];
