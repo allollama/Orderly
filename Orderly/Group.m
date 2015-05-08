@@ -45,6 +45,7 @@
         if (object != nil) { //Order exists, reset it
             [object setValue:@[] forKey:@"currentOrder"];
             [object setValue:channel forKey:@"channel"];
+            [object setValue:[NSNumber numberWithBool:NO] forKey:@"submitted"];
             [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 self.iD = channel;
                 [self sendSilentPushToGroup: channel];
@@ -55,6 +56,7 @@
             [newObject setObject:channel forKey:@"channel"];
             [newObject setObject:[appDelegate.thisUser iD] forKey:@"userId"];
             [newObject setObject:@[] forKey:@"currentOrder"];
+            [newObject setObject:[NSNumber numberWithBool:NO] forKey:@"submitted"];
             [newObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
                 self.iD = channel;
                 [self sendSilentPushToGroup: channel];

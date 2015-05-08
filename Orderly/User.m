@@ -94,8 +94,22 @@
 }
 
 - (void) submitOrder {
-    order.status = SUBMITTED; //JORDAN: send a message to server
-    [group submitOrder];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    order.status = SUBMITTED;
+    
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"userId" equalTo:[appDelegate.thisUser iD]];
+    [query whereKey:@"channel" equalTo:[appDelegate.thisUser.group iD]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!error) {
+            [object setValue:[NSNumber numberWithBool:YES] forKey:@"submitted"];
+            [object saveInBackground];
+            
+        }
+        else {
+            NSLog(@"Error submitting order.");
+        }
+    }];
 }
 
 @end
