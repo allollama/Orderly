@@ -22,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self updateView];
+}
+
+- (void)updateView {
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     UILabel* yourOrderLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.33, 50, self.view.frame.size.width * 0.33, 25)];
     yourOrderLabel.text = @"Your Order:";
@@ -64,7 +68,7 @@
     [scrollView addSubview:userOrderTotal];
     
     UIButton* submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    submitButton.frame = CGRectMake(self.view.frame.size.width * 0.4, n + 25, self.view.frame.size.width * 0.2, 50);
+    submitButton.frame = CGRectMake(self.view.frame.size.width * 0.2, n + 25, self.view.frame.size.width * 0.6, 50);
     n += 75;
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     [submitButton addTarget:self action:@selector(submitOrder) forControlEvents:UIControlEventTouchUpInside];
@@ -115,7 +119,6 @@
     
     [scrollView layoutIfNeeded];
     [self.view addSubview:scrollView];
-    [scrollView flashScrollIndicators];
 }
 
 - (void)submitOrder {

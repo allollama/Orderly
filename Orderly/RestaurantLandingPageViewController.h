@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel* restaurantName;
 @property (weak, nonatomic) IBOutlet UILabel* restaurantInfo;
 
-@property (nonatomic, weak) IBOutlet UITextField* groupTextField;
+@property UITextField* groupTextField;
 @property User* thisUser;
 @property NSString* restaurantId;
 @property NSString* _restaurantName;

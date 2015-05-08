@@ -30,8 +30,8 @@
             
             NSArray * usersToSplit = userInfo[@"group_members"];
             NSString * foodName = userInfo[@"item_name"];
-            SplitPaymentTableViewController * vc = [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
-            
+            UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
+            SplitPaymentTableViewController * vc = (SplitPaymentTableViewController* ) [navc visibleViewController];
             [vc addPartial:[theMenu menuItemForName:foodName] byAmount:[usersToSplit count]];
         }
         else {

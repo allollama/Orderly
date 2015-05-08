@@ -53,9 +53,28 @@
                //54e6794d62fdbd0612cbd5a1"];
     //theMenu = [[Menu alloc]init];
     delegate.theMenu = theMenu;
-    restaurantName.text = _restaurantName;
-    restaurantInfo.text = _restaurantInfo;
-    // Do any additional setup after loading the view.
+    
+    UILabel* restaurantNameAndInfo = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width* 0.1, self.view.frame.size.height * 0.15, self.view.frame.size.width * 0.8, self.view.frame.size.height * 0.20)];
+    restaurantNameAndInfo.text = [NSString stringWithFormat:@"%@ \n\n %@", _restaurantName, _restaurantInfo];
+    restaurantNameAndInfo.numberOfLines = 5;
+    restaurantNameAndInfo.textAlignment = NSTextAlignmentCenter;
+    restaurantNameAndInfo.font = [UIFont systemFontOfSize:15];
+    restaurantNameAndInfo.layer.borderColor = [UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1].CGColor;
+    restaurantNameAndInfo.layer.borderWidth = 2.0f;
+    [self.view addSubview:restaurantNameAndInfo];
+    
+    groupTextField = [[UITextField alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.34, self.view.frame.size.height * 0.5, self.view.frame.size.width * 0.33, 30)];
+    groupTextField.borderStyle = UITextBorderStyleRoundedRect;
+    groupTextField.font = [UIFont systemFontOfSize:15];
+    groupTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    groupTextField.keyboardType = UIKeyboardTypeDefault;
+    groupTextField.returnKeyType = UIReturnKeyDone;
+    groupTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    groupTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    groupTextField.delegate = self;
+    [self.view addSubview:groupTextField];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1];
 }
 
 - (void)didReceiveMemoryWarning {
