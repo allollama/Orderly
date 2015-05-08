@@ -19,8 +19,7 @@
     //Silent push handler
     if([userInfo[@"aps"][@"content-available"] intValue] == 1) //it's the silent notification
     {
-        if ([userInfo[@"aps"][@"category"] isEqualToString:@"UPDATE_INFO"] &&
-            ![userInfo[@"id"] isEqualToString:[thisUser iD]]) { //Update notification
+        if ([userInfo[@"aps"][@"category"] isEqualToString:@"UPDATE_INFO"]) { //Update notification
             NSLog(@"Updating group info...");
             [thisUser.group updateGroupFromServer];
         }

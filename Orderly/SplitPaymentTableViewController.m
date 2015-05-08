@@ -125,8 +125,13 @@ UILabel *myLabel;
     AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     MenuItem * theMenuItem = user.order.menuItems[index];
     NSString * menuItemName = [theMenuItem name];
-    NSMutableArray * allUsers = [[NSMutableArray alloc] initWithArray:usersToSplitWith];
-    [allUsers insertObject: [delegate.thisUser iD] atIndex:0];
+    NSMutableArray * allUsers = [[NSMutableArray alloc] init];
+    [allUsers addObject:[delegate.thisUser iD]];
+    for (int i = 0; i < [usersToSplitWith count]; i++) {
+        [allUsers addObject:[usersToSplitWith[i] iD]];
+    }
+    NSLog(@"USERS: %@", allUsers);
+    NSLog(@"NAME: %@", menuItemName);
     divideByAmounts[index] = [NSNumber numberWithFloat:theAmount];
     [(UITableView*) self.view reloadData];
     myLabel.text = [NSString stringWithFormat:@"Total price: $%.02f", [self totalPrice]];
