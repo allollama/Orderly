@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Group.h"
+#import "OrderStatusViewController.h"
 #import "SplitPaymentTableViewController.h"
 #import "ReviewOrderViewController.h"
 
@@ -41,6 +42,14 @@
             UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
             SplitPaymentTableViewController * vc = (SplitPaymentTableViewController* ) [navc visibleViewController];
             [vc addPartial:[theMenu menuItemForName:foodName] byAmount:[usersToSplit count]];
+        }
+        else if ([userInfo[@"aps"][@"category"] isEqualToString:@"MOVE_TO_PAYMENT"]) {
+            UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
+            if ([[navc visibleViewController] class] == [OrderStatusViewController class]) {
+                OrderStatusViewController * vc = (OrderStatusViewController *) [navc visibleViewController];
+                [vc tempFunction];
+            }
+
         }
         else {
             NSLog(@"Recieved silent push notification with no specified action (could be a push notification you just sent).");

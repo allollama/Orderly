@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Santa Clara University. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+#import "Group.h"
+#import "AppDelegate.h"
 #import "OrderStatusViewController.h"
 
 @interface OrderStatusViewController ()
@@ -27,7 +30,34 @@
 }
 
 - (void)orderCompleted {
-    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"channel" equalTo:[appDelegate.thisUser.group iD]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            BOOL orderDone = true;
+            for (PFObject *object in objects) {
+                if (object[@"submitted"] == [NSNumber numberWithBool:NO]) {
+                    orderDone = false;
+                    break;
+                }
+            }
+            if (orderDone) { //Send push notification to tell everyone to move to payment
+                NSDictionary *data = @{
+                                       @"content-available": @1,
+                                       @"sound": @"",
+                                       @"category": @"MOVE_TO_PAYMENT",
+                                       };
+                
+                PFPush *push = [[PFPush alloc] init];
+                [push setChannels:@[ [appDelegate.thisUser.group iD] ]];
+                [push setData:data];
+                
+                [push sendPushInBackground];
+            }
+        }
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
