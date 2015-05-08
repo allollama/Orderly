@@ -57,7 +57,18 @@
 }
 
 - (void) parseOrder: (NSString*) jsonOrder {
-    NSLog(@"ORDER: %@", jsonOrder);
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //NSData * dataOrder = [jsonOrder dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray * newOrder = (NSArray *) jsonOrder;
+    NSLog(@"ORDER: %@", newOrder);
+    for (int i = 0; i < [newOrder count]; i++) {
+        for (int j = 0; j < [newOrder[i][@"count"] intValue]; j++) {
+            MenuItem * newItem = [appDelegate.theMenu menuItemForName:newOrder[i][@"name"]];
+            [self addItemToOrder:newItem];
+            
+        }
+    }
+    
 }
 
 - (int) numberOfItemInOrder: (MenuItem*) foodItem {

@@ -113,7 +113,7 @@
 }
 
 - (void) updateGroupFromServer {
-    /*[members removeAllObjects];
+    [members removeAllObjects];
     //get a list of group members from server (an array with just their ids)
     //use addGroupMember method that takes an iD for each user
     
@@ -123,16 +123,20 @@
     [query selectKeys:@[@"userId", @"currentOrder"]];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
         if (!error) {
-            for (int i = 0; i < [objects count]; i++)
-                [self addGroupMemberWithID:[objects[i] objectForKey:@"userId"]
-                                 withOrder:[objects[i] objectForKey:@"currentOrder"]];
+            for (int i = 0; i < [objects count]; i++) {
+                if (![[objects[i] objectForKey:@"userId"] isEqualToString:[appDelegate.thisUser iD]])
+                    [self addGroupMemberWithID:[objects[i] objectForKey:@"userId"]
+                                     withOrder:[objects[i] objectForKey:@"currentOrder"]];
+                else
+                    [self addGroupMember:[appDelegate thisUser]]; //Add yourself
+            }
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
 
-    [self updateOrder];*/
+    [self updateOrder];
 }
 
 - (int) hasGroupMemberWithID: (NSString*) _iD {
