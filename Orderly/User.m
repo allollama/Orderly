@@ -47,7 +47,11 @@
 }
 
 - (void) leaveGroup {
-    [group leaveChannelImmidiately];
+    [group leaveChannel];
+    [order.menuItems removeAllObjects];
+    [group removeGroupMemberWithID:iD];
+    group = nil;
+    
     NSLog(@"Done.");
 }
 
