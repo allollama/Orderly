@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Group.h"
 #import "SplitPaymentTableViewController.h"
+#import "ReviewOrderViewController.h"
 
 @implementation AppDelegate
 
@@ -23,6 +24,12 @@
             ![userInfo[@"id"] isEqualToString:[thisUser iD]]) { //Update notification
             NSLog(@"Updating group info...");
             [thisUser.group updateGroupFromServer];
+            UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
+            if ([[navc visibleViewController] class] == [ReviewOrderViewController class]) {
+                ReviewOrderViewController * vc = (ReviewOrderViewController* ) [navc visibleViewController];
+                [vc updateView];
+            }
+
         }
         else if ([userInfo[@"aps"][@"category"] isEqualToString:@"SPLIT_PAYMENT"] &&
                  [userInfo[@"group_members"] containsObject:[thisUser iD]] &&
