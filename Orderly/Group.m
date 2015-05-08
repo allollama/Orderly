@@ -64,14 +64,20 @@
 }
 
 - (void) sendSilentPushToGroup: (NSString *) groupId {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSDictionary *data = @{
-                           @"content-available": @1,
-                           @"sound": @""
+                           @"aps": @{
+                                   @"content-available": @1,
+                                   @"sound": @"",
+                                   @"category": @"UPDATE_INFO",
+                                   },
+                           @"id": [appDelegate.thisUser iD]
                            };
     
     PFPush *push = [[PFPush alloc] init];
     [push setChannels:@[ groupId ]];
     [push setData:data];
+
     [push sendPushInBackground];
 }
 

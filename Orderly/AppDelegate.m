@@ -16,10 +16,23 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 {
     //Silent push handler
-    if([userInfo[@"aps"][@"content-available"] intValue]== 1) //it's the silent notification
+    if([userInfo[@"aps"][@"content-available"] intValue] == 1) //it's the silent notification
     {
-        NSLog(@"Updating group info...");
-        [thisUser.group updateGroupFromServer];
+        if ([userInfo[@"aps"][@"category"] isEqualToString:@"UPDATE_INFO"] &&
+            ![userInfo[@"id"] isEqualToString:[thisUser iD]]) { //Update notification
+            NSLog(@"Updating group info...");
+            [thisUser.group updateGroupFromServer];
+        }
+        else if ([userInfo[@"aps"][@"category"] isEqualToString:@"SPLIT_PAYMENT"] &&
+                 [userInfo[@"group_members"] containsObject:[thisUser iD]] &&
+                 ![userInfo[@"group_members"][0] isEqualToString:[thisUser iD]]) {
+            //If you get a SPLIT_PAYMENT alert, you are in the list to split with, and you didn't send the SPLIT_PAYMENT alert
+            NSArray * usersToSplit = userInfo[@"group_members"];
+            NSLog(@"Splitting payment with %@...", usersToSplit);
+        }
+        else {
+            NSLog(@"Recieved silent push notification. No action necessary.");
+        }
         
         handler(UIBackgroundFetchResultNewData);
         return;
