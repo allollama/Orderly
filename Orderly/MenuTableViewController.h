@@ -14,6 +14,7 @@
 
 @property Menu* menu;
 @property User* user;
+@property NSString* restaurantName;
 
 -(void)reviewOrder;
 

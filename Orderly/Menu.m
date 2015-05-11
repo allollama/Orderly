@@ -10,7 +10,7 @@
 
 @implementation Menu
 
-@synthesize menu, numOfSections, categories, categoriesDescription;
+@synthesize menu, numOfSections, categories, categoriesDescription, restaurant;
 
 - (instancetype) init {
     if (self = [super init]) {

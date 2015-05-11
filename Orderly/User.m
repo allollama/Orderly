@@ -141,7 +141,7 @@
             }
         }
     }];
-    
+    order.status = COMPLETE;
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "Order.h"
 #import "Group.h"
 #import "MenuItem.h"
+#import "PaidViewController.h"
 
 @interface SplitPaymentTableViewController ()
 
@@ -38,6 +39,16 @@ UILabel *myLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIView appearance] setTintColor:[UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1]];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Elegant_Background-7"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    self.navigationItem.title = @"Your Order:";
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationItem.hidesBackButton = YES;
     
     AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     user = delegate.thisUser;
@@ -65,9 +76,9 @@ UILabel *myLabel;
     
     usersToSplitWith = [[NSMutableArray alloc]init];
     
-    
+    /* use for testing
     [user.group addGroupMember:[[User alloc]initWithID:@"12345"]];
-    [user.group addGroupMember:[[User alloc]initWithID:@"2345"]];
+    [user.group addGroupMember:[[User alloc]initWithID:@"2345"]];*/
     
     groupMembersNotIncludingUser = [[NSMutableArray alloc]init];
     for (User* user_ in user.group.members) {
@@ -85,7 +96,10 @@ UILabel *myLabel;
 }
 
 - (void)pay {
-    
+    PaidViewController* vc = [[PaidViewController alloc] init];
+    vc.total = [self totalPrice];
+    self.navigationItem.title = @"";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

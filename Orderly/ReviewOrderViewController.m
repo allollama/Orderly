@@ -11,6 +11,7 @@
 #import "Order.h"
 #import "Group.h"
 #import "MenuItem.h"
+#import "OrderStatusViewController.h"
 
 @interface ReviewOrderViewController ()
 
@@ -33,6 +34,15 @@ UILabel* groupOrderTotal;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Elegant_Background-7"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    user = delegate.thisUser;
     
     scrollView = [[UIScrollView alloc] init];
     
@@ -167,10 +177,11 @@ UILabel* groupOrderTotal;
 }
 
 - (void)submitOrder {
+    
+    OrderStatusViewController *vc = [[OrderStatusViewController alloc] init];
+    self.navigationItem.title = @"";
+    [self.navigationController pushViewController:vc animated:YES];
     [user submitOrder];
-    UIStoryboard *storyboard = self.storyboard;
-    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"OrderStatus"];
-    [self.navigationController pushViewController:presentVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "OrderStatusViewController.h"
 #import "OrderStatusView.h"
+#import "SplitPaymentTableViewController.h" 
 
 @interface OrderStatusViewController ()
 
@@ -24,6 +25,14 @@ double rotate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Elegant_Background-7"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    self.navigationController.navigationBarHidden = YES;
+    
     v = [[OrderStatusView alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.3, 300, 300)];
     [self.view addSubview:v];
     UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.15, self.view.frame.size.width * 0.8, 45)];
@@ -44,10 +53,8 @@ double rotate;
 
 - (void)goToPayment {
     [aTimer invalidate];
-    //[self orderCompleted];
-    UIStoryboard *storyboard = self.storyboard;
-    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"SplitPayment"];
-    [self.navigationController pushViewController:presentVC animated:YES];
+    SplitPaymentTableViewController *vc = [[SplitPaymentTableViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

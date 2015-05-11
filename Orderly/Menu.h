@@ -15,6 +15,7 @@
 @property NSUInteger numOfSections;
 @property NSMutableArray* categories;
 @property NSMutableArray* categoriesDescription;
+@property NSString* restaurant;
 
 -(instancetype) init; //temporary method - delete once below works
 -(instancetype) initWithPath:(NSString*) filePath; //doesn't work yet

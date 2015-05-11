@@ -34,28 +34,38 @@
 -(IBAction)showMenu {
     UIStoryboard *storyboard = self.storyboard;
     UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    self.navigationItem.title = @"";
     [self.navigationController pushViewController:presentVC animated:YES];
     if ([presentVC isKindOfClass:[MenuTableViewController class]]) {
         MenuTableViewController *menuVC = (MenuTableViewController *) presentVC;
         menuVC.user = thisUser;
         menuVC.menu = theMenu;
+        menuVC.restaurantName = _restaurantName;
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Elegant_Background-7"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    self.navigationItem.title = _restaurantName;
+    
     self.groupTextField.delegate = self;
     
     AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     thisUser = delegate.thisUser;
     
     theMenu = [[Menu alloc]initWithPath:[@"https://omnisplit.com/api/menu/" stringByAppendingString: restaurantId]];
-               //54e6794d62fdbd0612cbd5a1"];
-    //theMenu = [[Menu alloc]init];
     delegate.theMenu = theMenu;
     
     UILabel* restaurantNameAndInfo = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width* 0.1, self.view.frame.size.height * 0.15, self.view.frame.size.width * 0.8, self.view.frame.size.height * 0.20)];
     restaurantNameAndInfo.text = [NSString stringWithFormat:@"%@ \n\n %@", _restaurantName, _restaurantInfo];
+    theMenu.restaurant = _restaurantName;
+    self.navigationItem.title = _restaurantName;
     restaurantNameAndInfo.numberOfLines = 5;
     restaurantNameAndInfo.textAlignment = NSTextAlignmentCenter;
     restaurantNameAndInfo.font = [UIFont fontWithName:@"Avenir" size:20];
@@ -74,6 +84,12 @@
     groupTextField.delegate = self;
     [self.view addSubview:groupTextField];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationItem.title = _restaurantName;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

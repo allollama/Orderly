@@ -28,8 +28,10 @@
 		937033B61A338DDF00BE3D60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 937033B51A338DDF00BE3D60 /* Images.xcassets */; };
 		937033B91A338DDF00BE3D60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937033B71A338DDF00BE3D60 /* LaunchScreen.xib */; };
 		937033C51A338DDF00BE3D60 /* OrderlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 937033C41A338DDF00BE3D60 /* OrderlyTests.m */; };
-		93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */; };
 		93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BC50BA1A94541F00703156 /* MenuTableViewController.m */; };
+		93DD910E1B006F7100FF02ED /* logopurp.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD910D1B006F7100FF02ED /* logopurp.png */; };
+		93DD91121B0072B600FF02ED /* Elegant_Background-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD91111B0072B600FF02ED /* Elegant_Background-7.png */; };
+		93DD91171B00891C00FF02ED /* PaidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DD91161B00891C00FF02ED /* PaidViewController.m */; };
 		93F26A221AE9D6200022397B /* SplitPaymentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F26A211AE9D6200022397B /* SplitPaymentTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -94,10 +96,12 @@
 		937033BE1A338DDF00BE3D60 /* OmniSplitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniSplitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		937033C31A338DDF00BE3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937033C41A338DDF00BE3D60 /* OrderlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderlyTests.m; sourceTree = "<group>"; };
-		93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchRestaurantsViewController.h; sourceTree = "<group>"; };
-		93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchRestaurantsViewController.m; sourceTree = "<group>"; };
 		93BC50B91A94541F00703156 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		93BC50BA1A94541F00703156 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		93DD910D1B006F7100FF02ED /* logopurp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logopurp.png; sourceTree = "<group>"; };
+		93DD91111B0072B600FF02ED /* Elegant_Background-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Elegant_Background-7.png"; sourceTree = "<group>"; };
+		93DD91151B00891C00FF02ED /* PaidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaidViewController.h; sourceTree = "<group>"; };
+		93DD91161B00891C00FF02ED /* PaidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidViewController.m; sourceTree = "<group>"; };
 		93F26A201AE9D61F0022397B /* SplitPaymentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitPaymentTableViewController.h; sourceTree = "<group>"; };
 		93F26A211AE9D6200022397B /* SplitPaymentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitPaymentTableViewController.m; sourceTree = "<group>"; };
 		F1CE429A8A27DFAD020A23EA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,8 +176,7 @@
 		937033A71A338DDF00BE3D60 /* Orderly */ = {
 			isa = PBXGroup;
 			children = (
-				93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */,
-				93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */,
+				93DD91111B0072B600FF02ED /* Elegant_Background-7.png */,
 				17213A2E1AA923DA000EDF66 /* RestaurantsTableViewController.h */,
 				17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */,
 				93502FFE1A9C499D0032A622 /* RestaurantLandingPageViewController.h */,
@@ -191,6 +194,8 @@
 				93182D601AFD78130029B91B /* OrderStatusView.m */,
 				93F26A201AE9D61F0022397B /* SplitPaymentTableViewController.h */,
 				93F26A211AE9D6200022397B /* SplitPaymentTableViewController.m */,
+				93DD91151B00891C00FF02ED /* PaidViewController.h */,
+				93DD91161B00891C00FF02ED /* PaidViewController.m */,
 				9363687D1A7B543800CD9042 /* Group.h */,
 				9363687E1A7B543800CD9042 /* Group.m */,
 				9363687A1A7B53E500CD9042 /* User.h */,
@@ -208,6 +213,7 @@
 				937033B21A338DDF00BE3D60 /* Main.storyboard */,
 				937033B51A338DDF00BE3D60 /* Images.xcassets */,
 				937033B71A338DDF00BE3D60 /* LaunchScreen.xib */,
+				93DD910D1B006F7100FF02ED /* logopurp.png */,
 				937033A81A338DDF00BE3D60 /* Supporting Files */,
 				17213A2A1AA91F6D000EDF66 /* RestaurantTableViewCell.h */,
 				17213A2B1AA92032000EDF66 /* RestaurantTableViewCell.m */,
@@ -339,10 +345,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DD91121B0072B600FF02ED /* Elegant_Background-7.png in Resources */,
 				17C99A6A1AE0A442005B84C5 /* Main.storyboard in Resources */,
 				937033B91A338DDF00BE3D60 /* LaunchScreen.xib in Resources */,
 				9340C3681AF43FF10008A76E /* 200px-Ambox_emblem_minus.svg.png in Resources */,
 				937033B61A338DDF00BE3D60 /* Images.xcassets in Resources */,
+				93DD910E1B006F7100FF02ED /* logopurp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,13 +409,13 @@
 				932367DB1AA5971B00D4322A /* OrderStatusViewController.m in Sources */,
 				937033AB1A338DDF00BE3D60 /* main.m in Sources */,
 				93BC50BB1A94541F00703156 /* MenuTableViewController.m in Sources */,
+				93DD91171B00891C00FF02ED /* PaidViewController.m in Sources */,
 				936368761A7B4AED00CD9042 /* MenuItem.m in Sources */,
 				936368821A7EFF5900CD9042 /* Menu.m in Sources */,
 				932367D81AA3E2AD00D4322A /* ReviewOrderViewController.m in Sources */,
 				17213A2C1AA92032000EDF66 /* RestaurantTableViewCell.m in Sources */,
 				93F26A221AE9D6200022397B /* SplitPaymentTableViewController.m in Sources */,
 				935030001A9C499D0032A622 /* RestaurantLandingPageViewController.m in Sources */,
-				93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */,
 				93182D611AFD78130029B91B /* OrderStatusView.m in Sources */,
 				9363687F1A7B543800CD9042 /* Group.m in Sources */,
 				9340C3661AF4389C0008A76E /* myButton.m in Sources */,

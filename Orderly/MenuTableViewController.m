@@ -15,20 +15,24 @@
 
 @implementation MenuTableViewController
 
-@synthesize menu, user;
+@synthesize menu, user, restaurantName;
 
 - (void)reviewOrder {
-    UIStoryboard *storyboard = self.storyboard;
-    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"ReviewOrder"];
-    [self.navigationController pushViewController:presentVC animated:YES];
-    if ([presentVC isKindOfClass:[ReviewOrderViewController class]]) {
-        ReviewOrderViewController *reviewOrderVC = (ReviewOrderViewController *) presentVC;
-        reviewOrderVC.user = user;
-    }
+    ReviewOrderViewController *vc = [[ReviewOrderViewController alloc] init];
+    self.navigationItem.title = @"";
+    vc.navigationItem.title = restaurantName;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Elegant_Background-7"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
     if (user.group != nil) {
         //add continue button to bottom of table view
         UIScreen *mainScreen = [UIScreen mainScreen];
@@ -48,6 +52,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationItem.title = restaurantName;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

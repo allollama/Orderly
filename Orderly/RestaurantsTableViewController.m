@@ -18,10 +18,19 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Didot" size:30], NSFontAttributeName, nil]];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Elegant_Background-7"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationItem.title = @"OmniSplit";
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self dispatchRestaurantsThread];
 }
 
@@ -59,7 +68,6 @@
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = [nib objectAtIndex:0];
-        cell.restaurantNameLabel.font = [UIFont fontWithName:@"Trebuchet" size:12];
     }
     
     Restaurants * globalRestaurants = [Restaurants globalRestaurants];
@@ -88,6 +96,7 @@
     RestaurantTableViewCell *cell = (RestaurantTableViewCell*) [tableView cellForRowAtIndexPath:indexPath];
     UIStoryboard *storyboard = self.storyboard;
     UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"LandingPage"];
+    self.navigationItem.title = @"";
     [self.navigationController pushViewController:presentVC animated:YES];
     if ([presentVC isKindOfClass:[RestaurantLandingPageViewController class]]) {
         RestaurantLandingPageViewController *pageVC = (RestaurantLandingPageViewController *) presentVC;
