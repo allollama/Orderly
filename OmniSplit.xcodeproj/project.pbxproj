@@ -12,6 +12,7 @@
 		17213A331AA9251B000EDF66 /* Restaurants.m in Sources */ = {isa = PBXBuildFile; fileRef = 17213A321AA9251B000EDF66 /* Restaurants.m */; };
 		17C99A6A1AE0A442005B84C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C99A681AE0A442005B84C5 /* Main.storyboard */; };
 		56938B77D9A0A4E7415AB5E9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FFE0370EC78FD835BB969F /* libPods.a */; };
+		93182D611AFD78130029B91B /* OrderStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93182D601AFD78130029B91B /* OrderStatusView.m */; };
 		932367D81AA3E2AD00D4322A /* ReviewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932367D71AA3E2AD00D4322A /* ReviewOrderViewController.m */; };
 		932367DB1AA5971B00D4322A /* OrderStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932367DA1AA5971B00D4322A /* OrderStatusViewController.m */; };
 		9340C3661AF4389C0008A76E /* myButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340C3651AF4389C0008A76E /* myButton.m */; };
@@ -61,6 +62,8 @@
 		17DED5D21AE613D600B78541 /* libPods-OmniSplitTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-OmniSplitTests.a"; path = "Pods/../build/Debug-iphoneos/libPods-OmniSplitTests.a"; sourceTree = "<group>"; };
 		17DED5D31AE613D600B78541 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		25DF033D5C039E7177EA3CD6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		93182D5F1AFD78130029B91B /* OrderStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderStatusView.h; sourceTree = "<group>"; };
+		93182D601AFD78130029B91B /* OrderStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderStatusView.m; sourceTree = "<group>"; };
 		932367D61AA3E2AD00D4322A /* ReviewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewOrderViewController.h; sourceTree = "<group>"; };
 		932367D71AA3E2AD00D4322A /* ReviewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewOrderViewController.m; sourceTree = "<group>"; };
 		932367D91AA5971B00D4322A /* OrderStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderStatusViewController.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				932367D71AA3E2AD00D4322A /* ReviewOrderViewController.m */,
 				932367D91AA5971B00D4322A /* OrderStatusViewController.h */,
 				932367DA1AA5971B00D4322A /* OrderStatusViewController.m */,
+				93182D5F1AFD78130029B91B /* OrderStatusView.h */,
+				93182D601AFD78130029B91B /* OrderStatusView.m */,
 				93F26A201AE9D61F0022397B /* SplitPaymentTableViewController.h */,
 				93F26A211AE9D6200022397B /* SplitPaymentTableViewController.m */,
 				9363687D1A7B543800CD9042 /* Group.h */,
@@ -403,6 +408,7 @@
 				93F26A221AE9D6200022397B /* SplitPaymentTableViewController.m in Sources */,
 				935030001A9C499D0032A622 /* RestaurantLandingPageViewController.m in Sources */,
 				93BC50B21A848C1800703156 /* SearchRestaurantsViewController.m in Sources */,
+				93182D611AFD78130029B91B /* OrderStatusView.m in Sources */,
 				9363687F1A7B543800CD9042 /* Group.m in Sources */,
 				9340C3661AF4389C0008A76E /* myButton.m in Sources */,
 			);

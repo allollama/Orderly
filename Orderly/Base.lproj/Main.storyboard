@@ -165,6 +165,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="goToPayment" destination="Hsk-1q-68p" eventType="touchUpInside" id="KZ0-Bz-qhl"/>
                                     <action selector="tempFunction" destination="Hsk-1q-68p" eventType="touchUpInside" id="eEc-iW-Ipy"/>
                                 </connections>
                             </button>

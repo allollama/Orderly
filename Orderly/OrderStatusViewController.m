@@ -10,6 +10,7 @@
 #import "Group.h"
 #import "AppDelegate.h"
 #import "OrderStatusViewController.h"
+#import "OrderStatusView.h"
 
 @interface OrderStatusViewController ()
 
@@ -17,12 +18,27 @@
 
 @implementation OrderStatusViewController
 
+NSTimer* aTimer;
+OrderStatusView* v;
+double rotate;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    v = [[OrderStatusView alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.5, 300, 300)];
+    [self.view addSubview:v];
+    rotate = 0;
+    aTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(rotateView) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)tempFunction {
+- (void)rotateView {
+    rotate += ((3.14 * 1)/ 180);
+    v.transform = CGAffineTransformMakeRotation(rotate);
+    
+}
+
+- (IBAction)goToPayment {
+    [aTimer invalidate];
     [self orderCompleted];
     UIStoryboard *storyboard = self.storyboard;
     UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"SplitPayment"];

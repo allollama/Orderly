@@ -28,7 +28,7 @@
             UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
             if ([[navc visibleViewController] class] == [ReviewOrderViewController class]) {
                 ReviewOrderViewController * vc = (ReviewOrderViewController* ) [navc visibleViewController];
-                [vc updateView];
+                [vc populateView];
             }
 
         }
@@ -47,7 +47,7 @@
             UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
             if ([[navc visibleViewController] class] == [OrderStatusViewController class]) {
                 OrderStatusViewController * vc = (OrderStatusViewController *) [navc visibleViewController];
-                [vc tempFunction];
+                [vc goToPayment];
             }
 
         }

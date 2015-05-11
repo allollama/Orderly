@@ -14,6 +14,6 @@
 @property User* user;
 
 -(void)submitOrder;
--(void)updateView;
+-(void)populateView;
 
 @end
