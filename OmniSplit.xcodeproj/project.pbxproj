@@ -174,6 +174,8 @@
 			children = (
 				93BC50B01A848C1800703156 /* SearchRestaurantsViewController.h */,
 				93BC50B11A848C1800703156 /* SearchRestaurantsViewController.m */,
+				17213A2E1AA923DA000EDF66 /* RestaurantsTableViewController.h */,
+				17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */,
 				93502FFE1A9C499D0032A622 /* RestaurantLandingPageViewController.h */,
 				93502FFF1A9C499D0032A622 /* RestaurantLandingPageViewController.m */,
 				93BC50B91A94541F00703156 /* MenuTableViewController.h */,
@@ -197,8 +199,6 @@
 				9363686D1A7B3FFE00CD9042 /* Order.m */,
 				936368741A7B4AED00CD9042 /* MenuItem.h */,
 				936368751A7B4AED00CD9042 /* MenuItem.m */,
-				17213A2E1AA923DA000EDF66 /* RestaurantsTableViewController.h */,
-				17213A2F1AA923EA000EDF66 /* RestaurantsTableViewController.m */,
 				17213A311AA924C1000EDF66 /* Restaurants.h */,
 				17213A321AA9251B000EDF66 /* Restaurants.m */,
 				936368801A7EFF5900CD9042 /* Menu.h */,

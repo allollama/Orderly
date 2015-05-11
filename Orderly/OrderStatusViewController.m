@@ -24,8 +24,13 @@ double rotate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    v = [[OrderStatusView alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.5, 300, 300)];
+    v = [[OrderStatusView alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.3, 300, 300)];
     [self.view addSubview:v];
+    UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.15, self.view.frame.size.width * 0.8, 45)];
+    label.text = @"Order Pending";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont fontWithName:@"Avenir" size:30];
+    [self.view addSubview:label];
     rotate = 0;
     aTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(rotateView) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view.
@@ -37,43 +42,12 @@ double rotate;
     
 }
 
-- (IBAction)goToPayment {
+- (void)goToPayment {
     [aTimer invalidate];
-    [self orderCompleted];
+    //[self orderCompleted];
     UIStoryboard *storyboard = self.storyboard;
     UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"SplitPayment"];
     [self.navigationController pushViewController:presentVC animated:YES];
-}
-
-- (void)orderCompleted {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
-    [query whereKey:@"channel" equalTo:[appDelegate.thisUser.group iD]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            BOOL orderDone = true;
-            for (PFObject *object in objects) {
-                if (object[@"submitted"] == [NSNumber numberWithBool:NO]) {
-                    orderDone = false;
-                    break;
-                }
-            }
-            if (orderDone) { //Send push notification to tell everyone to move to payment
-                NSDictionary *data = @{
-                                       @"content-available": @1,
-                                       @"sound": @"",
-                                       @"category": @"MOVE_TO_PAYMENT",
-                                       };
-                
-                PFPush *push = [[PFPush alloc] init];
-                [push setChannels:@[ [appDelegate.thisUser.group iD] ]];
-                [push setData:data];
-                
-                [push sendPushInBackground];
-            }
-        }
-    }];
-
 }
 
 - (void)didReceiveMemoryWarning {

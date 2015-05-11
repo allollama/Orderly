@@ -48,23 +48,26 @@ UILabel *myLabel;
     }
     
     UIScreen *mainScreen = [UIScreen mainScreen];
-    UIView* bottomView = [[UIView alloc] initWithFrame:CGRectMake(0,mainScreen.bounds.size.height - 40,mainScreen.bounds.size.width,40)];
+    UIView* bottomView = [[UIView alloc] initWithFrame:CGRectMake(0,mainScreen.bounds.size.height - 100,mainScreen.bounds.size.width,75)];
     myLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, mainScreen.bounds.size.width, 30)];
     myLabel.text = [NSString stringWithFormat:@"Total price: $%.02f", [self totalPrice]];
     myLabel.textAlignment = NSTextAlignmentCenter;
+    myLabel.font = [UIFont fontWithName:@"Avenir" size:20];
     UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    myButton.frame = CGRectMake(mainScreen.bounds.size.width/3, 25, mainScreen.bounds.size.width/3, 50);
+    myButton.frame = CGRectMake(mainScreen.bounds.size.width/3, 30, mainScreen.bounds.size.width/3, 60);
     [myButton setTitle:@"PAY" forState:UIControlStateNormal];
     [myButton addTarget:self action:@selector(pay) forControlEvents:UIControlEventTouchUpInside];
+    [myButton setTitleColor:[UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1] forState:UIControlStateNormal];
+    myButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:30];
     [bottomView addSubview:myButton];
     [bottomView addSubview:myLabel];
     self.tableView.tableFooterView = bottomView;
     
     usersToSplitWith = [[NSMutableArray alloc]init];
     
-    /* use for testing
+    
     [user.group addGroupMember:[[User alloc]initWithID:@"12345"]];
-    [user.group addGroupMember:[[User alloc]initWithID:@"2345"]];*/
+    [user.group addGroupMember:[[User alloc]initWithID:@"2345"]];
     
     groupMembersNotIncludingUser = [[NSMutableArray alloc]init];
     for (User* user_ in user.group.members) {
@@ -154,7 +157,6 @@ UILabel *myLabel;
 }
 
 - (void)addPartial:(MenuItem*)foodItem byAmount:(float)theAmount {
-    //JORDAN
     [user addItemToOrder:foodItem];
     divideByAmounts[user.order.menuItems.count - 1] = [NSNumber numberWithFloat:(theAmount)];
     [(UITableView*) self.view reloadData];
@@ -176,6 +178,7 @@ UILabel *myLabel;
     
         UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, cell.frame.size.width * 0.75 + 50, cell.frame.size.height)];
         label.text = [NSString stringWithFormat:@"%@ $%.02f", foodItem.name, foodItem.price / [(NSNumber*) divideByAmounts[indexPath.row] floatValue] ];
+        label.font = [UIFont fontWithName:@"Avenir" size:20];
         label.adjustsFontSizeToFitWidth = YES;
         [cell addSubview:label];
     
@@ -184,6 +187,8 @@ UILabel *myLabel;
         [splitButton setTitle:@"Split" forState:UIControlStateNormal];
         [splitButton addTarget:self action:@selector(split:) forControlEvents:UIControlEventTouchUpInside];
         splitButton.tag = indexPath.row;
+        [splitButton setTitleColor:[UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1] forState:UIControlStateNormal];
+        splitButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:20];
         [cell addSubview:splitButton];
     
         return cell;

@@ -39,15 +39,19 @@ UILabel* groupOrderTotal;
     yourOrderLabel = [[UILabel alloc] init];
     yourOrderLabel.text = @"Your Order:";
     yourOrderLabel.textAlignment = NSTextAlignmentCenter;
+    yourOrderLabel.font = [UIFont fontWithName:@"Avenir" size:20];
 
     userOrderLeft = [[UILabel alloc] init];
     userOrderLeft.adjustsFontSizeToFitWidth = YES;
+    userOrderLeft.font = [UIFont fontWithName:@"Avenir" size:17];
     
     userOrderRight = [[UILabel alloc] init];
     userOrderRight.lineBreakMode = NSLineBreakByWordWrapping;
+    userOrderRight.font = [UIFont fontWithName:@"Avenir" size:17];
     
     userOrderTotal = [[UILabel alloc] init];
     userOrderTotal.textAlignment = NSTextAlignmentCenter;
+    userOrderTotal.font = [UIFont fontWithName:@"Avenir" size:20];
     
     [scrollView addSubview:yourOrderLabel];
     [scrollView addSubview:userOrderLeft];
@@ -57,22 +61,27 @@ UILabel* groupOrderTotal;
     submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     [submitButton addTarget:self action:@selector(submitOrder) forControlEvents:UIControlEventTouchUpInside];
-    submitButton.titleLabel.font = [UIFont systemFontOfSize:24];
+    [submitButton setTitleColor:[UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1] forState:UIControlStateNormal];
+    submitButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:26];
     [scrollView addSubview:submitButton];
     
     groupOrderLabel = [[UILabel alloc]init];
     groupOrderLabel.text = @"Group Order:";
     groupOrderLabel.textAlignment = NSTextAlignmentCenter;
+    groupOrderLabel.font = [UIFont fontWithName:@"Avenir" size:20];
     [scrollView addSubview:groupOrderLabel];
     
     groupOrderLeft = [[UILabel alloc] init];
     groupOrderLeft.adjustsFontSizeToFitWidth = YES;
+    groupOrderLeft.font = [UIFont fontWithName:@"Avenir" size:17];
     
     groupOrderRight = [[UILabel alloc] init];
     groupOrderRight.lineBreakMode = NSLineBreakByWordWrapping;
+    groupOrderRight.font = [UIFont fontWithName:@"Avenir" size:17];
     
     groupOrderTotal = [[UILabel alloc] init];
     groupOrderTotal.textAlignment = NSTextAlignmentCenter;
+    groupOrderTotal.font = [UIFont fontWithName:@"Avenir" size:20];
     
     [scrollView addSubview:groupOrderLeft];
     [scrollView addSubview:groupOrderRight];

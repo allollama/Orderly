@@ -32,10 +32,13 @@
     if (user.group != nil) {
         //add continue button to bottom of table view
         UIScreen *mainScreen = [UIScreen mainScreen];
-        UIView* bottomView = [[UIView alloc] initWithFrame:CGRectMake(0,mainScreen.bounds.size.height - 10,mainScreen.bounds.size.width,mainScreen.bounds.size.height)];
+        UIView* bottomView = [[UIView alloc] initWithFrame:CGRectMake(0,mainScreen.bounds.size.height - 10,mainScreen.bounds.size.width,100)];
         UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        myButton.frame = CGRectMake(mainScreen.bounds.size.width/3, 0, mainScreen.bounds.size.width/3, 50);
+        myButton.frame = CGRectMake(mainScreen.bounds.size.width * 0.1, 0, mainScreen.bounds.size.width * 0.8, 50);
+        myButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:26];
+        myButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [myButton setTitle:@"CONTINUE" forState:UIControlStateNormal];
+        [myButton setTitleColor:[UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1] forState:UIControlStateNormal];
         [myButton addTarget:self action:@selector(reviewOrder) forControlEvents:UIControlEventTouchUpInside];
         [bottomView addSubview:myButton];
         self.tableView.tableFooterView = bottomView;
@@ -73,7 +76,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* cellID = @"menuItem";
+    NSString* cellID = @"MenuCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
@@ -81,8 +84,6 @@
     MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"$%.02f %@", foodItem.price, foodItem.name];
     cell.detailTextLabel.text = foodItem.descrp;
-    cell.detailTextLabel.numberOfLines = 2;
-    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -114,11 +115,11 @@
         [numberMinusButton setBackgroundImage:image forState:UIControlStateNormal];
         [numberMinusButton addTarget:self action:@selector(removeItem:) forControlEvents:UIControlEventTouchUpInside];
         numberMinusButton.indexPath = indexPath;
-        numberMinusButton.frame = CGRectMake(0, 0, 40, cell.frame.size.height);
+        numberMinusButton.frame = CGRectMake(0, 0, 70, cell.frame.size.height);
 
-        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 40, cell.frame.size.height)];
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(70, 0, 40, cell.frame.size.height)];
         label.text = [NSString stringWithFormat:@"%d", [user numberOfItemInOrder:foodItem]];
-        UIView* subview = [[UIView alloc]initWithFrame:CGRectMake(cell.frame.size.width * 0.80, 0, cell.frame.size.width * 0.2, cell.frame.size.height)];
+        UIView* subview = [[UIView alloc]initWithFrame:CGRectMake(cell.frame.size.width * 0.70, 0, cell.frame.size.width * 0.3, cell.frame.size.height)];
         label.layer.borderColor = [UIColor blackColor].CGColor;
         label.layer.borderWidth = 2.0;
         label.textAlignment = NSTextAlignmentCenter;

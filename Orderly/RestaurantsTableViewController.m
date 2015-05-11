@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Didot" size:30], NSFontAttributeName, nil]];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -57,6 +59,7 @@
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = [nib objectAtIndex:0];
+        cell.restaurantNameLabel.font = [UIFont fontWithName:@"Trebuchet" size:12];
     }
     
     Restaurants * globalRestaurants = [Restaurants globalRestaurants];

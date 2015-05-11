@@ -26,6 +26,7 @@
 - (int) numberOfItemInOrder: (MenuItem*) foodItem;
 - (void) removeItemFromOrder: (MenuItem*) foodItem;
 - (void) submitOrder;
+- (void) orderCompleted;
 
 - (void) computeNewId;
 

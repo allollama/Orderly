@@ -12,9 +12,7 @@
 
 //this will show the order status and the server will call orderCompleted to go to payment screen
 
-- (IBAction)goToPayment;
-
-- (void) orderCompleted;
+- (void)goToPayment;
 - (void) rotateView;
 
 @end

@@ -33,11 +33,11 @@
                         endAngle:((3.14 * 130)/ 180)
                        clockwise:YES];
     
-    [largerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:140 startAngle:0 endAngle:3.14*2 clockwise:YES];
+    [largerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:140 startAngle:0 endAngle:6.3 clockwise:YES];
     
-    [middleCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:90 startAngle:0 endAngle:3.14*2 clockwise:YES];
+    [middleCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:90 startAngle:0 endAngle:6.3 clockwise:YES];
     
-    [smallerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:80 startAngle:0 endAngle:3.14*2 clockwise:YES];
+    [smallerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:80 startAngle:0 endAngle:6.3 clockwise:YES];
     
     bezierPath.lineWidth = 50;
     largerCircle.lineWidth = 5;

@@ -25,15 +25,29 @@
         <scene sceneID="Tu0-V5-5rN">
             <objects>
                 <tableViewController storyboardIdentifier="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X3E-s6-e5Y" customClass="MenuTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aew-hR-yDl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="80" sectionHeaderHeight="10" sectionFooterHeight="10" id="aew-hR-yDl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" id="4dd-j0-vo0">
+                            <tableViewCell contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" textLabel="8OB-sV-dWb" detailTextLabel="Aqg-Xz-4D9" style="IBUITableViewCellStyleSubtitle" id="4dd-j0-vo0">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4dd-j0-vo0" id="VBf-h0-fij">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" tableViewCell="4dd-j0-vo0" id="VBf-h0-fij">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8OB-sV-dWb">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Aqg-Xz-4D9">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -51,63 +65,63 @@
         <scene sceneID="78j-Ya-APO">
             <objects>
                 <tableViewController id="KcJ-78-7Kl" customClass="RestaurantsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sRg-75-JXe">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="22" sectionFooterHeight="22" id="sRg-75-JXe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="86" id="6ti-im-gct" customClass="RestaurantTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" id="6ti-im-gct" customClass="RestaurantTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6ti-im-gct" id="xr8-MJ-I8L">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTX-az-fQI">
-                                            <rect key="frame" x="8" y="8" width="304" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="8" y="0.0" width="304" height="32"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Line 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IE-yL-xb9">
-                                            <rect key="frame" x="8" y="42" width="304" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Address Line 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IE-yL-xb9">
+                                            <rect key="frame" x="8" y="63" width="304" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="bQy-30-i78"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                            <color key="textColor" red="0.46184501262626243" green="0.46184501262626243" blue="0.46184501262626243" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Line 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xot-nk-JGA">
-                                            <rect key="frame" x="8" y="57" width="304" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" misplaced="YES" text="Address Line 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xot-nk-JGA">
+                                            <rect key="frame" x="8" y="89" width="304" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="DiQ-Gt-WGP"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                            <color key="textColor" red="0.46184501259999999" green="0.46184501259999999" blue="0.46184501259999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIV-2q-bW8">
-                                            <rect key="frame" x="8" y="25" width="304" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIV-2q-bW8">
+                                            <rect key="frame" x="8" y="29" width="304" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="0F9-1e-355"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="KIV-2q-bW8" firstAttribute="top" secondItem="xr8-MJ-I8L" secondAttribute="topMargin" constant="17" id="2nV-1W-HNI"/>
+                                        <constraint firstItem="KIV-2q-bW8" firstAttribute="top" secondItem="xr8-MJ-I8L" secondAttribute="topMargin" constant="21" id="2nV-1W-HNI"/>
                                         <constraint firstItem="KIV-2q-bW8" firstAttribute="trailing" secondItem="xr8-MJ-I8L" secondAttribute="trailingMargin" id="AD6-wB-cZa"/>
                                         <constraint firstItem="xTX-az-fQI" firstAttribute="leading" secondItem="xr8-MJ-I8L" secondAttribute="leadingMargin" id="Apn-9s-vVp"/>
                                         <constraint firstItem="Xot-nk-JGA" firstAttribute="leading" secondItem="xr8-MJ-I8L" secondAttribute="leadingMargin" id="G7h-1a-J18"/>
                                         <constraint firstItem="7IE-yL-xb9" firstAttribute="leading" secondItem="xr8-MJ-I8L" secondAttribute="leadingMargin" id="Oks-sj-zPJ"/>
                                         <constraint firstItem="KIV-2q-bW8" firstAttribute="leading" secondItem="xr8-MJ-I8L" secondAttribute="leadingMargin" id="ZF6-72-ySf"/>
-                                        <constraint firstItem="Xot-nk-JGA" firstAttribute="top" secondItem="KIV-2q-bW8" secondAttribute="bottom" constant="11" id="c14-ID-w7R"/>
+                                        <constraint firstItem="Xot-nk-JGA" firstAttribute="top" secondItem="KIV-2q-bW8" secondAttribute="bottom" constant="15" id="c14-ID-w7R"/>
                                         <constraint firstItem="7IE-yL-xb9" firstAttribute="trailing" secondItem="xr8-MJ-I8L" secondAttribute="trailingMargin" id="cDf-Vy-BvK"/>
-                                        <constraint firstItem="7IE-yL-xb9" firstAttribute="top" secondItem="xTX-az-fQI" secondAttribute="bottom" constant="12" id="fT8-iz-zoZ"/>
+                                        <constraint firstItem="7IE-yL-xb9" firstAttribute="top" secondItem="xTX-az-fQI" secondAttribute="bottom" constant="13" id="fT8-iz-zoZ"/>
                                         <constraint firstItem="Xot-nk-JGA" firstAttribute="trailing" secondItem="xr8-MJ-I8L" secondAttribute="trailingMargin" id="fYn-s7-lWA"/>
                                         <constraint firstItem="xTX-az-fQI" firstAttribute="trailing" secondItem="xr8-MJ-I8L" secondAttribute="trailingMargin" id="ghx-vQ-VxX"/>
-                                        <constraint firstItem="xTX-az-fQI" firstAttribute="top" secondItem="xr8-MJ-I8L" secondAttribute="topMargin" constant="1" id="kkT-ll-PI6"/>
+                                        <constraint firstItem="xTX-az-fQI" firstAttribute="top" secondItem="xr8-MJ-I8L" secondAttribute="topMargin" id="kkT-ll-PI6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -123,7 +137,9 @@
                             <outlet property="delegate" destination="KcJ-78-7Kl" id="Blx-BF-R0c"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="OmniSplit" id="b8l-ws-fp7"/>
+                    <navigationItem key="navigationItem" title="OmniSplit" id="b8l-ws-fp7">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="4nJ-IE-AZs"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zS-Kr-8mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,17 +174,6 @@
                     <view key="view" contentMode="scaleToFill" id="GNW-K0-xqJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeW-wT-nfX">
-                                <rect key="frame" x="20" y="210" width="280" height="30"/>
-                                <state key="normal" title="Order completed - go to payment screen">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToPayment" destination="Hsk-1q-68p" eventType="touchUpInside" id="KZ0-Bz-qhl"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -216,7 +221,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMy-Ab-Nt2">
                                 <rect key="frame" x="77" y="400" width="210" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Join Ordering Group">
                                     <color key="titleColor" red="0.40299103390000002" green="0.015065085380000001" blue="0.79091698229999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -227,7 +232,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK0-7l-b8q">
                                 <rect key="frame" x="116" y="467" width="132" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="View Menu">
                                     <color key="titleColor" red="0.40299103390000002" green="0.015065085380000001" blue="0.79091698229999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
