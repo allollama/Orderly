@@ -14,13 +14,9 @@
 #import "SplitPaymentTableViewController.h"
 #import "Order.h"
 
-@interface OrderStatusViewController ()
-
-@end
-
 @implementation OrderStatusViewController
 
-NSTimer* aTimer;
+NSTimer *aTimer, *proceedTimer;
 OrderStatusView* v;
 double rotate;
 
@@ -42,8 +38,35 @@ double rotate;
     label.font = [UIFont fontWithName:@"Avenir" size:30];
     [self.view addSubview:label];
     rotate = 0;
+    proceedTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(queryDB) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:proceedTimer forMode:NSRunLoopCommonModes];
     aTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(rotateView) userInfo:nil repeats:YES];
     // Do any additional setup after loading the view.
+}
+
+- (void) queryDB {
+    //QUERY THE DB HERE
+    NSLog(@"here");
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+    [query whereKey:@"channel" equalTo:[appDelegate.thisUser.group iD]];
+    [query selectKeys:@[@"submitted"]];
+    
+    NSArray * objects = [query findObjects];
+    
+    BOOL ready = true;
+    for (int i = 0; i < [objects count]; i++) {
+        if (objects[i][@"submitted"] == [NSNumber numberWithBool:NO])
+            ready = false;
+    }
+    if (ready) {
+        NSLog(@"Database says that everyone is ready to proceed.");
+        User* user = appDelegate.thisUser;
+        user.group.order.status = SUBMITTED;
+    }
+    else {
+        NSLog(@"Not ready to proceed...");
+    }
 }
 
 - (void)rotateView {
@@ -58,6 +81,7 @@ double rotate;
 
 - (void)goToPayment {
     [aTimer invalidate];
+    [proceedTimer invalidate];
     SplitPaymentTableViewController *vc = [[SplitPaymentTableViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }

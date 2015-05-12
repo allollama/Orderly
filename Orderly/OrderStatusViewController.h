@@ -12,7 +12,8 @@
 
 //this will show the order status and the server will call orderCompleted to go to payment screen
 
-- (void)goToPayment;
+- (void) goToPayment;
 - (void) rotateView;
+- (void) queryDB;
 
 @end

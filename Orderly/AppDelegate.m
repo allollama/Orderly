@@ -42,7 +42,7 @@
         }
         else if ([userInfo[@"aps"][@"category"] isEqualToString:@"MOVE_TO_PAYMENT"]) {
             thisUser.group.order.status = SUBMITTED;
-
+            NSLog(@"ALL ORDERS HAVE BEEN SUBMITTED");
         }
         else {
             NSLog(@"Recieved silent push notification with no specified action (could be a push notification you just sent).");
