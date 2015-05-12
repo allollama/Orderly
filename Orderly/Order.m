@@ -40,6 +40,16 @@
     return price;
 }
 
+- (NSArray*) listOfUniqueItems {
+    NSMutableArray* temp = [[NSMutableArray alloc]init];
+    for (MenuItem* item in menuItems) {
+        if (![temp containsObject:item]) {
+            [temp addObject:item];
+        }
+    }
+    return temp;
+}
+
 -(NSString*)description {
     return [NSString stringWithFormat:@"%@ price: %.02f", menuItems, [self totalPrice]];
 }

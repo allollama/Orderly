@@ -8,6 +8,8 @@
 
 #import "PaidViewController.h"
 #import "AppDelegate.h"
+#import "Order.h"
+#import "StarsView.h"
 
 @interface PaidViewController ()
 
@@ -28,17 +30,33 @@
     
     AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.3, self.view.frame.size.width * 0.8, self.view.frame.size.height * 0.1)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.1, self.view.frame.size.width * 0.8, self.view.frame.size.height * 0.3)];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont fontWithName:@"Avenir" size:20];
-    label.text = [NSString stringWithFormat:@"You paid %@ $%.02f.\n Thank you! Come back soon!", delegate.theMenu.restaurant, total];
-    label.numberOfLines = 3;
+    label.text = [NSString stringWithFormat:@"You paid %@ $%.02f.\nThank you! Come back soon!\n\nRate the items you ordered:", delegate.theMenu.restaurant, total];
+    label.numberOfLines = 5;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     
     [self.view addSubview:label];
     
+    NSArray* uniqueItems = [delegate.thisUser.order listOfUniqueItems];
+    for (int i = 0; i < uniqueItems.count; i++) {
+        MenuItem* item = uniqueItems[i];
+        UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.4 + i*25, self.view.frame.size.width * 0.4, 30)];
+        label.font = [UIFont fontWithName:@"Avenir" size:20];
+        label.text = item.name;
+        label.adjustsFontSizeToFitWidth = YES;
+        [self.view addSubview:label];
+        
+        StarsView* stars = [[StarsView alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.5, self.view.frame.size.height * 0.4 + i*25, self.view.frame.size.width * 0.4, 30)];
+        UITapGestureRecognizer *gesRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(turnPurple:)];
+        [stars addGestureRecognizer:gesRecognizer];
+        [self.view addSubview:stars];
+    }
+    
+    
     UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(self.view.frame.size.width* 0.1, self.view.frame.size.height * 0.5, self.view.frame.size.width * 0.8, self.view.frame.size.height * 0.1);
+    button.frame = CGRectMake(self.view.frame.size.width* 0.1, self.view.frame.size.height * 0.7, self.view.frame.size.width * 0.8, self.view.frame.size.height * 0.1);
     button.titleLabel.font = [UIFont fontWithName:@"Avenir" size:26];
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     [button setTitle:@"Finish" forState:UIControlStateNormal];
@@ -48,6 +66,12 @@
     [self.view addSubview:button];
 
     // Do any additional setup after loading the view.
+}
+
+- (void)turnPurple:(UITapGestureRecognizer *)tapRecognizer{
+    StarsView* view = (StarsView*) tapRecognizer.view;
+    CGPoint touchPoint = [tapRecognizer locationInView:[tapRecognizer.view self]];
+    [((StarsView*) view) fillToPoint:touchPoint];
 }
 
 - (void)finish {

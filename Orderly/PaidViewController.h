@@ -13,5 +13,6 @@
 @property float total;
 
 -(void)finish;
+- (void)turnPurple:(UITapGestureRecognizer *)tapRecognizer;
 
 @end

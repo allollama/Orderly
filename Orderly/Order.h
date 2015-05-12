@@ -25,5 +25,6 @@ typedef NS_ENUM(NSUInteger, statusCodes)
 
 - (int) containsItem: (MenuItem*) foodItem;
 - (float) totalPrice;
+- (NSArray*) listOfUniqueItems;
 
 @end
