@@ -41,11 +41,7 @@
             [vc addPartial:[theMenu menuItemForName:foodName] byAmount:[usersToSplit count]];
         }
         else if ([userInfo[@"aps"][@"category"] isEqualToString:@"MOVE_TO_PAYMENT"]) {
-            UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
-            if ([[navc visibleViewController] class] == [OrderStatusViewController class]) {
-                OrderStatusViewController * vc = (OrderStatusViewController *) [navc visibleViewController];
-                [vc goToPayment];
-            }
+            thisUser.group.order.status = SUBMITTED;
 
         }
         else {

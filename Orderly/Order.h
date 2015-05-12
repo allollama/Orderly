@@ -16,7 +16,6 @@ typedef NS_ENUM(NSUInteger, statusCodes)
     ORDERING,
     CHANGED,
     SUBMITTED,
-    INPROCESS,
     COMPLETE,
     PAID
 };

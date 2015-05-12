@@ -12,6 +12,7 @@
 #import "OrderStatusViewController.h"
 #import "OrderStatusView.h"
 #import "SplitPaymentTableViewController.h"
+#import "Order.h"
 
 @interface OrderStatusViewController ()
 
@@ -48,6 +49,11 @@ double rotate;
 - (void)rotateView {
     rotate += ((3.14 * 1)/ 180);
     v.transform = CGAffineTransformMakeRotation(rotate);
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    User* user = appDelegate.thisUser;
+    if (user.group.order.status == SUBMITTED) {
+        [self goToPayment];
+    }
 }
 
 - (void)goToPayment {
