@@ -108,7 +108,6 @@ NSTimer* aTimer;
 }
 
 - (void)populateView {
-    //Help me JORDAN
     scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     yourOrderLabel.frame = CGRectMake(self.view.frame.size.width * 0.1, 50, self.view.frame.size.width * 0.8, 25);
     
@@ -131,6 +130,7 @@ NSTimer* aTimer;
             [arrayOfStringsRight addObject:[NSString stringWithFormat:@"$%.02f", foodItem.price]];
         }
     }
+    [userOrderLeftView.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     userOrderLeftView.frame = CGRectMake(self.view.frame.size.width * 0.1, 75, self.view.frame.size.width * 0.60, 25 * arrayOfStringsRight.count);
     userOrderRight.frame = CGRectMake(self.view.frame.size.width * 0.7, 75, self.view.frame.size.width * 0.20, 25 * arrayOfStringsRight.count);
     userOrderRight.numberOfLines = arrayOfStringsRight.count;
@@ -171,6 +171,7 @@ NSTimer* aTimer;
             [arrayOfStringsRight addObject:[NSString stringWithFormat:@"$%.02f", foodItem.price]];
         }
     }
+    [groupOrderLeftView.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     groupOrderLeftView.frame = CGRectMake(self.view.frame.size.width * 0.1, n + 75, self.view.frame.size.width * 0.6, 25 * arrayOfStringsRight.count);
     groupOrderRight.frame = CGRectMake(self.view.frame.size.width * 0.7, n + 75, self.view.frame.size.width * 0.2, 25 * arrayOfStringsRight.count);
     groupOrderRight.numberOfLines = arrayOfStringsRight.count;
@@ -190,11 +191,6 @@ NSTimer* aTimer;
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, n + 200);
     
     [scrollView setNeedsDisplay];
-    
-    [arrayOfItems removeAllObjects];
-    [arrayOfAmounts removeAllObjects];
-    [arrayOfStringsLeft removeAllObjects];
-    [arrayOfStringsRight removeAllObjects];
 }
 
 - (void)submitOrder {
