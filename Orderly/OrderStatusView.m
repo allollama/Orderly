@@ -28,16 +28,16 @@
     
     // Create our arc, with the correct angles
     [bezierPath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
-                          radius:115
+                          radius:(rect.size.width/2 - 35)
                       startAngle:((3.14 * 0)/ 180)
                         endAngle:((3.14 * 130)/ 180)
                        clockwise:YES];
     
-    [largerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:140 startAngle:0 endAngle:6.3 clockwise:YES];
+    [largerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:(rect.size.width/2 - 10) startAngle:0 endAngle:6.3 clockwise:YES];
     
-    [middleCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:90 startAngle:0 endAngle:6.3 clockwise:YES];
+    [middleCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:(rect.size.width/2 - 60) startAngle:0 endAngle:6.3 clockwise:YES];
     
-    [smallerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:80 startAngle:0 endAngle:6.3 clockwise:YES];
+    [smallerCircle addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2) radius:(rect.size.width/2 - 70) startAngle:0 endAngle:6.3 clockwise:YES];
     
     bezierPath.lineWidth = 50;
     largerCircle.lineWidth = 5;

@@ -34,7 +34,7 @@ double rotate;
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
     self.navigationController.navigationBarHidden = YES;
     
-    v = [[OrderStatusView alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.3, 300, 300)];
+    v = [[OrderStatusView alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.3, self.view.frame.size.width * 0.8, self.view.frame.size.width * 0.8)];
     [self.view addSubview:v];
     UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.15, self.view.frame.size.width * 0.8, 45)];
     label.text = @"Order Pending";

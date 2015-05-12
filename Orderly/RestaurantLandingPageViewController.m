@@ -20,7 +20,7 @@
     return NO;
 }
 
--(IBAction)joinGroup {
+-(void)joinGroup {
     [groupTextField resignFirstResponder];
     if (![groupTextField.text isEqualToString:@""]) {
         Group* group = [[Group alloc]initWithID:groupTextField.text];
@@ -31,7 +31,7 @@
     }
 }
 
--(IBAction)showMenu {
+-(void)showMenu {
     UIStoryboard *storyboard = self.storyboard;
     UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     self.navigationItem.title = @"";
@@ -83,6 +83,22 @@
     groupTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     groupTextField.delegate = self;
     [self.view addSubview:groupTextField];
+    
+    UIButton* joinGroupButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [joinGroupButton setTitle:@"Join Ordering Group" forState:UIControlStateNormal];
+    [joinGroupButton addTarget:self action:@selector(joinGroup) forControlEvents:UIControlEventTouchUpInside];
+    [joinGroupButton setTitleColor:[UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1] forState:UIControlStateNormal];
+    joinGroupButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:20];
+    joinGroupButton.frame = CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.6, self.view.frame.size.width * 0.8, 30);
+    [self.view addSubview:joinGroupButton];
+    
+    UIButton* viewMenuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [viewMenuButton setTitle:@"View Menu" forState:UIControlStateNormal];
+    [viewMenuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
+    [viewMenuButton setTitleColor:[UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1] forState:UIControlStateNormal];
+    viewMenuButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:20];
+    viewMenuButton.frame = CGRectMake(self.view.frame.size.width * 0.1, self.view.frame.size.height * 0.70, self.view.frame.size.width * 0.8, 30);
+    [self.view addSubview:viewMenuButton];
     
 }
 

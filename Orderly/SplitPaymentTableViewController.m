@@ -184,6 +184,7 @@ UILabel *myLabel;
     
         if (cell == nil) {
             cell = [[UITableViewCell alloc] init];
+            cell.backgroundColor = [UIColor clearColor];
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -197,7 +198,7 @@ UILabel *myLabel;
         [cell addSubview:label];
     
         UIButton *splitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        splitButton.frame = CGRectMake(cell.frame.size.width * 0.75 + 50, 5, cell.frame.size.width*0.25, cell.frame.size.height - 10);
+        splitButton.frame = CGRectMake(cell.frame.size.width * 0.9, 5, cell.frame.size.width*0.25, cell.frame.size.height - 10);
         [splitButton setTitle:@"Split" forState:UIControlStateNormal];
         [splitButton addTarget:self action:@selector(split:) forControlEvents:UIControlEventTouchUpInside];
         splitButton.tag = indexPath.row;

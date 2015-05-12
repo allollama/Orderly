@@ -25,6 +25,12 @@
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor colorWithPatternImage:image];
+    self.refreshControl.tintColor = [UIColor colorWithRed:103.0/255.0 green:4.0/255.0 blue:202.0/255.0 alpha:1];
+    [self.refreshControl addTarget:self action:@selector(dispatchRestaurantsThread) forControlEvents:UIControlEventValueChanged];
+
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -95,7 +101,7 @@
     
     RestaurantTableViewCell *cell = (RestaurantTableViewCell*) [tableView cellForRowAtIndexPath:indexPath];
     UIStoryboard *storyboard = self.storyboard;
-    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"LandingPage"];
+    UIViewController *presentVC = [storyboard instantiateViewControllerWithIdentifier:@"Basic"];
     self.navigationItem.title = @"";
     [self.navigationController pushViewController:presentVC animated:YES];
     if ([presentVC isKindOfClass:[RestaurantLandingPageViewController class]]) {
@@ -114,6 +120,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
         });
     });
 }

@@ -24,7 +24,7 @@
         <!--Menu Table View Controller-->
         <scene sceneID="Tu0-V5-5rN">
             <objects>
-                <tableViewController storyboardIdentifier="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X3E-s6-e5Y" customClass="MenuTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Menu" id="X3E-s6-e5Y" customClass="MenuTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="80" sectionHeaderHeight="10" sectionFooterHeight="10" id="aew-hR-yDl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +148,8 @@
         <!--OmniSplit-->
         <scene sceneID="Ega-qS-duC">
             <objects>
-                <viewController storyboardIdentifier="LandingPage" id="84E-dx-uO8" customClass="RestaurantLandingPageViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLi-ON-rn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Basic" id="84E-dx-uO8" customClass="RestaurantLandingPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kwu-Df-EfH"/>
                         <viewControllerLayoutGuide type="bottom" id="DDA-0F-8kq"/>
@@ -156,35 +157,10 @@
                     <view key="view" contentMode="scaleToFill" id="rKL-vb-PhH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMy-Ab-Nt2">
-                                <rect key="frame" x="77" y="400" width="210" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Join Ordering Group">
-                                    <color key="titleColor" red="0.40299103390000002" green="0.015065085380000001" blue="0.79091698229999996" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="joinGroup" destination="84E-dx-uO8" eventType="touchUpInside" id="b5z-vc-z9X"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK0-7l-b8q">
-                                <rect key="frame" x="116" y="467" width="132" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="View Menu">
-                                    <color key="titleColor" red="0.40299103390000002" green="0.015065085380000001" blue="0.79091698229999996" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showMenu" destination="84E-dx-uO8" eventType="touchUpInside" id="gxY-H0-hm0"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="OmniSplit" id="NHR-35-6kz"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cLi-ON-rn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1655" y="-2282"/>
         </scene>

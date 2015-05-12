@@ -12,13 +12,13 @@
 
 @interface RestaurantLandingPageViewController : UIViewController <UITextFieldDelegate>
 
--(IBAction)joinGroup;
--(IBAction)showMenu;
+-(void)joinGroup;
+-(void)showMenu;
 
-@property (weak, nonatomic) IBOutlet UILabel* restaurantName;
-@property (weak, nonatomic) IBOutlet UILabel* restaurantInfo;
-
+@property UILabel* restaurantName;
+@property UILabel* restaurantInfo;
 @property UITextField* groupTextField;
+
 @property User* thisUser;
 @property NSString* restaurantId;
 @property NSString* _restaurantName;

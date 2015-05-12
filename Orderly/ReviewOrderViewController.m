@@ -23,12 +23,12 @@
 
 UIScrollView* scrollView;
 UILabel* yourOrderLabel;
-UILabel* userOrderLeft;
+UIView* userOrderLeftView;
 UILabel* userOrderRight;
 UILabel* userOrderTotal;
 UIButton* submitButton;
 UILabel* groupOrderLabel;
-UILabel* groupOrderLeft;
+UIView* groupOrderLeftView;
 UILabel* groupOrderRight;
 UILabel* groupOrderTotal;
 NSTimer* aTimer;
@@ -52,9 +52,7 @@ NSTimer* aTimer;
     yourOrderLabel.textAlignment = NSTextAlignmentCenter;
     yourOrderLabel.font = [UIFont fontWithName:@"Avenir" size:20];
 
-    userOrderLeft = [[UILabel alloc] init];
-    userOrderLeft.adjustsFontSizeToFitWidth = YES;
-    userOrderLeft.font = [UIFont fontWithName:@"Avenir" size:17];
+    userOrderLeftView = [[UIView alloc] init];
     
     userOrderRight = [[UILabel alloc] init];
     userOrderRight.lineBreakMode = NSLineBreakByWordWrapping;
@@ -65,7 +63,7 @@ NSTimer* aTimer;
     userOrderTotal.font = [UIFont fontWithName:@"Avenir" size:20];
     
     [scrollView addSubview:yourOrderLabel];
-    [scrollView addSubview:userOrderLeft];
+    [scrollView addSubview:userOrderLeftView];
     [scrollView addSubview:userOrderRight];
     [scrollView addSubview:userOrderTotal];
     
@@ -82,9 +80,7 @@ NSTimer* aTimer;
     groupOrderLabel.font = [UIFont fontWithName:@"Avenir" size:20];
     [scrollView addSubview:groupOrderLabel];
     
-    groupOrderLeft = [[UILabel alloc] init];
-    groupOrderLeft.adjustsFontSizeToFitWidth = YES;
-    groupOrderLeft.font = [UIFont fontWithName:@"Avenir" size:17];
+    groupOrderLeftView = [[UIView alloc] init];
     
     groupOrderRight = [[UILabel alloc] init];
     groupOrderRight.lineBreakMode = NSLineBreakByWordWrapping;
@@ -94,7 +90,7 @@ NSTimer* aTimer;
     groupOrderTotal.textAlignment = NSTextAlignmentCenter;
     groupOrderTotal.font = [UIFont fontWithName:@"Avenir" size:20];
     
-    [scrollView addSubview:groupOrderLeft];
+    [scrollView addSubview:groupOrderLeftView];
     [scrollView addSubview:groupOrderRight];
     [scrollView addSubview:groupOrderTotal];
     
@@ -112,7 +108,7 @@ NSTimer* aTimer;
 
 - (void)populateView {
     scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    yourOrderLabel.frame = CGRectMake(self.view.frame.size.width * 0.33, 50, self.view.frame.size.width * 0.33, 25);
+    yourOrderLabel.frame = CGRectMake(self.view.frame.size.width * 0.1, 50, self.view.frame.size.width * 0.8, 25);
     
     NSMutableArray* arrayOfItems = [[NSMutableArray alloc] init];
     NSMutableArray* arrayOfAmounts = [[NSMutableArray alloc] init];
@@ -133,12 +129,17 @@ NSTimer* aTimer;
             [arrayOfStringsRight addObject:[NSString stringWithFormat:@"$%.02f", foodItem.price]];
         }
     }
-    userOrderLeft.frame = CGRectMake(self.view.frame.size.width * 0.1, 75, self.view.frame.size.width * 0.60, 25 * arrayOfStringsRight.count);
-    userOrderLeft.numberOfLines = arrayOfStringsRight.count;
+    userOrderLeftView.frame = CGRectMake(self.view.frame.size.width * 0.1, 75, self.view.frame.size.width * 0.60, 25 * arrayOfStringsRight.count);
     userOrderRight.frame = CGRectMake(self.view.frame.size.width * 0.7, 75, self.view.frame.size.width * 0.20, 25 * arrayOfStringsRight.count);
     userOrderRight.numberOfLines = arrayOfStringsRight.count;
     int n = 25 * arrayOfStringsRight.count + 75;
-    userOrderLeft.text = [arrayOfStringsLeft componentsJoinedByString:@"\n"];
+    for (int i = 0; i < arrayOfStringsLeft.count; i++) {
+        UILabel* item = [[UILabel alloc] initWithFrame:CGRectMake(0, 0 + 25*i, self.view.frame.size.width * 0.60, 25 )];
+        item.text = arrayOfStringsLeft[i];
+        item.font = [UIFont fontWithName:@"Avenir" size:17];
+        item.lineBreakMode = NSLineBreakByTruncatingTail;
+        [userOrderLeftView addSubview:item];
+    }
     userOrderRight.text = [arrayOfStringsRight componentsJoinedByString:@"\n"];
     userOrderTotal.frame = CGRectMake(self.view.frame.size.width * 0.2, n, self.view.frame.size.width * 0.6, 25);
     userOrderTotal.text = [NSString stringWithFormat:@"Total price: \t$%.02f", user.order.totalPrice];
@@ -147,7 +148,7 @@ NSTimer* aTimer;
     submitButton.frame = CGRectMake(self.view.frame.size.width * 0.2, n + 25, self.view.frame.size.width * 0.6, 50);
     n += 75;
     
-    groupOrderLabel.frame = CGRectMake(self.view.frame.size.width * 0.33, n + 50, self.view.frame.size.width * 0.33, 25);
+    groupOrderLabel.frame = CGRectMake(self.view.frame.size.width * 0.1, n + 50, self.view.frame.size.width * 0.8, 25);
 
     [arrayOfItems removeAllObjects];
     [arrayOfAmounts removeAllObjects];
@@ -168,17 +169,21 @@ NSTimer* aTimer;
             [arrayOfStringsRight addObject:[NSString stringWithFormat:@"$%.02f", foodItem.price]];
         }
     }
-    groupOrderLeft.frame = CGRectMake(self.view.frame.size.width * 0.1, n + 75, self.view.frame.size.width * 0.6, 25 * arrayOfStringsRight.count);
-    groupOrderLeft.numberOfLines = arrayOfStringsRight.count;
+    groupOrderLeftView.frame = CGRectMake(self.view.frame.size.width * 0.1, n + 75, self.view.frame.size.width * 0.6, 25 * arrayOfStringsRight.count);
     groupOrderRight.frame = CGRectMake(self.view.frame.size.width * 0.7, n + 75, self.view.frame.size.width * 0.2, 25 * arrayOfStringsRight.count);
     groupOrderRight.numberOfLines = arrayOfStringsRight.count;
     n += 75 + 25 * arrayOfStringsRight.count;
-    groupOrderLeft.text = [arrayOfStringsLeft componentsJoinedByString:@"\n"];
+    for (int i = 0; i < arrayOfStringsLeft.count; i++) {
+        UILabel* item = [[UILabel alloc] initWithFrame:CGRectMake(0, 0 + 25*i, self.view.frame.size.width * 0.60, 25)];
+        item.text = arrayOfStringsLeft[i];
+        item.font = [UIFont fontWithName:@"Avenir" size:17];
+        item.lineBreakMode = NSLineBreakByTruncatingTail;
+        [groupOrderLeftView addSubview:item];
+    }
     groupOrderRight.text = [arrayOfStringsRight componentsJoinedByString:@"\n"];
     groupOrderTotal.frame = CGRectMake(self.view.frame.size.width * 0.2, n, self.view.frame.size.width * 0.6, 25);
     n += 50;
     groupOrderTotal.text = [NSString stringWithFormat:@"Total price: \t$%.02f", user.group.order.totalPrice];
-    
 
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, n + 200);
     

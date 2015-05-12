@@ -129,7 +129,7 @@
 
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(70, 0, 40, cell.frame.size.height)];
         label.text = [NSString stringWithFormat:@"%d", [user numberOfItemInOrder:foodItem]];
-        UIView* subview = [[UIView alloc]initWithFrame:CGRectMake(cell.frame.size.width * 0.70, 0, cell.frame.size.width * 0.3, cell.frame.size.height)];
+        UIView* subview = [[UIView alloc]initWithFrame:CGRectMake(cell.frame.size.width * 0.70, 0, 110, cell.frame.size.height)];
         label.layer.borderColor = [UIColor blackColor].CGColor;
         label.layer.borderWidth = 2.0;
         label.textAlignment = NSTextAlignmentCenter;
