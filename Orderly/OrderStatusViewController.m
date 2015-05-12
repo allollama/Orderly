@@ -46,27 +46,30 @@ double rotate;
 
 - (void) queryDB {
     //QUERY THE DB HERE
-    NSLog(@"here");
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
-    [query whereKey:@"channel" equalTo:[appDelegate.thisUser.group iD]];
-    [query selectKeys:@[@"submitted"]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"here");
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        PFQuery * query = [PFQuery queryWithClassName:@"CurrentOrder"];
+        [query whereKey:@"channel" equalTo:[appDelegate.thisUser.group iD]];
+        [query selectKeys:@[@"submitted"]];
     
-    NSArray * objects = [query findObjects];
+        NSArray * objects = [query findObjects];
     
-    BOOL ready = true;
-    for (int i = 0; i < [objects count]; i++) {
-        if (objects[i][@"submitted"] == [NSNumber numberWithBool:NO])
-            ready = false;
-    }
-    if (ready) {
-        NSLog(@"Database says that everyone is ready to proceed.");
-        User* user = appDelegate.thisUser;
-        user.group.order.status = SUBMITTED;
-    }
-    else {
-        NSLog(@"Not ready to proceed...");
-    }
+        BOOL ready = true;
+        for (int i = 0; i < [objects count]; i++) {
+            if (objects[i][@"submitted"] == [NSNumber numberWithBool:NO])
+                ready = false;
+        }
+        if (ready) {
+            NSLog(@"Database says that everyone is ready to proceed.");
+            User* user = appDelegate.thisUser;
+            user.group.order.status = SUBMITTED;
+        }
+        else {
+            NSLog(@"Not ready to proceed...");
+        }
+    });
+    
 }
 
 - (void)rotateView {

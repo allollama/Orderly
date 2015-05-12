@@ -102,11 +102,13 @@ NSTimer* aTimer;
 - (void)timerStuff {
     if (user.group.order.status == CHANGED) {
         [self populateView];
+        [self.view setNeedsDisplay];
         user.group.order.status = ORDERING;
     }
 }
 
 - (void)populateView {
+    //Help me JORDAN
     scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     yourOrderLabel.frame = CGRectMake(self.view.frame.size.width * 0.1, 50, self.view.frame.size.width * 0.8, 25);
     
@@ -187,7 +189,12 @@ NSTimer* aTimer;
 
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, n + 200);
     
-    [scrollView layoutIfNeeded];
+    [scrollView setNeedsDisplay];
+    
+    [arrayOfItems removeAllObjects];
+    [arrayOfAmounts removeAllObjects];
+    [arrayOfStringsLeft removeAllObjects];
+    [arrayOfStringsRight removeAllObjects];
 }
 
 - (void)submitOrder {
