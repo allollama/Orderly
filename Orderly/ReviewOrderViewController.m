@@ -31,6 +31,7 @@ UILabel* groupOrderLabel;
 UILabel* groupOrderLeft;
 UILabel* groupOrderRight;
 UILabel* groupOrderTotal;
+NSTimer* aTimer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -97,7 +98,16 @@ UILabel* groupOrderTotal;
     [scrollView addSubview:groupOrderRight];
     [scrollView addSubview:groupOrderTotal];
     
+    [self.view addSubview:scrollView];
     [self populateView];
+    aTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerStuff) userInfo:nil repeats:YES];
+}
+
+- (void)timerStuff {
+    if (user.group.order.status == CHANGED) {
+        [self populateView];
+        user.group.order.status = ORDERING;
+    }
 }
 
 - (void)populateView {
@@ -173,11 +183,10 @@ UILabel* groupOrderTotal;
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, n + 200);
     
     [scrollView layoutIfNeeded];
-    [self.view addSubview:scrollView];
 }
 
 - (void)submitOrder {
-    
+    [aTimer invalidate];
     OrderStatusViewController *vc = [[OrderStatusViewController alloc] init];
     self.navigationItem.title = @"";
     [self.navigationController pushViewController:vc animated:YES];

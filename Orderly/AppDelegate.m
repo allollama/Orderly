@@ -11,6 +11,7 @@
 #import "OrderStatusViewController.h"
 #import "SplitPaymentTableViewController.h"
 #import "ReviewOrderViewController.h"
+#import "Order.h"
 
 @implementation AppDelegate
 
@@ -25,11 +26,7 @@
             ![userInfo[@"id"] isEqualToString:[thisUser iD]]) { //Update notification
             NSLog(@"Updating group info...");
             [thisUser.group updateGroupFromServer];
-            UINavigationController* navc = (UINavigationController *) [application.windows[0] rootViewController];
-            if ([[navc visibleViewController] class] == [ReviewOrderViewController class]) {
-                ReviewOrderViewController * vc = (ReviewOrderViewController* ) [navc visibleViewController];
-                [vc populateView];
-            }
+            thisUser.group.order.status = CHANGED;
 
         }
         else if ([userInfo[@"aps"][@"category"] isEqualToString:@"SPLIT_PAYMENT"] &&

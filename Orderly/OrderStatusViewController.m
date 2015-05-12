@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "OrderStatusViewController.h"
 #import "OrderStatusView.h"
-#import "SplitPaymentTableViewController.h" 
+#import "SplitPaymentTableViewController.h"
 
 @interface OrderStatusViewController ()
 
@@ -48,7 +48,6 @@ double rotate;
 - (void)rotateView {
     rotate += ((3.14 * 1)/ 180);
     v.transform = CGAffineTransformMakeRotation(rotate);
-    
 }
 
 - (void)goToPayment {
