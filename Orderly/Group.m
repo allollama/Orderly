@@ -255,6 +255,7 @@
     for (User* user in members) {
         [order.menuItems addObjectsFromArray:user.order.menuItems];
     }
+    self.order.status = CHANGED;
 }
 
 - (BOOL) submitOrder {

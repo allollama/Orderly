@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Oi-GL-jdV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Oi-GL-jdV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -87,7 +87,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="bQy-30-i78"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <color key="textColor" red="0.46184501262626243" green="0.46184501262626243" blue="0.46184501262626243" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -96,7 +96,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="DiQ-Gt-WGP"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <color key="textColor" red="0.46184501259999999" green="0.46184501259999999" blue="0.46184501259999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -148,7 +148,6 @@
         <!--OmniSplit-->
         <scene sceneID="Ega-qS-duC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cLi-ON-rn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Basic" id="84E-dx-uO8" customClass="RestaurantLandingPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kwu-Df-EfH"/>
@@ -161,6 +160,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="OmniSplit" id="NHR-35-6kz"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLi-ON-rn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1655" y="-2282"/>
         </scene>

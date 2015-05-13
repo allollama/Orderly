@@ -14,10 +14,6 @@
 #import "MenuItem.h"
 #import "PaidViewController.h"
 
-@interface SplitPaymentTableViewController ()
-
-@end
-
 @implementation SplitPaymentTableViewController
 
 @synthesize user, divideByAmounts;
@@ -198,7 +194,7 @@ UILabel *myLabel;
         [cell addSubview:label];
     
         UIButton *splitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        splitButton.frame = CGRectMake(cell.frame.size.width * 0.9, 5, cell.frame.size.width*0.25, cell.frame.size.height - 10);
+        splitButton.frame = CGRectMake(cell.frame.size.width * 0.8, 5, cell.frame.size.width*0.25, cell.frame.size.height - 10);
         [splitButton setTitle:@"Split" forState:UIControlStateNormal];
         [splitButton addTarget:self action:@selector(split:) forControlEvents:UIControlEventTouchUpInside];
         splitButton.tag = indexPath.row;

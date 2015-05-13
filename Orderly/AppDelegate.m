@@ -26,8 +26,6 @@
             ![userInfo[@"id"] isEqualToString:[thisUser iD]]) { //Update notification
             NSLog(@"Updating group info...");
             [thisUser.group updateGroupFromServer];
-            thisUser.group.order.status = CHANGED;
-
         }
         else if ([userInfo[@"aps"][@"category"] isEqualToString:@"SPLIT_PAYMENT"] &&
                  [userInfo[@"group_members"] containsObject:[thisUser iD]] &&

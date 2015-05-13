@@ -91,11 +91,15 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
+    cell.accessoryView = nil;
     MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"$%.02f %@", foodItem.price, foodItem.name];
     cell.detailTextLabel.text = foodItem.descrp;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([user numberOfItemInOrder:foodItem] > 0) {
+        [self addAccessoryView:cell atIndexPath:indexPath];
+    }
     return cell;
 }
 
@@ -118,15 +122,19 @@
     if (user.group != nil) {
         [user addItemToOrder:foodItem];
         [user.group addItemToOrder:[foodItem name]]; //Update the server and send push notification
-        NSLog(@"%@", user.group.order);
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    }
+    [self addAccessoryView:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+}
+- (void)addAccessoryView:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    MenuItem* foodItem = [self menuItemForIndexPath:indexPath];
+    if (user.group != nil) {
         myButton* numberMinusButton = [myButton buttonWithType:UIButtonTypeRoundedRect];
         UIImage* image = [UIImage imageNamed:@"200px-Ambox_emblem_minus.svg.png"];
         [numberMinusButton setBackgroundImage:image forState:UIControlStateNormal];
         [numberMinusButton addTarget:self action:@selector(removeItem:) forControlEvents:UIControlEventTouchUpInside];
         numberMinusButton.indexPath = indexPath;
         numberMinusButton.frame = CGRectMake(0, 0, 70, cell.frame.size.height);
-
+        
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(70, 0, 40, cell.frame.size.height)];
         label.text = [NSString stringWithFormat:@"%d", [user numberOfItemInOrder:foodItem]];
         UIView* subview = [[UIView alloc]initWithFrame:CGRectMake(cell.frame.size.width * 0.70, 0, 110, cell.frame.size.height)];
