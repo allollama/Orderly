@@ -92,6 +92,8 @@ UILabel *myLabel;
 }
 
 - (void)pay {
+    //send notification to server that user has paid
+    [user leaveGroup];
     PaidViewController* vc = [[PaidViewController alloc] init];
     vc.total = [self totalPrice];
     self.navigationItem.title = @"";

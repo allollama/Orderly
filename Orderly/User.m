@@ -43,12 +43,12 @@
 
 - (void) joinGroup: (Group*) theGroup {
     group = theGroup;
+    [order.menuItems removeAllObjects];
     [group addGroupMember:self];
 }
 
 - (void) leaveGroup {
     [group leaveChannel];
-    [order.menuItems removeAllObjects];
     [group removeGroupMemberWithID:iD];
     group = nil;
     
