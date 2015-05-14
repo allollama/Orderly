@@ -140,6 +140,7 @@
             }
 
             [self updateOrder]; //Add your food items to order
+            NSLog(@"%lu", members.count);
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -248,6 +249,16 @@
         [members removeObjectAtIndex:i];
     }
     [self updateOrder];
+}
+
+- (NSArray*) listOfUsersWithoutSelf: (User*) aUser {
+    NSMutableArray* temp = [[NSMutableArray alloc] init];
+    for (User* user in members) {
+        if (user != aUser) {
+            [temp addObject:user];
+        }
+    }
+    return temp;
 }
 
 - (void) updateOrder {

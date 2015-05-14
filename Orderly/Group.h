@@ -35,6 +35,7 @@
 - (void) addItemToOrder: (NSString *) foodName;
 - (void) removeItemFromOrder: (NSString *) foodName;
 - (void) removeGroupMemberWithID: (NSString*) _iD;
+- (NSArray*) listOfUsersWithoutSelf: (User*) aUser;
 - (void) updateOrder;
 - (void) orderCompleted;
 - (BOOL) submitOrder;

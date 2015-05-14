@@ -21,7 +21,6 @@
 UITableView* splitAmongUsersTableView;
 
 NSMutableArray* usersToSplitWith;
-NSMutableArray* groupMembersNotIncludingUser;
 
 UILabel *myLabel;
 
@@ -72,15 +71,6 @@ UILabel *myLabel;
     
     usersToSplitWith = [[NSMutableArray alloc]init];
     
-    groupMembersNotIncludingUser = [[NSMutableArray alloc]init];
-    NSLog(@"GROUP MEMEBRS: %@", user.group.members);
-    for (User* user_ in user.group.members) {
-        if (user_ != user) {
-            [groupMembersNotIncludingUser addObject:user_];
-        }
-    }
-    
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -112,7 +102,7 @@ UILabel *myLabel;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (tableView == splitAmongUsersTableView) {
-        return groupMembersNotIncludingUser.count;
+        return [user.group listOfUsersWithoutSelf:user].count;
     }
     else {
         return user.order.menuItems.count;
@@ -214,7 +204,7 @@ UILabel *myLabel;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        User* user_ = groupMembersNotIncludingUser[indexPath.row];
+        User* user_ = [user.group listOfUsersWithoutSelf:user][indexPath.row];
         cell.textLabel.text = user_.iD;
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
         return cell;
@@ -224,7 +214,7 @@ UILabel *myLabel;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == splitAmongUsersTableView) {
-        User* user_ = groupMembersNotIncludingUser[indexPath.row];
+        User* user_ = [user.group listOfUsersWithoutSelf:user][indexPath.row];
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
@@ -244,7 +234,7 @@ UILabel *myLabel;
 {
     /* Handle alert view selection */
         if (buttonIndex == 1) {
-            [usersToSplitWith addObjectsFromArray:groupMembersNotIncludingUser];
+            [usersToSplitWith addObjectsFromArray:[user.group listOfUsersWithoutSelf:user]];
             [self split:(int)alertView.tag byAmount:user.group.members.count];
             //send message to all users - have them use addPartial method
         }
