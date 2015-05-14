@@ -72,11 +72,8 @@ UILabel *myLabel;
     
     usersToSplitWith = [[NSMutableArray alloc]init];
     
-    /* use for testing
-    [user.group addGroupMember:[[User alloc]initWithID:@"12345"]];
-    [user.group addGroupMember:[[User alloc]initWithID:@"2345"]];*/
-    
     groupMembersNotIncludingUser = [[NSMutableArray alloc]init];
+    NSLog(@"GROUP MEMEBRS: %@", user.group.members);
     for (User* user_ in user.group.members) {
         if (user_ != user) {
             [groupMembersNotIncludingUser addObject:user_];
