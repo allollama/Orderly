@@ -75,8 +75,6 @@
 }
 
 - (void)finish {
-    AppDelegate* delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [delegate.thisUser leaveGroup];
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
