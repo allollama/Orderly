@@ -33,6 +33,7 @@
 		93DD91121B0072B600FF02ED /* Elegant_Background-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD91111B0072B600FF02ED /* Elegant_Background-7.png */; };
 		93DD91171B00891C00FF02ED /* PaidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DD91161B00891C00FF02ED /* PaidViewController.m */; };
 		93DD91231B02707500FF02ED /* StarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DD91221B02707500FF02ED /* StarsView.m */; };
+		93DD91251B044AB700FF02ED /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DD91241B044AB700FF02ED /* icon.png */; };
 		93F26A221AE9D6200022397B /* SplitPaymentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F26A211AE9D6200022397B /* SplitPaymentTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		93DD91161B00891C00FF02ED /* PaidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaidViewController.m; sourceTree = "<group>"; };
 		93DD91211B02707500FF02ED /* StarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarsView.h; sourceTree = "<group>"; };
 		93DD91221B02707500FF02ED /* StarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarsView.m; sourceTree = "<group>"; };
+		93DD91241B044AB700FF02ED /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		93F26A201AE9D61F0022397B /* SplitPaymentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitPaymentTableViewController.h; sourceTree = "<group>"; };
 		93F26A211AE9D6200022397B /* SplitPaymentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitPaymentTableViewController.m; sourceTree = "<group>"; };
 		F1CE429A8A27DFAD020A23EA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		9370339C1A338DDE00BE3D60 = {
 			isa = PBXGroup;
 			children = (
+				93DD91241B044AB700FF02ED /* icon.png */,
 				177024EC1AE4566A00D2693E /* OmniSplit.xcodeproj */,
 				17C99A681AE0A442005B84C5 /* Main.storyboard */,
 				937033A71A338DDF00BE3D60 /* Orderly */,
@@ -351,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DD91121B0072B600FF02ED /* Elegant_Background-7.png in Resources */,
+				93DD91251B044AB700FF02ED /* icon.png in Resources */,
 				17C99A6A1AE0A442005B84C5 /* Main.storyboard in Resources */,
 				937033B91A338DDF00BE3D60 /* LaunchScreen.xib in Resources */,
 				9340C3681AF43FF10008A76E /* 200px-Ambox_emblem_minus.svg.png in Resources */,
