@@ -130,6 +130,7 @@ UILabel *myLabel;
     splitAmongUsersTableView.dataSource = self;
     [splitAlert setValue:splitAmongUsersTableView forKey:@"accessoryView"];
     splitAlert.tag = button.tag;
+    [usersToSplitWith removeAllObjects];
     [splitAlert show];
     
 }
@@ -194,7 +195,7 @@ UILabel *myLabel;
         [cell addSubview:label];
     
         UIButton *splitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        splitButton.frame = CGRectMake(cell.frame.size.width * 0.8, 5, cell.frame.size.width*0.25, cell.frame.size.height - 10);
+        splitButton.frame = CGRectMake(self.view.frame.size.width - 50, 5, 50, cell.frame.size.height - 10);
         [splitButton setTitle:@"Split" forState:UIControlStateNormal];
         [splitButton addTarget:self action:@selector(split:) forControlEvents:UIControlEventTouchUpInside];
         splitButton.tag = indexPath.row;
@@ -244,6 +245,7 @@ UILabel *myLabel;
 {
     /* Handle alert view selection */
         if (buttonIndex == 1) {
+            [usersToSplitWith addObjectsFromArray:groupMembersNotIncludingUser];
             [self split:(int)alertView.tag byAmount:user.group.members.count];
             //send message to all users - have them use addPartial method
         }
