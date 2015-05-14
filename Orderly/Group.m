@@ -48,6 +48,7 @@
             [object setValue:[NSNumber numberWithBool:NO] forKey:@"submitted"];
             [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 self.iD = channel;
+                [self updateGroupFromServer];
                 [self sendSilentPushToGroup: channel];
             }];
         }
@@ -59,6 +60,7 @@
             [newObject setObject:[NSNumber numberWithBool:NO] forKey:@"submitted"];
             [newObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
                 self.iD = channel;
+                [self updateGroupFromServer];
                 [self sendSilentPushToGroup: channel];
             }];
         }
@@ -79,7 +81,6 @@
     PFPush *push = [[PFPush alloc] init];
     [push setChannels:@[ groupId ]];
     [push setData:data];
-
     [push sendPushInBackground];
 }
 
