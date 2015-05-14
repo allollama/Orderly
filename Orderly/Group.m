@@ -138,13 +138,13 @@
                 else
                     [self addGroupMember:[appDelegate thisUser]]; //Add yourself
             }
+
+            [self updateOrder]; //Add your food items to order
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-
-    [self updateOrder]; //Add your food items to order
 }
 
 - (int) hasGroupMemberWithID: (NSString*) _iD {
