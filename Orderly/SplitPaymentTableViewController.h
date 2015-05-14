@@ -12,7 +12,6 @@
 @interface SplitPaymentTableViewController : UITableViewController
 
 @property User* user;
-@property NSMutableArray* divideByAmounts;
 
 -(void)pay;
 - (void)split:(id)sender;

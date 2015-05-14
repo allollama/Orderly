@@ -16,7 +16,11 @@
 
 @implementation SplitPaymentTableViewController
 
-@synthesize user, divideByAmounts;
+@synthesize user;
+
+NSMutableArray* divideByAmounts;
+NSMutableArray* isMine;
+NSMutableArray* hasBeenSplit;
 
 UITableView* splitAmongUsersTableView;
 
@@ -49,8 +53,12 @@ UILabel *myLabel;
     user = delegate.thisUser;
     
     divideByAmounts = [[NSMutableArray alloc] init];
+    isMine = [[NSMutableArray alloc]init];
+    hasBeenSplit = [[NSMutableArray alloc]init];
     for (int i = 0; i < user.order.menuItems.count; i++) {
         divideByAmounts[i] = [NSNumber numberWithFloat:1];
+        isMine[i] = [NSNumber numberWithBool:YES];
+        hasBeenSplit[i] = [NSNumber numberWithBool:NO];
     }
     
     UIScreen *mainScreen = [UIScreen mainScreen];
@@ -111,17 +119,21 @@ UILabel *myLabel;
 
 - (void)split:(id)sender {
     UIButton* button = (UIButton*) sender;
+    if (((NSNumber*) isMine[button.tag]).boolValue == NO || ((NSNumber*) hasBeenSplit[button.tag]).boolValue == YES) {
+        UIAlertView* cantSplit = [[UIAlertView alloc] initWithTitle:@"This item has already been split." message:@"You can not split an item twice." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [cantSplit show];
+    }
+    else {
+        UIAlertView* splitAlert = [[UIAlertView alloc] initWithTitle:@"Select users to split with" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Split Equally", @"Split With Selected Users", nil];
     
-    UIAlertView* splitAlert = [[UIAlertView alloc] initWithTitle:@"Select users to split with" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Split Equally", @"Split With Selected Users", nil];
-    
-    splitAmongUsersTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 25, 50*user.group.members.count)];
-    splitAmongUsersTableView.delegate = self;
-    splitAmongUsersTableView.dataSource = self;
-    [splitAlert setValue:splitAmongUsersTableView forKey:@"accessoryView"];
-    splitAlert.tag = button.tag;
-    [usersToSplitWith removeAllObjects];
-    [splitAlert show];
-    
+        splitAmongUsersTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 25, 50*user.group.members.count)];
+        splitAmongUsersTableView.delegate = self;
+        splitAmongUsersTableView.dataSource = self;
+        [splitAlert setValue:splitAmongUsersTableView forKey:@"accessoryView"];
+        splitAlert.tag = button.tag;
+        [usersToSplitWith removeAllObjects];
+        [splitAlert show];
+    }
 }
 
 - (void)split:(int)index byAmount:(float)theAmount {
@@ -136,6 +148,7 @@ UILabel *myLabel;
     NSLog(@"USERS: %@", allUsers);
     NSLog(@"NAME: %@", menuItemName);
     divideByAmounts[index] = [NSNumber numberWithFloat:theAmount];
+    hasBeenSplit[index] = [NSNumber numberWithBool:YES];
     [(UITableView*) self.view reloadData];
     myLabel.text = [NSString stringWithFormat:@"Total price: $%.02f", [self totalPrice]];
     
@@ -159,6 +172,7 @@ UILabel *myLabel;
 - (void)addPartial:(MenuItem*)foodItem byAmount:(float)theAmount {
     [user addItemToOrder:foodItem];
     divideByAmounts[user.order.menuItems.count - 1] = [NSNumber numberWithFloat:(theAmount)];
+    isMine[user.order.menuItems.count - 1] = [NSNumber numberWithBool:NO];
     [(UITableView*) self.view reloadData];
     myLabel.text = [NSString stringWithFormat:@"Total price: $%.02f", [self totalPrice]];
 }
